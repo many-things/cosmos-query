@@ -1,0 +1,1 @@
+export { getNodeInfo } from "./gaia";
