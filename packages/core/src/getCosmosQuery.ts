@@ -1,7 +1,5 @@
-import * as Gaia from "./apis/gaia";
-import * as Tendermint from "./apis/tendermint";
-import * as Transactions from "./apis/transactions";
 import * as Staking from "./apis/staking";
+import * as Service from "./apis/service";
 
 export const getCosmosQuery = (baseURL: string) => {
   const setBase = <T>(curry: (url: string) => T) => {
@@ -10,49 +8,64 @@ export const getCosmosQuery = (baseURL: string) => {
 
   return {
     /**
-     * The properties of the connected node
-     * @REST GET `/node_info`
-     */
-    getNodeInfo: setBase(Gaia.getNodeInfo),
-    /**
-     * Syncing state of node
-     * @REST GET `/syncing`
-     */
-    getSyncing: setBase(Tendermint.getSyncing),
-    /**
-     * Get the latest block
-     * @REST GET `/blocks/latest`
-     */
-    getLatestBlock: setBase(Tendermint.getLatestBlock),
-    /**
-     * Get a block at a certain height
-     * @REST GET `/blocks/{height}`
-     */
-    getBlocks: setBase(Tendermint.getBlocks),
-    /**
-     * Get the latest validator set
-     * @REST GET `/validatorsets/latest`
-     */
-    getLatestValidatorSets: setBase(Tendermint.getLatestValidatorSets),
-    /**
-     * Get the latest validator set
-     * @REST GET `/validatorsets/{height}`
-     */
-    getValidatorSets: setBase(Tendermint.getValidatorSets),
-    /**
-     * Broadcast a signed tx
-     * @REST POST `/txs`
-     */
-    postTxs: setBase(Transactions.postTxs),
-    /**
      * Submit delegation
      * @REST POST `​/staking​/delegators​/{delegatorAddr}​/delegations`
      */
-    postDelegations: setBase(Staking.postDelegations),
+    submitDelegation: setBase(Staking.submitDelegation),
     /**
      * Submit an unbonding delegation
      * @REST POST `​/staking​/delegators​/{delegatorAddr}​/unbonding_delegations`
      */
-    postUnbondingDelegations: setBase(Staking.postUnbondingDelegations),
+    submitUnbondingDelegation: setBase(Staking.submitUnbondingDelegation),
+    /**
+     * GetLatestBlock returns the latest block.
+     * @REST GET `/cosmos/base/tendermint/v1beta1/blocks/latest`
+     */
+    getLatestBlock: setBase(Service.getLatestBlock),
+    /**
+     * GetBlockByHeight queries block for given height.
+     * @REST GET `/cosmos/base/tendermint/v1beta1/blocks/{height}`
+     */
+    getBlockByHeight: setBase(Service.getBlockByHeight),
+    /**
+     * GetNodeInfo queries the current node info.
+     * @REST GET `/cosmos/base/tendermint/v1beta1/node_info`
+     */
+    getNodeInfo: setBase(Service.getNodeInfo),
+    /**
+     * GetSyncing queries node syncing.
+     * @REST `/cosmos/base/tendermint/v1beta1/syncing`
+     */
+    getSyncing: setBase(Service.getSyncing),
+    /**
+     * GetLatestValidatorSet queries latest validator-set.
+     * @REST GET `/cosmos/base/tendermint/v1beta1/validatorsets/latest`
+     */
+    getLatestValidatorSet: setBase(Service.getLatestValidatorSet),
+    /**
+     * GetValidatorSetByHeight queries validator-set at a given height.
+     * @REST GET `/cosmos​/base​/tendermint​/v1beta1​/validatorsets​/{height}`
+     */
+    getValidatorSetByHeight: setBase(Service.getValidatorSetByHeight),
+    /**
+     * SimulateTx simulates executing a transaction for estimating gas usage.
+     * @REST POST `/cosmos/tx/v1beta1/simulate`
+     */
+    simulateTx: setBase(Service.simulateTx),
+    /**
+     * GetTxsEvent fetches txs by event.
+     * @REST GET `/cosmos/tx/v1beta1/txs`
+     */
+    getTxsEvent: setBase(Service.getTxsEvent),
+    /**
+     * BroadcastTx broadcast transaction.
+     * @REST POST `/cosmos​/tx​/v1beta1​/txs`
+     */
+    broadcastTx: setBase(Service.broadcastTx),
+    /**
+     * GetTxByHash fetches a tx by hash.
+     * @REST GET `/cosmos/tx/v1beta1/txs/{hash}`
+     */
+    getTxByHash: setBase(Service.getTxByHash),
   };
 };

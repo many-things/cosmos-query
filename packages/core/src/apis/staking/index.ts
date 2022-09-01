@@ -1,7 +1,7 @@
 import { instance } from "../../utils";
 import type { Delegation, DelegationsResponse } from "./types";
 
-export const postDelegations =
+export const submitDelegation =
   (baseURL: string) =>
   async (
     delegatorAddress: string,
@@ -17,7 +17,7 @@ export const postDelegations =
     ).data;
   };
 
-export const postUnbondingDelegations =
+export const submitUnbondingDelegation =
   (baseURL: string) =>
   async (
     delegatorAddress: string,
