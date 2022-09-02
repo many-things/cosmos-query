@@ -1,3 +1,5 @@
+import type { PaginationResponse } from "../../../types";
+
 export interface BlockResponse {
   block_id: {
     hash: string;
@@ -230,8 +232,5 @@ export interface ValidatorSetResponse {
     voting_power: string;
     proposer_priority: string;
   }[];
-  pagination: {
-    next_key: string;
-    total: string;
-  };
+  pagination: PaginationResponse;
 }

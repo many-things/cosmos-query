@@ -9,3 +9,8 @@ export type PaginationParams =
       };
     }
   | undefined;
+
+export interface PaginationResponse {
+  next_key: string;
+  total: string;
+}

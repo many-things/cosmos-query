@@ -1,2 +1,3 @@
 export * from "./base";
 export * from "./tx";
+export * from "./auth";

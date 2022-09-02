@@ -67,5 +67,24 @@ export const getCosmosQuery = (baseURL: string) => {
      * @REST GET `/cosmos/tx/v1beta1/txs/{hash}`
      */
     getTxByHash: setBase(Cosmos.getTxByHash),
+    /**
+     * Accounts returns all the existing accounts.
+     * @REST GET `/cosmos/auth/v1beta1/accounts`
+     */
+    getAccounts: setBase(Cosmos.getAccounts),
+    /**
+     * Account returns account details based on address.
+     * @REST GET `/cosmos/auth/v1beta1/accounts/{address}`
+     */
+    getAccountByAddress: setBase(Cosmos.getAccountByAddress),
+    /**
+     * /cosmos/auth/v1beta1/params
+     * @REST GET `/cosmos​/auth​/v1beta1​/params`
+     */
+    getParams: setBase(Cosmos.getParams),
+    /**
+     *
+     * @REST GET
+     */
   };
 };
