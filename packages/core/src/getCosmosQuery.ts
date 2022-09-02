@@ -123,8 +123,55 @@ export const getCosmosQuery = (baseURL: string) => {
      */
     getSupply: setBase(Cosmos.getSupply),
     /**
+     * CommunityPool queries the community pool coins.
+     * @REST GET `/cosmos​/distribution​/v1beta1​/community_pool`
+     */
+    getCommunityPool: setBase(Cosmos.getCommunityPool),
+    /**
+     * DelegationTotalRewards queries the total rewards accrued by a each validator.
+     * @REST GET `/cosmos/distribution/v1beta1/delegators/{delegator_address}/rewards`
+     */
+    getDelegationTotalRewards: setBase(Cosmos.getDelegationTotalRewards),
+    /**
+     * DelegationRewards queries the total rewards accrued by a delegation.
+     * @REST GET `/cosmos/distribution/v1beta1/delegators/{delegator_address}/rewards/{validator_address}`
+     */
+    getDelegationRewards: setBase(Cosmos.getDelegationRewards),
+    /**
+     * DelegatorValidators queries the validators of a delegator.
+     * @REST GET `/cosmos​/distribution​/v1beta1​/delegators​/{delegator_address}​/validators`
+     */
+    getDelegatorValidators: setBase(Cosmos.getDelegatorValidators),
+    /**
+     * DelegatorWithdrawAddress queries withdraw address of a delegator.
+     * @REST GET `/cosmos/distribution/v1beta1/delegators/{delegator_address}/withdraw_address`
+     */
+    getDelegatorWithdrawAddress: setBase(Cosmos.getDelegatorWithdrawAddress),
+    /**
+     * Params queries params of the distribution module.
+     * @REST GET `/cosmos/distribution/v1beta1/params`
+     */
+    getDistributionParams: setBase(Cosmos.getDistributionParams),
+    /**
+     * ValidatorCommission queries accumulated commission for a validator.
+     * @REST GET `/cosmos/distribution/v1beta1/validators/{validator_address}/commission`
+     */
+    getValidatorCommission: setBase(Cosmos.getValidatorCommission),
+    /**
+     * ValidatorOutstandingRewards queries rewards of a validator address.
+     * @REST GET `/cosmos​/distribution​/v1beta1​/validators​/{validator_address}​/outstanding_rewards`
+     */
+    getValidatorOutstandingRewards: setBase(
+      Cosmos.getValidatorOutstandingRewards
+    ),
+    /**
+     * ValidatorSlashes queries slash events of a validator.
+     * @REST GET `/cosmos/distribution/v1beta1/validators/{validator_address}/slashes`
+     */
+    getValidatorSlashes: setBase(Cosmos.getValidatorSlashes),
+    /**
      *
-     * @REST GET
+     * @REST GET ``
      */
   };
 };
