@@ -14,7 +14,7 @@ export interface AccountResponse {
   account: Account;
 }
 
-export interface ParamsResponse {
+export interface AuthParamsResponse {
   params: {
     max_memo_characters: string;
     tx_sig_limit: string;

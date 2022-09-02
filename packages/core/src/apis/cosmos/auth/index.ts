@@ -3,7 +3,7 @@ import type { PaginationParams } from "../base";
 import type {
   AccountResponse,
   AccountsResponse,
-  ParamsResponse,
+  AuthParamsResponse,
 } from "./types";
 
 export type { AccountResponse, AccountsResponse };
@@ -26,7 +26,7 @@ export const getAccountByAddress =
     ).data;
   };
 
-export const getParams =
-  (baseURL: string) => async (): Promise<ParamsResponse> => {
+export const getAuthParams =
+  (baseURL: string) => async (): Promise<AuthParamsResponse> => {
     return (await instance(baseURL).get("/cosmos/auth/v1beta1/params")).data;
   };

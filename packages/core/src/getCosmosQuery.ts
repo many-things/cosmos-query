@@ -78,10 +78,50 @@ export const getCosmosQuery = (baseURL: string) => {
      */
     getAccountByAddress: setBase(Cosmos.getAccountByAddress),
     /**
-     * /cosmos/auth/v1beta1/params
+     * Params queries all parameters.
      * @REST GET `/cosmos​/auth​/v1beta1​/params`
      */
-    getParams: setBase(Cosmos.getParams),
+    getAuthParams: setBase(Cosmos.getAuthParams),
+    /**
+     * AllBalances queries the balance of all coins for a single account.
+     * @REST GET `​/cosmos​/bank​/v1beta1​/balances​/{address}`
+     */
+    getAllBalances: setBase(Cosmos.getAllBalances),
+    /**
+     * Balance queries the balance of a single coin for a single account.
+     * @REST GET `/cosmos/bank/v1beta1/balances/{address}/{denom}`
+     */
+    getBalance: setBase(Cosmos.getBalance),
+    /**
+     * DenomOwners queries for all account addresses that own a particular token denomination.
+     * @REST GET `/cosmos/bank/v1beta1/denom_owners/{denom}`
+     */
+    getDenomOwners: setBase(Cosmos.getDenomOwners),
+    /**
+     * DenomsMetadata queries the client metadata for all registered coin denominations.
+     * @REST GET `/cosmos/bank/v1beta1/denoms_metadata`
+     */
+    getAllDenomsMetadata: setBase(Cosmos.getAllDenomsMetadata),
+    /**
+     * DenomsMetadata queries the client metadata of a given coin denomination.
+     * @REST GET `/cosmos/bank/v1beta1/denoms_metadata/{denom}`
+     */
+    getDenomMetadata: setBase(Cosmos.getDenomMetadata),
+    /**
+     * Params queries the parameters of x/bank module.
+     * @REST GET `/cosmos/bank/v1beta1/params`
+     */
+    getBankParams: setBase(Cosmos.getBankParams),
+    /**
+     * TotalSupply queries the total supply of all coins.
+     * @REST GET `/cosmos/bank/v1beta1/supply`
+     */
+    getTotalSupply: setBase(Cosmos.getTotalSupply),
+    /**
+     * SupplyOf queries the supply of a single coin.
+     * @REST GET `/cosmos/bank/v1beta1/supply/{denom}`
+     */
+    getSupply: setBase(Cosmos.getSupply),
     /**
      *
      * @REST GET
