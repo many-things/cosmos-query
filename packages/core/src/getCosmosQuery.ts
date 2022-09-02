@@ -1,5 +1,5 @@
 import * as Staking from "./apis/staking";
-import * as Service from "./apis/service";
+import * as Cosmos from "./apis/cosmos";
 
 export const getCosmosQuery = (baseURL: string) => {
   const setBase = <T>(curry: (url: string) => T) => {
@@ -21,51 +21,51 @@ export const getCosmosQuery = (baseURL: string) => {
      * GetLatestBlock returns the latest block.
      * @REST GET `/cosmos/base/tendermint/v1beta1/blocks/latest`
      */
-    getLatestBlock: setBase(Service.getLatestBlock),
+    getLatestBlock: setBase(Cosmos.getLatestBlock),
     /**
      * GetBlockByHeight queries block for given height.
      * @REST GET `/cosmos/base/tendermint/v1beta1/blocks/{height}`
      */
-    getBlockByHeight: setBase(Service.getBlockByHeight),
+    getBlockByHeight: setBase(Cosmos.getBlockByHeight),
     /**
      * GetNodeInfo queries the current node info.
      * @REST GET `/cosmos/base/tendermint/v1beta1/node_info`
      */
-    getNodeInfo: setBase(Service.getNodeInfo),
+    getNodeInfo: setBase(Cosmos.getNodeInfo),
     /**
      * GetSyncing queries node syncing.
      * @REST `/cosmos/base/tendermint/v1beta1/syncing`
      */
-    getSyncing: setBase(Service.getSyncing),
+    getSyncing: setBase(Cosmos.getSyncing),
     /**
      * GetLatestValidatorSet queries latest validator-set.
      * @REST GET `/cosmos/base/tendermint/v1beta1/validatorsets/latest`
      */
-    getLatestValidatorSet: setBase(Service.getLatestValidatorSet),
+    getLatestValidatorSet: setBase(Cosmos.getLatestValidatorSet),
     /**
      * GetValidatorSetByHeight queries validator-set at a given height.
      * @REST GET `/cosmos​/base​/tendermint​/v1beta1​/validatorsets​/{height}`
      */
-    getValidatorSetByHeight: setBase(Service.getValidatorSetByHeight),
+    getValidatorSetByHeight: setBase(Cosmos.getValidatorSetByHeight),
     /**
      * SimulateTx simulates executing a transaction for estimating gas usage.
      * @REST POST `/cosmos/tx/v1beta1/simulate`
      */
-    simulateTx: setBase(Service.simulateTx),
+    simulateTx: setBase(Cosmos.simulateTx),
     /**
      * GetTxsEvent fetches txs by event.
      * @REST GET `/cosmos/tx/v1beta1/txs`
      */
-    getTxsEvent: setBase(Service.getTxsEvent),
+    getTxsEvent: setBase(Cosmos.getTxsEvent),
     /**
      * BroadcastTx broadcast transaction.
      * @REST POST `/cosmos​/tx​/v1beta1​/txs`
      */
-    broadcastTx: setBase(Service.broadcastTx),
+    broadcastTx: setBase(Cosmos.broadcastTx),
     /**
      * GetTxByHash fetches a tx by hash.
      * @REST GET `/cosmos/tx/v1beta1/txs/{hash}`
      */
-    getTxByHash: setBase(Service.getTxByHash),
+    getTxByHash: setBase(Cosmos.getTxByHash),
   };
 };
