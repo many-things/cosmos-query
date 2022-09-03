@@ -34,12 +34,10 @@ interface Tx {
       type_url: string;
       value: string;
     }[];
-    non_critical_extension_options: [
-      {
-        type_url: string;
-        value: string;
-      }
-    ];
+    non_critical_extension_options: {
+      type_url: string;
+      value: string;
+    }[];
   };
   auth_info: {
     signer_infos: {
@@ -62,12 +60,11 @@ interface Tx {
       sequence: string;
     }[];
     fee: {
-      amount: [
-        {
-          denom: string;
-          amount: string;
-        }
-      ];
+      amount: {
+        denom: string;
+        amount: string;
+      }[];
+
       gas_limit: string;
       payer: string;
       granter: string;

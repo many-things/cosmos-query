@@ -38,130 +38,126 @@ export interface BlockResponse {
       txs: string[];
     };
     evidence: {
-      evidence: [
-        {
-          duplicate_vote_evidence: {
-            vote_a: {
-              type: string;
-              height: string;
-              round: number;
-              block_id: {
+      evidence: {
+        duplicate_vote_evidence: {
+          vote_a: {
+            type: string;
+            height: string;
+            round: number;
+            block_id: {
+              hash: string;
+              part_set_header: {
+                total: number;
                 hash: string;
-                part_set_header: {
-                  total: number;
-                  hash: string;
-                };
               };
-              timestamp: string;
-              validator_address: string;
-              validator_index: number;
-              signature: string;
             };
-            vote_b: {
-              type: string;
-              height: string;
-              round: number;
-              block_id: {
+            timestamp: string;
+            validator_address: string;
+            validator_index: number;
+            signature: string;
+          };
+          vote_b: {
+            type: string;
+            height: string;
+            round: number;
+            block_id: {
+              hash: string;
+              part_set_header: {
+                total: number;
                 hash: string;
-                part_set_header: {
-                  total: number;
+              };
+            };
+            timestamp: string;
+            validator_address: string;
+            validator_index: number;
+            signature: string;
+          };
+          total_voting_power: string;
+          validator_power: string;
+          timestamp: string;
+        };
+        light_client_attack_evidence: {
+          conflicting_block: {
+            signed_header: {
+              header: {
+                version: {
+                  block: string;
+                  app: string;
+                };
+                chain_id: string;
+                height: string;
+                time: string;
+                last_block_id: {
                   hash: string;
-                };
-              };
-              timestamp: string;
-              validator_address: string;
-              validator_index: number;
-              signature: string;
-            };
-            total_voting_power: string;
-            validator_power: string;
-            timestamp: string;
-          };
-          light_client_attack_evidence: {
-            conflicting_block: {
-              signed_header: {
-                header: {
-                  version: {
-                    block: string;
-                    app: string;
-                  };
-                  chain_id: string;
-                  height: string;
-                  time: string;
-                  last_block_id: {
+                  part_set_header: {
+                    total: number;
                     hash: string;
-                    part_set_header: {
-                      total: number;
-                      hash: string;
-                    };
                   };
-                  last_commit_hash: string;
-                  data_hash: string;
-                  validators_hash: string;
-                  next_validators_hash: string;
-                  consensus_hash: string;
-                  app_hash: string;
-                  last_results_hash: string;
-                  evidence_hash: string;
-                  proposer_address: string;
                 };
-                commit: {
-                  height: string;
-                  round: number;
-                  block_id: {
-                    hash: string;
-                    part_set_header: {
-                      total: number;
-                      hash: string;
-                    };
-                  };
-                  signatures: {
-                    block_id_flag: string;
-                    validator_address: string;
-                    timestamp: string;
-                    signature: string;
-                  }[];
-                };
+                last_commit_hash: string;
+                data_hash: string;
+                validators_hash: string;
+                next_validators_hash: string;
+                consensus_hash: string;
+                app_hash: string;
+                last_results_hash: string;
+                evidence_hash: string;
+                proposer_address: string;
               };
-              validator_set: {
-                validators: [
-                  {
-                    address: string;
-                    pub_key: {
-                      ed25519: string;
-                      secp256k1: string;
-                    };
-                    voting_power: string;
-                    proposer_priority: string;
-                  }
-                ];
-                proposer: {
-                  address: string;
-                  pub_key: {
-                    ed25519: string;
-                    secp256k1: string;
+              commit: {
+                height: string;
+                round: number;
+                block_id: {
+                  hash: string;
+                  part_set_header: {
+                    total: number;
+                    hash: string;
                   };
-                  voting_power: string;
-                  proposer_priority: string;
                 };
-                total_voting_power: string;
+                signatures: {
+                  block_id_flag: string;
+                  validator_address: string;
+                  timestamp: string;
+                  signature: string;
+                }[];
               };
             };
-            common_height: string;
-            byzantine_validators: {
-              address: string;
-              pub_key: {
-                ed25519: string;
-                secp256k1: string;
+            validator_set: {
+              validators: {
+                address: string;
+                pub_key: {
+                  ed25519: string;
+                  secp256k1: string;
+                };
+                voting_power: string;
+                proposer_priority: string;
+              }[];
+              proposer: {
+                address: string;
+                pub_key: {
+                  ed25519: string;
+                  secp256k1: string;
+                };
+                voting_power: string;
+                proposer_priority: string;
               };
-              voting_power: string;
-              proposer_priority: string;
-            }[];
-            total_voting_power: string;
-            timestamp: string;
+              total_voting_power: string;
+            };
           };
-        }
-      ];
+          common_height: string;
+          byzantine_validators: {
+            address: string;
+            pub_key: {
+              ed25519: string;
+              secp256k1: string;
+            };
+            voting_power: string;
+            proposer_priority: string;
+          }[];
+          total_voting_power: string;
+          timestamp: string;
+        };
+      }[];
     };
     last_commit: {
       height: string;

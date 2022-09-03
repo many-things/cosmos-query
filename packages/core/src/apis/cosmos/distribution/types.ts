@@ -8,15 +8,13 @@ export interface CommunityPoolResponse {
 }
 
 export interface DelegationTotalRewardsResponse {
-  rewards: [
-    {
-      validator_address: string;
-      reward: {
-        denom: string;
-        amount: string;
-      }[];
-    }
-  ];
+  rewards: {
+    validator_address: string;
+    reward: {
+      denom: string;
+      amount: string;
+    }[];
+  }[];
   total: {
     denom: string;
     amount: string;

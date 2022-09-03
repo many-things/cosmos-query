@@ -264,6 +264,11 @@ export const getCosmosQuery = (baseURL: string) => {
      */
 
     /**
+     * Returns list of `Authorization`, granted to the grantee by the granter.
+     * @REST GET `/cosmos/authz/v1beta1/grants`
+     */
+    getGrants: setBase(Cosmos.Authz.getGrants),
+    /**
      * Allowances returns all the grants for address.
      * @REST GET `/cosmos/feegrant/v1beta1/allowances/{grantee}`
      */
