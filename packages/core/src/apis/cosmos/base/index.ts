@@ -61,10 +61,13 @@ export const getLatestValidatorSet =
 
 export const getValidatorSetByHeight =
   (baseURL: string) =>
-  async (
-    height: number,
-    pagination?: PaginationParams
-  ): Promise<ValidatorSetResponse> => {
+  async ({
+    height,
+    pagination,
+  }: {
+    height: number;
+    pagination?: PaginationParams;
+  }): Promise<ValidatorSetResponse> => {
     return (
       await instance(baseURL).get(
         `/cosmos/base/tendermint/v1beta1/validatorsets/${height}`,

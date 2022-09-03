@@ -24,10 +24,13 @@ export type {
 
 export const getAllBalances =
   (baseURL: string) =>
-  async (
-    address: string,
-    pagination?: PaginationParams
-  ): Promise<AllBalancesResponse> => {
+  async ({
+    address,
+    pagination,
+  }: {
+    address: string;
+    pagination?: PaginationParams;
+  }): Promise<AllBalancesResponse> => {
     return (
       await instance(baseURL).get(`/cosmos/bank/v1beta1/balances/${address}`, {
         params: pagination,
@@ -37,7 +40,13 @@ export const getAllBalances =
 
 export const getBalance =
   (baseURL: string) =>
-  async (address: string, denom: string): Promise<BalanceResponse> => {
+  async ({
+    address,
+    denom,
+  }: {
+    address: string;
+    denom: string;
+  }): Promise<BalanceResponse> => {
     return (
       await instance(baseURL).get(
         `/cosmos/bank/v1beta1/balances/${address}/${denom}`
@@ -47,10 +56,13 @@ export const getBalance =
 
 export const getDenomOwners =
   (baseURL: string) =>
-  async (
-    denom: string,
-    pagination?: PaginationParams
-  ): Promise<DenomOwnersResponse> => {
+  async ({
+    denom,
+    pagination,
+  }: {
+    denom: string;
+    pagination?: PaginationParams;
+  }): Promise<DenomOwnersResponse> => {
     return (
       await instance(baseURL).get(
         `/cosmos/bank/v1beta1/denom_owners/${denom}`,

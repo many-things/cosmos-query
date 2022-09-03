@@ -180,6 +180,46 @@ export const getCosmosQuery = (baseURL: string) => {
      */
     getEvidence: setBase(Cosmos.getEvidence),
     /**
+     * Params queries all parameters of the gov module.
+     * @REST GET `​/cosmos​/gov​/v1beta1​/params​/{params_type}`
+     */
+    getGovParams: setBase(Cosmos.getGovParams),
+    /**
+     * Proposals queries all proposals based on given status.
+     * @REST GET `/cosmos/gov/v1beta1/proposals`
+     */
+    getProposals: setBase(Cosmos.getProposals),
+    /**
+     * Proposal queries proposal details based on ProposalID.
+     * @REST GET `/cosmos/gov/v1beta1/proposals/{proposal_id}`
+     */
+    getProposal: setBase(Cosmos.getProposal),
+    /**
+     * Deposits queries all deposits of a single proposal.
+     * @REST GET `/cosmos/gov/v1beta1/proposals/{proposal_id}/deposits`
+     */
+    getProposalDeposits: setBase(Cosmos.getProposalDeposits),
+    /**
+     * Deposit queries single deposit information based proposalID, depositAddr.
+     * @REST GET `/cosmos/gov/v1beta1/proposals/{proposal_id}/deposits/{depositor}`
+     */
+    getProposalDeposit: setBase(Cosmos.getProposalDeposit),
+    /**
+     * TallyResult queries the tally of a proposal vote.
+     * @REST GET `/cosmos/gov/v1beta1/proposals/{proposal_id}/tally`
+     */
+    getProposalTally: setBase(Cosmos.getProposalTally),
+    /**
+     * Votes queries votes of a given proposal.
+     * @REST GET `/cosmos​/gov​/v1beta1​/proposals​/{proposal_id}​/votes`
+     */
+    getProposalVotes: setBase(Cosmos.getProposalVotes),
+    /**
+     * Vote queries voted information based on proposalID, voterAddr.
+     * @REST GET `/cosmos​/gov​/v1beta1​/proposals​/{proposal_id}​/votes​/{voter}`
+     */
+    getProposalVote: setBase(Cosmos.getProposalVote),
+    /**
      *
      * @REST GET ``
      */

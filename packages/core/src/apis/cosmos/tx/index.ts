@@ -32,14 +32,18 @@ export const simulateTx =
 
 export const getTxsEvent =
   (baseURL: string) =>
-  async (
-    events?: string[],
-    pagination?: PaginationParams,
-    order_by?: OrderBy
-  ): Promise<TxsEventResponse> => {
+  async ({
+    events,
+    orderBy,
+    pagination,
+  }: {
+    events?: string[];
+    pagination?: PaginationParams;
+    orderBy?: OrderBy;
+  }): Promise<TxsEventResponse> => {
     return (
       await instance(baseURL).get("/cosmos/tx/v1beta1/txs", {
-        params: { events, pagination, order_by },
+        params: { events, ...pagination, order_by: orderBy },
       })
     ).data;
   };

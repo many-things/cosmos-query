@@ -1,3 +1,5 @@
+import type { BroadcastMode, SignMode } from "../../../types";
+
 export type OrderBy = "ORDER_BY_UNSPECIFIED" | "ORDER_BY_ASC" | "ORDER_BY_DESC";
 
 export interface SimulateTxResponse {
@@ -47,11 +49,7 @@ interface Tx {
       };
       mode_info: {
         single: {
-          mode:
-            | "SIGN_MODE_UNSPECIFIED"
-            | "SIGN_MODE_DIRECT"
-            | "SIGN_MODE_TEXTUAL"
-            | "SIGN_MODE_LEGACY_AMINO_JSON";
+          mode: SignMode;
         };
         multi: {
           bitarray: {
@@ -122,11 +120,7 @@ export interface TxsEventResponse {
 
 export interface BroadcastTx {
   tx_bytes: string;
-  mode:
-    | "BROADCAST_MODE_UNSPECIFIED"
-    | "BROADCAST_MODE_ASYNC"
-    | "BROADCAST_MODE_BLOCK"
-    | "BROADCAST_MODE_SYNC";
+  mode: BroadcastMode;
 }
 
 export interface BroadcastTxResponse {

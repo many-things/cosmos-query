@@ -107,12 +107,17 @@ export const getValidatorOutstandingRewards =
 
 export const getValidatorSlashes =
   (baseURL: string) =>
-  async (
-    validatorAddress: string,
-    pagination?: PaginationParams,
-    startingHeight?: string,
-    endingHeight?: string
-  ): Promise<ValidatorSlashesResponse> => {
+  async ({
+    validatorAddress,
+    startingHeight,
+    endingHeight,
+    pagination,
+  }: {
+    validatorAddress: string;
+    startingHeight?: string;
+    endingHeight?: string;
+    pagination?: PaginationParams;
+  }): Promise<ValidatorSlashesResponse> => {
     return (
       await instance(baseURL).get(
         `/cosmos/distribution/v1beta1/validators/${validatorAddress}/slashes`,
