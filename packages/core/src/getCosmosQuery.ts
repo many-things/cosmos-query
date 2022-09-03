@@ -240,6 +240,21 @@ export const getCosmosQuery = (baseURL: string) => {
      */
     getParams: setBase(Cosmos.getParams),
     /**
+     * Params queries the parameters of slashing module.
+     * @REST GET `/cosmos/slashing/v1beta1/params`
+     */
+    getSlashingParams: setBase(Cosmos.getSlashingParams),
+    /**
+     * SigningInfos queries signing info of all validators
+     * @REST GET `/cosmos/slashing/v1beta1/signing_infos`
+     */
+    getSigningInfos: setBase(Cosmos.getSigningInfos),
+    /**
+     * SigningInfo queries the signing info of given cons address
+     * @REST GET `/cosmos/slashing/v1beta1/signing_infos/{cons_address}`
+     */
+    getSigningInfo: setBase(Cosmos.getSigningInfo),
+    /**
      *
      * @REST GET ``
      */

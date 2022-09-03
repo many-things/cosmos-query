@@ -15,7 +15,7 @@ export interface SimulateTxResponse {
       attributes: {
         key: string;
         value: string;
-        index: true;
+        index: boolean;
       }[];
     }[];
   };
