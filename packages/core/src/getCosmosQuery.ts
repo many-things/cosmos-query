@@ -170,6 +170,16 @@ export const getCosmosQuery = (baseURL: string) => {
      */
     getValidatorSlashes: setBase(Cosmos.getValidatorSlashes),
     /**
+     * AllEvidence queries all evidence.
+     * @REST GET `/cosmos/evidence/v1beta1/evidence`
+     */
+    getAllEvidence: setBase(Cosmos.getAllEvidence),
+    /**
+     * Evidence queries evidence based on evidence hash.
+     * @REST GET `/cosmos/evidence/v1beta1/evidence/{evidence_hash}`
+     */
+    getEvidence: setBase(Cosmos.getEvidence),
+    /**
      *
      * @REST GET ``
      */
