@@ -235,6 +235,11 @@ export const getCosmosQuery = (baseURL: string) => {
      */
     getMintingParams: setBase(Cosmos.getMintingParams),
     /**
+     * Params queries a specific parameter of a module, given its subspace and key.
+     * @REST GET `/cosmos/params/v1beta1/params`
+     */
+    getParams: setBase(Cosmos.getParams),
+    /**
      *
      * @REST GET ``
      */
