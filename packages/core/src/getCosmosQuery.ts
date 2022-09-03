@@ -21,242 +21,257 @@ export const getCosmosQuery = (baseURL: string) => {
      * GetLatestBlock returns the latest block.
      * @REST GET `/cosmos/base/tendermint/v1beta1/blocks/latest`
      */
-    getLatestBlock: setBase(Cosmos.getLatestBlock),
+    getLatestBlock: setBase(Cosmos.Base.getLatestBlock),
     /**
      * GetBlockByHeight queries block for given height.
      * @REST GET `/cosmos/base/tendermint/v1beta1/blocks/{height}`
      */
-    getBlockByHeight: setBase(Cosmos.getBlockByHeight),
+    getBlockByHeight: setBase(Cosmos.Base.getBlockByHeight),
     /**
      * GetNodeInfo queries the current node info.
      * @REST GET `/cosmos/base/tendermint/v1beta1/node_info`
      */
-    getNodeInfo: setBase(Cosmos.getNodeInfo),
+    getNodeInfo: setBase(Cosmos.Base.getNodeInfo),
     /**
      * GetSyncing queries node syncing.
      * @REST `/cosmos/base/tendermint/v1beta1/syncing`
      */
-    getSyncing: setBase(Cosmos.getSyncing),
+    getSyncing: setBase(Cosmos.Base.getSyncing),
     /**
      * GetLatestValidatorSet queries latest validator-set.
      * @REST GET `/cosmos/base/tendermint/v1beta1/validatorsets/latest`
      */
-    getLatestValidatorSet: setBase(Cosmos.getLatestValidatorSet),
+    getLatestValidatorSet: setBase(Cosmos.Base.getLatestValidatorSet),
     /**
      * GetValidatorSetByHeight queries validator-set at a given height.
      * @REST GET `/cosmos​/base​/tendermint​/v1beta1​/validatorsets​/{height}`
      */
-    getValidatorSetByHeight: setBase(Cosmos.getValidatorSetByHeight),
+    getValidatorSetByHeight: setBase(Cosmos.Base.getValidatorSetByHeight),
     /**
      * SimulateTx simulates executing a transaction for estimating gas usage.
      * @REST POST `/cosmos/tx/v1beta1/simulate`
      */
-    simulateTx: setBase(Cosmos.simulateTx),
+    simulateTx: setBase(Cosmos.Tx.simulateTx),
     /**
      * GetTxsEvent fetches txs by event.
      * @REST GET `/cosmos/tx/v1beta1/txs`
      */
-    getTxsEvent: setBase(Cosmos.getTxsEvent),
+    getTxsEvent: setBase(Cosmos.Tx.getTxsEvent),
     /**
      * BroadcastTx broadcast transaction.
      * @REST POST `/cosmos​/tx​/v1beta1​/txs`
      */
-    broadcastTx: setBase(Cosmos.broadcastTx),
+    broadcastTx: setBase(Cosmos.Tx.broadcastTx),
     /**
      * GetTxByHash fetches a tx by hash.
      * @REST GET `/cosmos/tx/v1beta1/txs/{hash}`
      */
-    getTxByHash: setBase(Cosmos.getTxByHash),
+    getTxByHash: setBase(Cosmos.Tx.getTxByHash),
     /**
      * Accounts returns all the existing accounts.
      * @REST GET `/cosmos/auth/v1beta1/accounts`
      */
-    getAccounts: setBase(Cosmos.getAccounts),
+    getAccounts: setBase(Cosmos.Auth.getAccounts),
     /**
      * Account returns account details based on address.
      * @REST GET `/cosmos/auth/v1beta1/accounts/{address}`
      */
-    getAccountByAddress: setBase(Cosmos.getAccountByAddress),
+    getAccountByAddress: setBase(Cosmos.Auth.getAccountByAddress),
     /**
      * Params queries all parameters.
      * @REST GET `/cosmos​/auth​/v1beta1​/params`
      */
-    getAuthParams: setBase(Cosmos.getAuthParams),
+    getAuthParams: setBase(Cosmos.Auth.getAuthParams),
     /**
      * AllBalances queries the balance of all coins for a single account.
      * @REST GET `​/cosmos​/bank​/v1beta1​/balances​/{address}`
      */
-    getAllBalances: setBase(Cosmos.getAllBalances),
+    getAllBalances: setBase(Cosmos.Bank.getAllBalances),
     /**
      * Balance queries the balance of a single coin for a single account.
      * @REST GET `/cosmos/bank/v1beta1/balances/{address}/{denom}`
      */
-    getBalance: setBase(Cosmos.getBalance),
+    getBalance: setBase(Cosmos.Bank.getBalance),
     /**
      * DenomOwners queries for all account addresses that own a particular token denomination.
      * @REST GET `/cosmos/bank/v1beta1/denom_owners/{denom}`
      */
-    getDenomOwners: setBase(Cosmos.getDenomOwners),
+    getDenomOwners: setBase(Cosmos.Bank.getDenomOwners),
     /**
      * DenomsMetadata queries the client metadata for all registered coin denominations.
      * @REST GET `/cosmos/bank/v1beta1/denoms_metadata`
      */
-    getAllDenomsMetadata: setBase(Cosmos.getAllDenomsMetadata),
+    getAllDenomsMetadata: setBase(Cosmos.Bank.getAllDenomsMetadata),
     /**
      * DenomsMetadata queries the client metadata of a given coin denomination.
      * @REST GET `/cosmos/bank/v1beta1/denoms_metadata/{denom}`
      */
-    getDenomMetadata: setBase(Cosmos.getDenomMetadata),
+    getDenomMetadata: setBase(Cosmos.Bank.getDenomMetadata),
     /**
      * Params queries the parameters of x/bank module.
      * @REST GET `/cosmos/bank/v1beta1/params`
      */
-    getBankParams: setBase(Cosmos.getBankParams),
+    getBankParams: setBase(Cosmos.Bank.getBankParams),
     /**
      * TotalSupply queries the total supply of all coins.
      * @REST GET `/cosmos/bank/v1beta1/supply`
      */
-    getTotalSupply: setBase(Cosmos.getTotalSupply),
+    getTotalSupply: setBase(Cosmos.Bank.getTotalSupply),
     /**
      * SupplyOf queries the supply of a single coin.
      * @REST GET `/cosmos/bank/v1beta1/supply/{denom}`
      */
-    getSupply: setBase(Cosmos.getSupply),
+    getSupply: setBase(Cosmos.Bank.getSupply),
     /**
      * CommunityPool queries the community pool coins.
      * @REST GET `/cosmos​/distribution​/v1beta1​/community_pool`
      */
-    getCommunityPool: setBase(Cosmos.getCommunityPool),
+    getCommunityPool: setBase(Cosmos.Distribution.getCommunityPool),
     /**
      * DelegationTotalRewards queries the total rewards accrued by a each validator.
      * @REST GET `/cosmos/distribution/v1beta1/delegators/{delegator_address}/rewards`
      */
-    getDelegationTotalRewards: setBase(Cosmos.getDelegationTotalRewards),
+    getDelegationTotalRewards: setBase(
+      Cosmos.Distribution.getDelegationTotalRewards
+    ),
     /**
      * DelegationRewards queries the total rewards accrued by a delegation.
      * @REST GET `/cosmos/distribution/v1beta1/delegators/{delegator_address}/rewards/{validator_address}`
      */
-    getDelegationRewards: setBase(Cosmos.getDelegationRewards),
+    getDelegationRewards: setBase(Cosmos.Distribution.getDelegationRewards),
     /**
      * DelegatorValidators queries the validators of a delegator.
      * @REST GET `/cosmos​/distribution​/v1beta1​/delegators​/{delegator_address}​/validators`
      */
-    getDelegatorValidators: setBase(Cosmos.getDelegatorValidators),
+    getDelegatorValidators: setBase(Cosmos.Distribution.getDelegatorValidators),
     /**
      * DelegatorWithdrawAddress queries withdraw address of a delegator.
      * @REST GET `/cosmos/distribution/v1beta1/delegators/{delegator_address}/withdraw_address`
      */
-    getDelegatorWithdrawAddress: setBase(Cosmos.getDelegatorWithdrawAddress),
+    getDelegatorWithdrawAddress: setBase(
+      Cosmos.Distribution.getDelegatorWithdrawAddress
+    ),
     /**
      * Params queries params of the distribution module.
      * @REST GET `/cosmos/distribution/v1beta1/params`
      */
-    getDistributionParams: setBase(Cosmos.getDistributionParams),
+    getDistributionParams: setBase(Cosmos.Distribution.getDistributionParams),
     /**
      * ValidatorCommission queries accumulated commission for a validator.
      * @REST GET `/cosmos/distribution/v1beta1/validators/{validator_address}/commission`
      */
-    getValidatorCommission: setBase(Cosmos.getValidatorCommission),
+    getValidatorCommission: setBase(Cosmos.Distribution.getValidatorCommission),
     /**
      * ValidatorOutstandingRewards queries rewards of a validator address.
      * @REST GET `/cosmos​/distribution​/v1beta1​/validators​/{validator_address}​/outstanding_rewards`
      */
     getValidatorOutstandingRewards: setBase(
-      Cosmos.getValidatorOutstandingRewards
+      Cosmos.Distribution.getValidatorOutstandingRewards
     ),
     /**
      * ValidatorSlashes queries slash events of a validator.
      * @REST GET `/cosmos/distribution/v1beta1/validators/{validator_address}/slashes`
      */
-    getValidatorSlashes: setBase(Cosmos.getValidatorSlashes),
+    getValidatorSlashes: setBase(Cosmos.Distribution.getValidatorSlashes),
     /**
      * AllEvidence queries all evidence.
      * @REST GET `/cosmos/evidence/v1beta1/evidence`
      */
-    getAllEvidence: setBase(Cosmos.getAllEvidence),
+    getAllEvidence: setBase(Cosmos.Evidence.getAllEvidence),
     /**
      * Evidence queries evidence based on evidence hash.
      * @REST GET `/cosmos/evidence/v1beta1/evidence/{evidence_hash}`
      */
-    getEvidence: setBase(Cosmos.getEvidence),
+    getEvidence: setBase(Cosmos.Evidence.getEvidence),
     /**
      * Params queries all parameters of the gov module.
      * @REST GET `​/cosmos​/gov​/v1beta1​/params​/{params_type}`
      */
-    getGovParams: setBase(Cosmos.getGovParams),
+    getGovParams: setBase(Cosmos.Governance.getGovParams),
     /**
      * Proposals queries all proposals based on given status.
      * @REST GET `/cosmos/gov/v1beta1/proposals`
      */
-    getProposals: setBase(Cosmos.getProposals),
+    getProposals: setBase(Cosmos.Governance.getProposals),
     /**
      * Proposal queries proposal details based on ProposalID.
      * @REST GET `/cosmos/gov/v1beta1/proposals/{proposal_id}`
      */
-    getProposal: setBase(Cosmos.getProposal),
+    getProposal: setBase(Cosmos.Governance.getProposal),
     /**
      * Deposits queries all deposits of a single proposal.
      * @REST GET `/cosmos/gov/v1beta1/proposals/{proposal_id}/deposits`
      */
-    getProposalDeposits: setBase(Cosmos.getProposalDeposits),
+    getProposalDeposits: setBase(Cosmos.Governance.getProposalDeposits),
     /**
      * Deposit queries single deposit information based proposalID, depositAddr.
      * @REST GET `/cosmos/gov/v1beta1/proposals/{proposal_id}/deposits/{depositor}`
      */
-    getProposalDeposit: setBase(Cosmos.getProposalDeposit),
+    getProposalDeposit: setBase(Cosmos.Governance.getProposalDeposit),
     /**
      * TallyResult queries the tally of a proposal vote.
      * @REST GET `/cosmos/gov/v1beta1/proposals/{proposal_id}/tally`
      */
-    getProposalTally: setBase(Cosmos.getProposalTally),
+    getProposalTally: setBase(Cosmos.Governance.getProposalTally),
     /**
      * Votes queries votes of a given proposal.
      * @REST GET `/cosmos​/gov​/v1beta1​/proposals​/{proposal_id}​/votes`
      */
-    getProposalVotes: setBase(Cosmos.getProposalVotes),
+    getProposalVotes: setBase(Cosmos.Governance.getProposalVotes),
     /**
      * Vote queries voted information based on proposalID, voterAddr.
      * @REST GET `/cosmos​/gov​/v1beta1​/proposals​/{proposal_id}​/votes​/{voter}`
      */
-    getProposalVote: setBase(Cosmos.getProposalVote),
+    getProposalVote: setBase(Cosmos.Governance.getProposalVote),
     /**
      * AnnualProvisions current minting annual provisions value.
      * @REST GET `/cosmos​/mint​/v1beta1​/annual_provisions`
      */
-    getAnnualProvisions: setBase(Cosmos.getAnnualProvisions),
+    getAnnualProvisions: setBase(Cosmos.Mint.getAnnualProvisions),
     /**
      * Inflation returns the current minting inflation value.
      * @REST GET `/cosmos/mint/v1beta1/inflation`
      */
-    getInflation: setBase(Cosmos.getInflation),
+    getInflation: setBase(Cosmos.Mint.getInflation),
     /**
      * Params returns the total set of minting parameters.
      * @REST GET `/cosmos/mint/v1beta1/params`
      */
-    getMintingParams: setBase(Cosmos.getMintingParams),
+    getMintingParams: setBase(Cosmos.Mint.getMintingParams),
     /**
      * Params queries a specific parameter of a module, given its subspace and key.
      * @REST GET `/cosmos/params/v1beta1/params`
      */
-    getParams: setBase(Cosmos.getParams),
+    getParams: setBase(Cosmos.Params.getParams),
     /**
      * Params queries the parameters of slashing module.
      * @REST GET `/cosmos/slashing/v1beta1/params`
      */
-    getSlashingParams: setBase(Cosmos.getSlashingParams),
+    getSlashingParams: setBase(Cosmos.Slashing.getSlashingParams),
     /**
      * SigningInfos queries signing info of all validators
      * @REST GET `/cosmos/slashing/v1beta1/signing_infos`
      */
-    getSigningInfos: setBase(Cosmos.getSigningInfos),
+    getSigningInfos: setBase(Cosmos.Slashing.getSigningInfos),
     /**
      * SigningInfo queries the signing info of given cons address
      * @REST GET `/cosmos/slashing/v1beta1/signing_infos/{cons_address}`
      */
-    getSigningInfo: setBase(Cosmos.getSigningInfo),
+    getSigningInfo: setBase(Cosmos.Slashing.getSigningInfo),
     /**
      *
      * @REST GET ``
      */
+
+    /**
+     * Allowances returns all the grants for address.
+     * @REST GET `/cosmos/feegrant/v1beta1/allowances/{grantee}`
+     */
+    getAllowances: setBase(Cosmos.FeeGrant.getAllowances),
+    /**
+     * Allowance returns fee granted to the grantee by the granter.
+     * @REST GET `/cosmos/feegrant/v1beta1/allowance/{granter}/{grantee}`
+     */
+    getAllowance: setBase(Cosmos.FeeGrant.getAllowance),
   };
 };
