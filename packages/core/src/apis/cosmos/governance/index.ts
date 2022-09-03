@@ -12,6 +12,17 @@ import type {
   ProposalVotesResponse,
 } from "./types";
 
+export type {
+  GovParamsResponse,
+  GovParamsType,
+  ProposalDepositResponse,
+  ProposalDepositsResponse,
+  ProposalsResponse,
+  ProposalTallyResponse,
+  ProposalVoteResponse,
+  ProposalVotesResponse,
+};
+
 export const getGovParams =
   (baseURL: string) =>
   async (paramsType: GovParamsType): Promise<GovParamsResponse> => {

@@ -220,6 +220,21 @@ export const getCosmosQuery = (baseURL: string) => {
      */
     getProposalVote: setBase(Cosmos.getProposalVote),
     /**
+     * AnnualProvisions current minting annual provisions value.
+     * @REST GET `/cosmos​/mint​/v1beta1​/annual_provisions`
+     */
+    getAnnualProvisions: setBase(Cosmos.getAnnualProvisions),
+    /**
+     * Inflation returns the current minting inflation value.
+     * @REST GET `/cosmos/mint/v1beta1/inflation`
+     */
+    getInflation: setBase(Cosmos.getInflation),
+    /**
+     * Params returns the total set of minting parameters.
+     * @REST GET `/cosmos/mint/v1beta1/params`
+     */
+    getMintingParams: setBase(Cosmos.getMintingParams),
+    /**
      *
      * @REST GET ``
      */
