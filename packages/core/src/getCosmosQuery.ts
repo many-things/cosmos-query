@@ -143,7 +143,9 @@ export const getCosmosQuery = (baseURL: string) => {
      * DelegatorValidators queries the validators of a delegator.
      * @REST GET `/cosmos​/distribution​/v1beta1​/delegators​/{delegator_address}​/validators`
      */
-    getDelegatorValidators: setBase(Cosmos.Distribution.getDelegatorValidators),
+    getDelegatorValidatorAddresses: setBase(
+      Cosmos.Distribution.getDelegatorValidatorAddresses
+    ),
     /**
      * DelegatorWithdrawAddress queries withdraw address of a delegator.
      * @REST GET `/cosmos/distribution/v1beta1/delegators/{delegator_address}/withdraw_address`
@@ -259,15 +261,88 @@ export const getCosmosQuery = (baseURL: string) => {
      */
     getSigningInfo: setBase(Cosmos.Slashing.getSigningInfo),
     /**
-     *
-     * @REST GET ``
+     * DelegatorDelegations queries all delegations of a given delegator address.
+     * @REST GET `/cosmos/staking/v1beta1/delegations/{delegator_addr}`
      */
-
+    getDelegatorDelegations: setBase(Cosmos.Staking.getDelegatorDelegations),
+    /**
+     * Redelegations queries redelegations of given address.
+     * @REST GET `/cosmos/staking/v1beta1/delegators/{delegator_addr}/redelegations`
+     */
+    getDelegatorRedelegations: setBase(
+      Cosmos.Staking.getDelegatorRedelegations
+    ),
+    /**
+     * DelegatorUnbondingDelegations queries all unbonding delegations of a given delegator address.
+     * @REST GET `/cosmos​/staking​/v1beta1​/delegators​/{delegator_addr}​/unbonding_delegations`
+     */
+    getDelegatorUnbondingDelegations: setBase(
+      Cosmos.Staking.getDelegatorUnbondingDelegations
+    ),
+    /**
+     * DelegatorValidators queries all validators info for given delegator address.
+     * @REST GET `/cosmos/staking/v1beta1/delegators/{delegator_addr}/validators`
+     */
+    getDelegatorValidators: setBase(Cosmos.Staking.getDelegatorValidators),
+    /**
+     * DelegatorValidator queries validator info for given delegator validator pair.
+     * @REST GET `​/cosmos​/staking​/v1beta1​/delegators​/{delegator_addr}​/validators​/{validator_addr}`
+     */
+    getDelegatorValidator: setBase(Cosmos.Staking.getDelegatorValidator),
+    /**
+     * HistoricalInfo queries the historical info for given height.
+     * @REST GET `/cosmos/staking/v1beta1/historical_info/{height}`
+     */
+    getHistoricalInfo: setBase(Cosmos.Staking.getHistoricalInfo),
+    /**
+     * Params queries the staking parameters.
+     * @REST GET `/cosmos/staking/v1beta1/params`
+     */
+    getStakingParams: setBase(Cosmos.Staking.getStakingParams),
+    /**
+     * Pool queries the pool info.
+     * @REST GET `/cosmos/staking/v1beta1/pool`
+     */
+    getPool: setBase(Cosmos.Staking.getPool),
+    /**
+     * Validators queries all validators that match the given status.
+     * @REST GET `/cosmos/staking/v1beta1/validators`
+     */
+    getValidators: setBase(Cosmos.Staking.getValidators),
+    /**
+     * Validator queries validator info for given validator address.
+     * @REST GET `/cosmos/staking/v1beta1/validators/{validator_addr}`
+     */
+    getValidator: setBase(Cosmos.Staking.getValidator),
+    /**
+     * ValidatorDelegations queries delegate info for given validator.
+     * @REST GET `/cosmos/staking/v1beta1/validators/{validator_addr}/delegations`
+     */
+    getValidatorDelegations: setBase(Cosmos.Staking.getValidatorDelegations),
+    /**
+     * Delegation queries delegate info for given validator delegator pair.
+     * @REST GET `/cosmos/staking/v1beta1/validators/{validator_addr}/delegations/{delegator_addr}`
+     */
+    getValidatorDelegation: setBase(Cosmos.Staking.getValidatorDelegation),
+    /**
+     * ValidatorUnbondingDelegations queries unbonding delegations of a validator.
+     * @REST GET `/cosmos/staking/v1beta1/validators/{validator_addr}/unbonding_delegations`
+     */
+    getValidatorUnbondingDelegations: setBase(
+      Cosmos.Staking.getValidatorUnbondingDelegations
+    ),
+    /**
+     * UnbondingDelegation queries unbonding info for given validator delegator pair.
+     * @REST GET `/cosmos/staking/v1beta1/validators/{validator_addr}/delegations/{delegator_addr}/unbonding_delegation`
+     */
+    getValidatorUnbondingDelegation: setBase(
+      Cosmos.Staking.getValidatorUnbondingDelegation
+    ),
     /**
      * AppliedPlan queries a previously applied upgrade plan by its name.
      * @REST GET `/cosmos/upgrade/v1beta1/applied_plan/{name}`
      */
-    get: setBase(Cosmos.Upgrade.getAppliedPlan),
+    getAppliedPlan: setBase(Cosmos.Upgrade.getAppliedPlan),
     /**
      * CurrentPlan queries the current upgrade plan.
      * @REST GET `/cosmos/upgrade/v1beta1/current_plan`

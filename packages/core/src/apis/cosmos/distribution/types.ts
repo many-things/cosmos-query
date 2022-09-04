@@ -28,7 +28,7 @@ export interface DelegationRewardsResponse {
   }[];
 }
 
-export interface DelegatorValidatorsResponse {
+export interface DelegatorValidatorAddressesResponse {
   validators: string[];
 }
 

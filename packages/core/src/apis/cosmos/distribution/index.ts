@@ -4,7 +4,7 @@ import type {
   CommunityPoolResponse,
   DelegationRewardsResponse,
   DelegationTotalRewardsResponse,
-  DelegatorValidatorsResponse,
+  DelegatorValidatorAddressesResponse,
   DelegatorWithdrawAddressResponse,
   DistributionParamsResponse,
   ValidatorCommissionResponse,
@@ -16,7 +16,7 @@ export type {
   CommunityPoolResponse,
   DelegationRewardsResponse,
   DelegationTotalRewardsResponse,
-  DelegatorValidatorsResponse,
+  DelegatorValidatorAddressesResponse,
   DelegatorWithdrawAddressResponse,
   DistributionParamsResponse,
   ValidatorCommissionResponse,
@@ -54,9 +54,11 @@ export const getDelegationRewards =
     ).data;
   };
 
-export const getDelegatorValidators =
+export const getDelegatorValidatorAddresses =
   (baseURL: string) =>
-  async (delegatorAddress: string): Promise<DelegatorValidatorsResponse> => {
+  async (
+    delegatorAddress: string
+  ): Promise<DelegatorValidatorAddressesResponse> => {
     return (
       await instance(baseURL).get(
         `/cosmos/distribution/v1beta1/delegators/${delegatorAddress}/validators`
