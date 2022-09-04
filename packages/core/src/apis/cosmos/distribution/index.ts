@@ -125,7 +125,7 @@ export const getValidatorSlashes =
         `/cosmos/distribution/v1beta1/validators/${validatorAddress}/slashes`,
         {
           params: {
-            ...pagination,
+            pagination,
             starting_height: startingHeight,
             ending_height: endingHeight,
           },

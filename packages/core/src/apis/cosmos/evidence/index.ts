@@ -9,7 +9,7 @@ export const getAllEvidence =
   async (pagination?: PaginationParams): Promise<AllEvidenceResponse> => {
     return (
       await instance(baseURL).get("/cosmos/evidence/v1beta1/evidence", {
-        params: pagination,
+        params: { pagination },
       })
     ).data;
   };

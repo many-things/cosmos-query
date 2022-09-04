@@ -33,7 +33,7 @@ export const getAllBalances =
   }): Promise<AllBalancesResponse> => {
     return (
       await instance(baseURL).get(`/cosmos/bank/v1beta1/balances/${address}`, {
-        params: pagination,
+        params: { pagination },
       })
     ).data;
   };
@@ -67,7 +67,7 @@ export const getDenomOwners =
       await instance(baseURL).get(
         `/cosmos/bank/v1beta1/denom_owners/${denom}`,
         {
-          params: pagination,
+          params: { pagination },
         }
       )
     ).data;
@@ -78,7 +78,7 @@ export const getAllDenomsMetadata =
   async (pagination?: PaginationParams): Promise<AllDenomsMetadataResponse> => {
     return (
       await instance(baseURL).get("/cosmos/bank/v1beta1/denoms_metadata", {
-        params: pagination,
+        params: { pagination },
       })
     ).data;
   };
@@ -103,7 +103,7 @@ export const getTotalSupply =
   async (pagination?: PaginationParams): Promise<TotalSupplyResponse> => {
     return (
       await instance(baseURL).get("/cosmos/bank/v1beta1/supply", {
-        params: pagination,
+        params: { pagination },
       })
     ).data;
   };

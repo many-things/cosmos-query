@@ -54,7 +54,7 @@ export const getLatestValidatorSet =
     return (
       await instance(baseURL).get(
         "​/cosmos​/base​/tendermint​/v1beta1​/validatorsets​/latest",
-        { params: pagination }
+        { params: { pagination } }
       )
     ).data;
   };
@@ -71,7 +71,7 @@ export const getValidatorSetByHeight =
     return (
       await instance(baseURL).get(
         `/cosmos/base/tendermint/v1beta1/validatorsets/${height}`,
-        { params: pagination }
+        { params: { pagination } }
       )
     ).data;
   };

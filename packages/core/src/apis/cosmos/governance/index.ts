@@ -46,7 +46,7 @@ export const getProposals =
   }): Promise<ProposalsResponse> => {
     return (
       await instance(baseURL).get("/cosmos/gov/v1beta1/proposals", {
-        params: { proposalStatus, voter, depositor, ...pagination },
+        params: { proposalStatus, voter, depositor, pagination },
       })
     ).data;
   };
@@ -74,7 +74,7 @@ export const getProposalDeposits =
       await instance(baseURL).get(
         `/cosmos/gov/v1beta1/proposals/${proposalId}/deposits`,
         {
-          params: pagination,
+          params: { pagination },
         }
       )
     ).data;
@@ -119,7 +119,7 @@ export const getProposalVotes =
       await instance(baseURL).get(
         `/cosmos/gov/v1beta1/proposals/${proposalId}/votes`,
         {
-          params: pagination,
+          params: { pagination },
         }
       )
     ).data;

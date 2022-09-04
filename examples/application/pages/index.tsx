@@ -27,11 +27,14 @@ const lcdList = {
 };
 
 const Home: NextPage = () => {
-  const { getNodeInfo } = getCosmosQuery(lcdList["osmosis-1"]);
+  const { getAccounts } = getCosmosQuery(lcdList["osmosis-1"]);
 
   useEffect(() => {
     (async () => {
-      const a = await getNodeInfo();
+      const a = await getAccounts({
+        offset: 10,
+        limit: 10,
+      });
       console.log(a);
     })();
   }, []);

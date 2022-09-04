@@ -17,7 +17,7 @@ export const getAllowances =
       await instance(baseURL).get(
         `/cosmos/feegrant/v1beta1/allowances/${grantee}`,
         {
-          params: pagination,
+          params: { pagination },
         }
       )
     ).data;

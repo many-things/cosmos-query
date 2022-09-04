@@ -13,7 +13,7 @@ export const getAccounts =
   async (pagination?: PaginationParams): Promise<AccountsResponse> => {
     return (
       await instance(baseURL).get("/cosmos/auth/v1beta1/accounts", {
-        params: pagination,
+        params: { pagination },
       })
     ).data;
   };

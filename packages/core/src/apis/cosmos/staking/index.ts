@@ -47,7 +47,7 @@ export const getDelegatorDelegations =
       await instance(baseURL).get(
         `/cosmos/staking/v1beta1/delegations/${delegatorAddress}`,
         {
-          params: pagination,
+          params: { pagination },
         }
       )
     ).data;
@@ -73,7 +73,7 @@ export const getDelegatorRedelegations =
           params: {
             src_validator_addr: srcValidatorAddress,
             dst_validator_addr: dstValidatorAddress,
-            ...pagination,
+            pagination,
           },
         }
       )
@@ -93,7 +93,7 @@ export const getDelegatorUnbondingDelegations =
       await instance(baseURL).get(
         `/cosmos/staking/v1beta1/delegators/${delegatorAddress}/unbonding_delegations`,
         {
-          params: pagination,
+          params: { pagination },
         }
       )
     ).data;
@@ -112,7 +112,7 @@ export const getDelegatorValidators =
       await instance(baseURL).get(
         `/cosmos/staking/v1beta1/delegators/${delegatorAddress}/validators`,
         {
-          params: pagination,
+          params: { pagination },
         }
       )
     ).data;
@@ -166,7 +166,7 @@ export const getValidators =
       await instance(baseURL).get("/cosmos/staking/v1beta1/validators", {
         params: {
           status,
-          ...pagination,
+          pagination,
         },
       })
     ).data;
@@ -195,7 +195,7 @@ export const getValidatorDelegations =
       await instance(baseURL).get(
         `/cosmos/staking/v1beta1/validators/${validatorAddress}/delegations`,
         {
-          params: pagination,
+          params: { pagination },
         }
       )
     ).data;
@@ -230,7 +230,7 @@ export const getValidatorUnbondingDelegations =
       await instance(baseURL).get(
         `/cosmos/staking/v1beta1/validators/${validatorAddress}/unbonding_delegations`,
         {
-          params: pagination,
+          params: { pagination },
         }
       )
     ).data;

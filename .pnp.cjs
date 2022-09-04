@@ -214,6 +214,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:15.7.5"\
       ],\
       [\
+        "@types/qs",\
+        "npm:6.9.7"\
+      ],\
+      [\
         "@types/react",\
         "npm:18.0.18"\
       ],\
@@ -1198,6 +1202,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:2.1.1"\
       ],\
       [\
+        "qs",\
+        "npm:6.11.0"\
+      ],\
+      [\
         "queue-microtask",\
         "npm:1.2.3"\
       ],\
@@ -1962,6 +1970,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-prop-types-npm-15.7.5-2aa48aa177-5b43b8b154.zip/node_modules/@types/prop-types/",\
           "packageDependencies": [\
             ["@types/prop-types", "npm:15.7.5"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/qs", [\
+        ["npm:6.9.7", {\
+          "packageLocation": "./.yarn/cache/@types-qs-npm-6.9.7-4a3e6ca0d0-7fd6f9c250.zip/node_modules/@types/qs/",\
+          "packageDependencies": [\
+            ["@types/qs", "npm:6.9.7"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -5043,6 +5060,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["qs", [\
+        ["npm:6.11.0", {\
+          "packageLocation": "./.yarn/cache/qs-npm-6.11.0-caf1bc9dea-6e1f29dd53.zip/node_modules/qs/",\
+          "packageDependencies": [\
+            ["qs", "npm:6.11.0"],\
+            ["side-channel", "npm:1.0.4"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["queue-microtask", [\
         ["npm:1.2.3", {\
           "packageLocation": "./.yarn/cache/queue-microtask-npm-1.2.3-fcc98e4e2d-b676f8c040.zip/node_modules/queue-microtask/",\
@@ -5750,7 +5777,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/core/",\
           "packageDependencies": [\
             ["use-cosmos-query", "workspace:packages/core"],\
+            ["@types/qs", "npm:6.9.7"],\
             ["axios", "npm:0.27.2"],\
+            ["qs", "npm:6.11.0"],\
             ["typescript", "patch:typescript@npm%3A4.8.2#~builtin<compat/typescript>::version=4.8.2&hash=a1c5e5"],\
             ["vite", "virtual:920b9c9c6464606ad5759e22c05c2d66381768b9db1179b728383921b1ddf75d6d948031db662867328ea3991426ed726f06f1e20097ce1099b8eb0d71b6bedd#npm:3.0.9"],\
             ["vite-plugin-dts", "virtual:920b9c9c6464606ad5759e22c05c2d66381768b9db1179b728383921b1ddf75d6d948031db662867328ea3991426ed726f06f1e20097ce1099b8eb0d71b6bedd#npm:1.4.1"]\

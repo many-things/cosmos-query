@@ -23,7 +23,7 @@ export const getGrants =
           granter,
           grantee,
           msg_type_url: msgTypeUrl,
-          ...pagination,
+          pagination,
         },
       })
     ).data;

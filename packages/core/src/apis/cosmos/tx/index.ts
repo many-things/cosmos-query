@@ -43,7 +43,7 @@ export const getTxsEvent =
   }): Promise<TxsEventResponse> => {
     return (
       await instance(baseURL).get("/cosmos/tx/v1beta1/txs", {
-        params: { events, ...pagination, order_by: orderBy },
+        params: { events, pagination, order_by: orderBy },
       })
     ).data;
   };
