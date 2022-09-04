@@ -264,6 +264,28 @@ export const getCosmosQuery = (baseURL: string) => {
      */
 
     /**
+     * AppliedPlan queries a previously applied upgrade plan by its name.
+     * @REST GET `/cosmos/upgrade/v1beta1/applied_plan/{name}`
+     */
+    get: setBase(Cosmos.Upgrade.getAppliedPlan),
+    /**
+     * CurrentPlan queries the current upgrade plan.
+     * @REST GET `/cosmos/upgrade/v1beta1/current_plan`
+     */
+    getCurrentPlan: setBase(Cosmos.Upgrade.getCurrentPlan),
+    /**
+     * ModuleVersions queries the list of module versions from state.
+     * @REST GET `/cosmos/upgrade/v1beta1/module_versions`
+     */
+    getModuleVersions: setBase(Cosmos.Upgrade.getModuleVersions),
+    /**
+     * UpgradedConsensusState queries the consensus state that will serve as a trusted kernel for the next version of this chain. It will only be stored at the last height of this chain. UpgradedConsensusState RPC not supported with legacy querier.
+     * @REST GET `/cosmos/upgrade/v1beta1/upgraded_consensus_state/{last_height}`
+     */
+    getUpgradedConsensusState: setBase(
+      Cosmos.Upgrade.getUpgradedConsensusState
+    ),
+    /**
      * Returns list of `Authorization`, granted to the grantee by the granter.
      * @REST GET `/cosmos/authz/v1beta1/grants`
      */

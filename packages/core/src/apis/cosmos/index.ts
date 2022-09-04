@@ -8,5 +8,6 @@ export * as Governance from "./governance";
 export * as Mint from "./mint";
 export * as Params from "./params";
 export * as Slashing from "./slashing";
+export * as Upgrade from "./upgrade";
 export * as Authz from "./authz";
 export * as FeeGrant from "./feegrant";
