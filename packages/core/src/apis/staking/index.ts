@@ -3,10 +3,13 @@ import type { Delegation, DelegationsResponse } from "./types";
 
 export const submitDelegation =
   (baseURL: string) =>
-  async (
-    delegatorAddress: string,
-    delegation?: Delegation
-  ): Promise<DelegationsResponse> => {
+  async ({
+    delegatorAddress,
+    delegation,
+  }: {
+    delegatorAddress: string;
+    delegation?: Delegation;
+  }): Promise<DelegationsResponse> => {
     return (
       await instance(baseURL).post(
         `​/staking​/delegators​/${delegatorAddress}​/delegations`,
@@ -19,10 +22,13 @@ export const submitDelegation =
 
 export const submitUnbondingDelegation =
   (baseURL: string) =>
-  async (
-    delegatorAddress: string,
-    delegation?: Delegation
-  ): Promise<DelegationsResponse> => {
+  async ({
+    delegatorAddress,
+    delegation,
+  }: {
+    delegatorAddress: string;
+    delegation?: Delegation;
+  }): Promise<DelegationsResponse> => {
     return (
       await instance(baseURL).post(
         `/staking/delegators/${delegatorAddress}/unbonding_delegations`,

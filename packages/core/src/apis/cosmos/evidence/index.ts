@@ -6,7 +6,11 @@ export type { AllEvidenceResponse, EvidenceResponse };
 
 export const getAllEvidence =
   (baseURL: string) =>
-  async (pagination?: PaginationParams): Promise<AllEvidenceResponse> => {
+  async ({
+    pagination,
+  }: {
+    pagination?: PaginationParams;
+  }): Promise<AllEvidenceResponse> => {
     return (
       await instance(baseURL).get("/cosmos/evidence/v1beta1/evidence", {
         params: { pagination },
@@ -16,7 +20,11 @@ export const getAllEvidence =
 
 export const getEvidence =
   (baseURL: string) =>
-  async (evidenceHash: string): Promise<EvidenceResponse> => {
+  async ({
+    evidenceHash,
+  }: {
+    evidenceHash: string;
+  }): Promise<EvidenceResponse> => {
     return (
       await instance(baseURL).get(
         `/cosmos/evidence/v1beta1/evidence/${evidenceHash}`

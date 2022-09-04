@@ -33,7 +33,11 @@ export const getCommunityPool =
 
 export const getDelegationTotalRewards =
   (baseURL: string) =>
-  async (delegatorAddress: string): Promise<DelegationTotalRewardsResponse> => {
+  async ({
+    delegatorAddress,
+  }: {
+    delegatorAddress: string;
+  }): Promise<DelegationTotalRewardsResponse> => {
     return (
       await instance(baseURL).get(
         `/cosmos/distribution/v1beta1/delegators/${delegatorAddress}/rewards`
@@ -43,10 +47,13 @@ export const getDelegationTotalRewards =
 
 export const getDelegationRewards =
   (baseURL: string) =>
-  async (
-    delegatorAddress: string,
-    validatorAddress: string
-  ): Promise<DelegationRewardsResponse> => {
+  async ({
+    delegatorAddress,
+    validatorAddress,
+  }: {
+    delegatorAddress: string;
+    validatorAddress: string;
+  }): Promise<DelegationRewardsResponse> => {
     return (
       await instance(baseURL).get(
         `​/cosmos​/distribution​/v1beta1​/delegators​/${delegatorAddress}​/rewards​/${validatorAddress}`
@@ -56,9 +63,11 @@ export const getDelegationRewards =
 
 export const getDelegatorValidatorAddresses =
   (baseURL: string) =>
-  async (
-    delegatorAddress: string
-  ): Promise<DelegatorValidatorAddressesResponse> => {
+  async ({
+    delegatorAddress,
+  }: {
+    delegatorAddress: string;
+  }): Promise<DelegatorValidatorAddressesResponse> => {
     return (
       await instance(baseURL).get(
         `/cosmos/distribution/v1beta1/delegators/${delegatorAddress}/validators`
@@ -68,9 +77,11 @@ export const getDelegatorValidatorAddresses =
 
 export const getDelegatorWithdrawAddress =
   (baseURL: string) =>
-  async (
-    delegatorAddress: string
-  ): Promise<DelegatorWithdrawAddressResponse> => {
+  async ({
+    delegatorAddress,
+  }: {
+    delegatorAddress: string;
+  }): Promise<DelegatorWithdrawAddressResponse> => {
     return (
       await instance(baseURL).get(
         `/cosmos/distribution/v1beta1/delegators/${delegatorAddress}/withdraw_address`
@@ -87,7 +98,11 @@ export const getDistributionParams =
 
 export const getValidatorCommission =
   (baseURL: string) =>
-  async (validatorAddress: string): Promise<ValidatorCommissionResponse> => {
+  async ({
+    validatorAddress,
+  }: {
+    validatorAddress: string;
+  }): Promise<ValidatorCommissionResponse> => {
     return (
       await instance(baseURL).get(
         `/cosmos/distribution/v1beta1/validators/${validatorAddress}/commission`
@@ -97,9 +112,11 @@ export const getValidatorCommission =
 
 export const getValidatorOutstandingRewards =
   (baseURL: string) =>
-  async (
-    validatorAddress: string
-  ): Promise<ValidatorOutstandingRewardsResponse> => {
+  async ({
+    validatorAddress,
+  }: {
+    validatorAddress: string;
+  }): Promise<ValidatorOutstandingRewardsResponse> => {
     return (
       await instance(baseURL).get(
         `/cosmos/distribution/v1beta1/validators/${validatorAddress}/outstanding_rewards`

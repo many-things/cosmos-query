@@ -22,7 +22,7 @@ export type {
 
 export const simulateTx =
   (baseURL: string) =>
-  async (body: SimulateTx): Promise<SimulateTxResponse> => {
+  async ({ body }: { body: SimulateTx }): Promise<SimulateTxResponse> => {
     return (
       await instance(baseURL).post("/cosmos/tx/v1beta1/simulate", {
         body,
@@ -50,7 +50,7 @@ export const getTxsEvent =
 
 export const broadcastTx =
   (baseURL: string) =>
-  async (body: BroadcastTx): Promise<BroadcastTxResponse> => {
+  async ({ body }: { body: BroadcastTx }): Promise<BroadcastTxResponse> => {
     return (
       await instance(baseURL).post("/cosmos/tx/v1beta1/txs", {
         body,
@@ -60,6 +60,6 @@ export const broadcastTx =
 
 export const getTxByHash =
   (baseURL: string) =>
-  async (hash: string): Promise<TxByHashResponse> => {
+  async ({ hash }: { hash: string }): Promise<TxByHashResponse> => {
     return (await instance(baseURL).get(`/cosmos/tx/v1beta1/txs/${hash}`)).data;
   };

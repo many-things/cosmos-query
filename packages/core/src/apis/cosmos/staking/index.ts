@@ -136,7 +136,7 @@ export const getDelegatorValidator =
 
 export const getHistoricalInfo =
   (baseURL: string) =>
-  async (height: string): Promise<HistoricalInfoResponse> => {
+  async ({ height }: { height: string }): Promise<HistoricalInfoResponse> => {
     return (
       await instance(baseURL).get(
         `/cosmos/staking/v1beta1/historical_info/${height}`
@@ -174,7 +174,11 @@ export const getValidators =
 
 export const getValidator =
   (baseURL: string) =>
-  async (validatorAddress: string): Promise<ValidatorResponse> => {
+  async ({
+    validatorAddress,
+  }: {
+    validatorAddress: string;
+  }): Promise<ValidatorResponse> => {
     return (
       await instance(baseURL).get(
         `/cosmos/staking/v1beta1/validators${validatorAddress}`

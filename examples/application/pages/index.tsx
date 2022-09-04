@@ -32,8 +32,10 @@ const Home: NextPage = () => {
   useEffect(() => {
     (async () => {
       const a = await getAccounts({
-        offset: 10,
-        limit: 10,
+        pagination: {
+          offset: 10,
+          limit: 10,
+        },
       });
       console.log(a);
     })();

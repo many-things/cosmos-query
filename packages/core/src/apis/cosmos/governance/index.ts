@@ -25,7 +25,11 @@ export type {
 
 export const getGovParams =
   (baseURL: string) =>
-  async (paramsType: GovParamsType): Promise<GovParamsResponse> => {
+  async ({
+    paramsType,
+  }: {
+    paramsType: GovParamsType;
+  }): Promise<GovParamsResponse> => {
     return (
       await instance(baseURL).get(`/cosmos/gov/v1beta1/params/${paramsType}`)
     ).data;
@@ -53,7 +57,11 @@ export const getProposals =
 
 export const getProposal =
   (baseURL: string) =>
-  async (proposalId: string): Promise<ProposalsResponse> => {
+  async ({
+    proposalId,
+  }: {
+    proposalId: string;
+  }): Promise<ProposalsResponse> => {
     return (
       await instance(baseURL).get(
         `/cosmos​/gov​/v1beta1​/proposals​/${proposalId}`
@@ -98,7 +106,11 @@ export const getProposalDeposit =
 
 export const getProposalTally =
   (baseURL: string) =>
-  async (proposalId: string): Promise<ProposalTallyResponse> => {
+  async ({
+    proposalId,
+  }: {
+    proposalId: string;
+  }): Promise<ProposalTallyResponse> => {
     return (
       await instance(baseURL).get(
         `/cosmos/gov/v1beta1/proposals/${proposalId}/tally`

@@ -15,7 +15,7 @@ export type {
 
 export const getAppliedPlan =
   (baseURL: string) =>
-  async (name: string): Promise<AppliedPlanResponse> => {
+  async ({ name }: { name: string }): Promise<AppliedPlanResponse> => {
     return (
       await instance(baseURL).get(
         `/cosmos/upgrade/v1beta1/applied_plan/${name}`
@@ -31,7 +31,11 @@ export const getCurrentPlan =
 
 export const getModuleVersions =
   (baseURL: string) =>
-  async (moduleName?: string): Promise<ModuleVersionsResponse> => {
+  async ({
+    moduleName,
+  }: {
+    moduleName?: string;
+  }): Promise<ModuleVersionsResponse> => {
     return (
       await instance(baseURL).get("/cosmos/upgrade/v1beta1/module_versions", {
         params: { module_name: moduleName },
@@ -41,7 +45,11 @@ export const getModuleVersions =
 
 export const getUpgradedConsensusState =
   (baseURL: string) =>
-  async (lastHeight: string): Promise<UpgradedConsensusStateResponse> => {
+  async ({
+    lastHeight,
+  }: {
+    lastHeight: string;
+  }): Promise<UpgradedConsensusStateResponse> => {
     return (
       await instance(baseURL).get(
         `/cosmos/upgrade/v1beta1/upgraded_consensus_state/${lastHeight}`

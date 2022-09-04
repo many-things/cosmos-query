@@ -26,7 +26,7 @@ export const getLatestBlock =
 
 export const getBlockByHeight =
   (baseURL: string) =>
-  async (height: number): Promise<BlockResponse> => {
+  async ({ height }: { height: number }): Promise<BlockResponse> => {
     return (
       await instance(baseURL).get(
         `​/cosmos​/base​/tendermint​/v1beta1​/blocks​/${height.toString()}`
@@ -50,7 +50,11 @@ export const getSyncing =
 
 export const getLatestValidatorSet =
   (baseURL: string) =>
-  async (pagination?: PaginationParams): Promise<ValidatorSetResponse> => {
+  async ({
+    pagination,
+  }: {
+    pagination?: PaginationParams;
+  }): Promise<ValidatorSetResponse> => {
     return (
       await instance(baseURL).get(
         "​/cosmos​/base​/tendermint​/v1beta1​/validatorsets​/latest",

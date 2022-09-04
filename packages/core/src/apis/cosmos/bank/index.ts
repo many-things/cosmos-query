@@ -75,7 +75,11 @@ export const getDenomOwners =
 
 export const getAllDenomsMetadata =
   (baseURL: string) =>
-  async (pagination?: PaginationParams): Promise<AllDenomsMetadataResponse> => {
+  async ({
+    pagination,
+  }: {
+    pagination?: PaginationParams;
+  }): Promise<AllDenomsMetadataResponse> => {
     return (
       await instance(baseURL).get("/cosmos/bank/v1beta1/denoms_metadata", {
         params: { pagination },
@@ -85,7 +89,7 @@ export const getAllDenomsMetadata =
 
 export const getDenomMetadata =
   (baseURL: string) =>
-  async (denom: string): Promise<DenomMetadataResponse> => {
+  async ({ denom }: { denom: string }): Promise<DenomMetadataResponse> => {
     return (
       await instance(baseURL).get(
         `/cosmos/bank/v1beta1/denoms_metadata/${denom}`
@@ -100,7 +104,11 @@ export const getBankParams =
 
 export const getTotalSupply =
   (baseURL: string) =>
-  async (pagination?: PaginationParams): Promise<TotalSupplyResponse> => {
+  async ({
+    pagination,
+  }: {
+    pagination?: PaginationParams;
+  }): Promise<TotalSupplyResponse> => {
     return (
       await instance(baseURL).get("/cosmos/bank/v1beta1/supply", {
         params: { pagination },
@@ -110,7 +118,7 @@ export const getTotalSupply =
 
 export const getSupply =
   (baseURL: string) =>
-  async (denom: string): Promise<SupplyResponse> => {
+  async ({ denom }: { denom: string }): Promise<SupplyResponse> => {
     return (await instance(baseURL).get(`/cosmos/bank/v1beta1/supply/${denom}`))
       .data;
   };
