@@ -8,6 +8,15 @@ export type PaginationParams =
     }
   | undefined;
 
+export type OsmosisPaginationParams =
+  | {
+      key?: string;
+      offset?: number;
+      limit?: number;
+      count_total?: boolean;
+    }
+  | undefined;
+
 export interface PaginationResponse {
   next_key: string;
   total: string;
