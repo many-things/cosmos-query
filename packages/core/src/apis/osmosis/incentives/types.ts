@@ -1,6 +1,6 @@
 import type { PaginationResponse } from "../../../types";
 
-interface Guage {
+interface Gauge {
   id: string;
   is_perpetual: boolean;
   distribute_to: {
@@ -22,17 +22,17 @@ interface Guage {
   }[];
 }
 
-export interface ActiveGuagesResponse {
-  data: Guage[];
+export interface ActiveGaugesResponse {
+  data: Gauge[];
   pagination: PaginationResponse;
 }
 
-export interface GuageByIdResponse {
-  guage: Guage;
+export interface GaugeByIdResponse {
+  Gauge: Gauge;
 }
 
-export interface GuagesResponse {
-  data: Guage[];
+export interface GaugesResponse {
+  data: Gauge[];
   pagination: PaginationResponse;
 }
 
@@ -54,6 +54,6 @@ export interface RewardsEstResponse {
 }
 
 export interface UpcomingGaugesResponse {
-  data: Guage[];
+  data: Gauge[];
   pagination: PaginationResponse;
 }

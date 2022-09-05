@@ -1,9 +1,9 @@
 import { instance } from "../../../utils";
 import type { PaginationParams } from "../../cosmos";
 import type {
-  ActiveGuagesResponse,
-  GuageByIdResponse,
-  GuagesResponse,
+  ActiveGaugesResponse,
+  GaugeByIdResponse,
+  GaugesResponse,
   ModuleDistributedCoinsResponse,
   ModuleToDistributeCoinsResponse,
   RewardsEstResponse,
@@ -11,22 +11,22 @@ import type {
 } from "./types";
 
 export type {
-  ActiveGuagesResponse,
-  GuageByIdResponse,
-  GuagesResponse,
+  ActiveGaugesResponse,
+  GaugeByIdResponse,
+  GaugesResponse,
   ModuleDistributedCoinsResponse,
   ModuleToDistributeCoinsResponse,
   RewardsEstResponse,
   UpcomingGaugesResponse,
 };
 
-export const getActiveGuages =
+export const getActiveGauges =
   (baseURL: string) =>
   async ({
     pagination,
   }: {
     pagination?: PaginationParams;
-  }): Promise<ActiveGuagesResponse> => {
+  }): Promise<ActiveGaugesResponse> => {
     return (
       await instance(baseURL).get("osmosis/incentives/v1beta1/active_gauges", {
         params: { pagination },
@@ -36,7 +36,7 @@ export const getActiveGuages =
 
 export const getGaugeById =
   (baseURL: string) =>
-  async ({ id }: { id: string }): Promise<GuageByIdResponse> => {
+  async ({ id }: { id: string }): Promise<GaugeByIdResponse> => {
     return (
       await instance(baseURL).get(
         `/osmosis/incentives/v1beta1/gauge_by_id/${id}`
@@ -44,13 +44,13 @@ export const getGaugeById =
     ).data;
   };
 
-export const addGuages =
+export const getGauges =
   (baseURL: string) =>
   async ({
     pagination,
   }: {
     pagination?: PaginationParams;
-  }): Promise<GuagesResponse> => {
+  }): Promise<GaugesResponse> => {
     return (
       await instance(baseURL).get("/osmosis/incentives/v1beta1/gauges", {
         params: { pagination },
@@ -98,7 +98,7 @@ export const getRewardsEst =
     ).data;
   };
 
-export const getUpcomingGuages =
+export const getUpcomingGauges =
   (baseURL: string) =>
   async ({
     pagination,
