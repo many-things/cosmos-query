@@ -1,1 +1,1 @@
-# useCosmosQuery
+# Cosmos Query

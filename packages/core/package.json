@@ -1,5 +1,5 @@
 {
-  "name": "use-cosmos-query",
+  "name": "@many-things/cosmos-query",
   "version": "0.0.1",
   "description": "",
   "scripts": {
@@ -7,14 +7,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ryz0nd/useCosmosQuery.git"
+    "url": "git+https://github.com/many-things/cosmos-query.git"
   },
   "author": "Ryz0nd <ryzond6728@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Ryz0nd/useCosmosQuery/issues"
+    "url": "https://github.com/many-things/cosmos-query/issues"
   },
-  "homepage": "https://github.com/Ryz0nd/useCosmosQuery#readme",
+  "homepage": "https://github.com/many-things/cosmos-query#readme",
   "files": [
     "dist"
   ],
