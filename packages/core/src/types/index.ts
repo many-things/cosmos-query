@@ -54,3 +54,15 @@ export type BondStatus =
   | "BOND_STATUS_UNBONDED"
   | "BOND_STATUS_UNBONDING"
   | "BOND_STATUS_BONDED";
+
+export type ChannelState =
+  | "STATE_UNINITIALIZED_UNSPECIFIED"
+  | "STATE_INIT"
+  | "STATE_TRYOPEN"
+  | "STATE_OPEN"
+  | "STATE_CLOSED";
+
+export type ChannelOrdering =
+  | "ORDER_NONE_UNSPECIFIED"
+  | "ORDER_UNORDERED"
+  | "ORDER_ORDERED";
