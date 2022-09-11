@@ -6,6 +6,7 @@ import type {
   GovParamsType,
   ProposalDepositResponse,
   ProposalDepositsResponse,
+  ProposalResponse,
   ProposalsResponse,
   ProposalTallyResponse,
   ProposalVoteResponse,
@@ -17,6 +18,7 @@ export type {
   GovParamsType,
   ProposalDepositResponse,
   ProposalDepositsResponse,
+  ProposalResponse,
   ProposalsResponse,
   ProposalTallyResponse,
   ProposalVoteResponse,
@@ -57,11 +59,7 @@ export const getProposals =
 
 export const getProposal =
   (baseURL: string) =>
-  async ({
-    proposalId,
-  }: {
-    proposalId: string;
-  }): Promise<ProposalsResponse> => {
+  async ({ proposalId }: { proposalId: string }): Promise<ProposalResponse> => {
     return (
       await instance(baseURL).get(
         `/cosmos​/gov​/v1beta1​/proposals​/${proposalId}`

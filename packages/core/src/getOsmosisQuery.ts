@@ -1,8 +1,8 @@
 import * as Osmosis from "./apis/osmosis";
 
-export const getOsmosisQuery = (baseURL: string) => {
+export const getOsmosisQuery = (baseURL: string | undefined) => {
   const setBase = <T>(callback: (url: string) => T) => {
-    return callback(baseURL);
+    return callback(baseURL ?? "");
   };
 
   return {

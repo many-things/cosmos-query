@@ -1,8 +1,8 @@
 import * as IBC from "./apis/ibc";
 
-export const getIBCQuery = (baseURL: string) => {
+export const getIBCQuery = (baseURL: string | undefined) => {
   const setBase = <T>(callback: (url: string) => T) => {
-    return callback(baseURL);
+    return callback(baseURL ?? "");
   };
 
   return {

@@ -1,9 +1,9 @@
 import * as Staking from "./apis/staking";
 import * as Cosmos from "./apis/cosmos";
 
-export const getCosmosQuery = (baseURL: string) => {
+export const getCosmosQuery = (baseURL: string | undefined) => {
   const setBase = <T>(callback: (url: string) => T) => {
-    return callback(baseURL);
+    return callback(baseURL ?? "");
   };
 
   return {
