@@ -6,10 +6,13 @@ import type {
 
 export type GovParamsType = "voting" | "tallying" | "deposit";
 
-export interface GovParamsResponse {
+export interface GovVotingParamsResponse {
   voting_params: {
     voting_period: string;
   };
+}
+
+export interface GovDepositParamsResponse {
   deposit_params: {
     min_deposit: {
       denom: string;
@@ -17,6 +20,9 @@ export interface GovParamsResponse {
     }[];
     max_deposit_period: string;
   };
+}
+
+export interface GovTallyParamsResponse {
   tally_params: {
     quorum: string;
     threshold: string;
