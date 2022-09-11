@@ -2,10 +2,8 @@ import { ProposalStatus } from "../../../types";
 import { instance } from "../../../utils";
 import type { PaginationParams } from "../base";
 import type {
-  GovDepositParamsResponse,
+  GovParamsResponse,
   GovParamsType,
-  GovTallyParamsResponse,
-  GovVotingParamsResponse,
   ProposalDepositResponse,
   ProposalDepositsResponse,
   ProposalResponse,
@@ -16,10 +14,8 @@ import type {
 } from "./types";
 
 export type {
-  GovDepositParamsResponse,
+  GovParamsResponse,
   GovParamsType,
-  GovTallyParamsResponse,
-  GovVotingParamsResponse,
   ProposalDepositResponse,
   ProposalDepositsResponse,
   ProposalResponse,
@@ -35,9 +31,7 @@ export const getGovParams =
     paramsType,
   }: {
     paramsType: GovParamsType;
-  }): Promise<
-    GovVotingParamsResponse | GovTallyParamsResponse | GovDepositParamsResponse
-  > => {
+  }): Promise<GovParamsResponse> => {
     return (
       await instance(baseURL).get(`/cosmos/gov/v1beta1/params/${paramsType}`)
     ).data;
@@ -67,7 +61,9 @@ export const getProposal =
   (baseURL: string) =>
   async ({ proposalId }: { proposalId: string }): Promise<ProposalResponse> => {
     return (
-      await instance(baseURL).get(`/cosmos/gov/v1beta1/proposals/${proposalId}`)
+      await instance(baseURL).get(
+        `/cosmos/gov/v1beta1/proposals/${proposalId}`
+      )
     ).data;
   };
 
