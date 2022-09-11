@@ -27,8 +27,9 @@ export interface GovParamsResponse {
 interface Proposal {
   proposal_id: string;
   content: {
-    type_url: string;
-    value: string;
+    "@type": string;
+    title: string;
+    description: string;
   };
   status: ProposalStatus;
   final_tally_result: {

@@ -18,7 +18,7 @@ export type OsmosisPaginationParams =
   | undefined;
 
 export interface PaginationResponse {
-  next_key: string;
+  next_key: string | null;
   total: string;
 }
 
