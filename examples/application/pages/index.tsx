@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { useEffect } from "react";
-import { getCosmosQuery } from "use-cosmos-query";
+import { getCosmosQuery } from "@many-things/cosmos-query";
 
 const lcdList = {
   ["cosmoshub-4"]: "https://lcd-cosmoshub.blockapsis.com",

@@ -87,6 +87,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@many-things/cosmos-query@*, @many-things/cosmos-query@workspace:packages/core":
+  version: 0.0.0-use.local
+  resolution: "@many-things/cosmos-query@workspace:packages/core"
+  dependencies:
+    "@types/qs": ^6.9.7
+    axios: ^0.27.2
+    qs: ^6.11.0
+    typescript: ^4.8.2
+    vite: ^3.0.9
+    vite-plugin-dts: ^1.4.1
+  languageName: unknown
+  linkType: soft
+
 "@microsoft/api-extractor-model@npm:7.23.3":
   version: 7.23.3
   resolution: "@microsoft/api-extractor-model@npm:7.23.3"
@@ -584,6 +597,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "application@workspace:examples/application"
   dependencies:
+    "@many-things/cosmos-query": "*"
     "@types/node": 18.7.14
     "@types/react": 18.0.18
     "@types/react-dom": 18.0.6
@@ -593,7 +607,6 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     typescript: 4.8.2
-    use-cosmos-query: "*"
   languageName: unknown
   linkType: soft
 
@@ -906,6 +919,15 @@ __metadata:
   checksum: 041cef3c4fa03b30eea6aa8539db00a02ea264e8542b9b787428f43e727e67050c742f46dbd75bc9ab544524a54e1ee55d8b23602dc8a2da485a3741a5f95df7
   languageName: node
   linkType: hard
+
+"cosmos-query@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "cosmos-query@workspace:."
+  dependencies:
+    "@types/node": ^18.7.14
+    typescript: ^4.8.2
+  languageName: unknown
+  linkType: soft
 
 "cross-spawn@npm:^7.0.2":
   version: 7.0.3
@@ -2441,15 +2463,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"main@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "main@workspace:."
-  dependencies:
-    "@types/node": ^18.7.14
-    typescript: ^4.8.2
-  languageName: unknown
-  linkType: soft
-
 "make-fetch-happen@npm:^10.0.3":
   version: 10.2.1
   resolution: "make-fetch-happen@npm:10.2.1"
@@ -3699,19 +3712,6 @@ __metadata:
   checksum: 7167432de6817fe8e9e0c9684f1d2de2bb688c94388f7569f7dbdb1587c9f4ca2a77962f134ec90be0cc4d004c939ff0d05acc9f34a0db39a3c797dada262633
   languageName: node
   linkType: hard
-
-"use-cosmos-query@*, use-cosmos-query@workspace:packages/core":
-  version: 0.0.0-use.local
-  resolution: "use-cosmos-query@workspace:packages/core"
-  dependencies:
-    "@types/qs": ^6.9.7
-    axios: ^0.27.2
-    qs: ^6.11.0
-    typescript: ^4.8.2
-    vite: ^3.0.9
-    vite-plugin-dts: ^1.4.1
-  languageName: unknown
-  linkType: soft
 
 "use-sync-external-store@npm:1.2.0":
   version: 1.2.0
