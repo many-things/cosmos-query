@@ -10,13 +10,13 @@ export const getCosmosQuery = (baseURL: string | undefined) => {
     /**
      * Submit delegation
      *
-     * POST `​/staking​/delegators​/{delegatorAddr}​/delegations`
+     * POST `/staking/delegators/{delegatorAddr}/delegations`
      */
     submitDelegation: setBase(Staking.submitDelegation),
     /**
      * Submit an unbonding delegation
      *
-     * POST `​/staking​/delegators​/{delegatorAddr}​/unbonding_delegations`
+     * POST `/staking/delegators/{delegatorAddr}/unbonding_delegations`
      */
     submitUnbondingDelegation: setBase(Staking.submitUnbondingDelegation),
     /**
@@ -52,7 +52,7 @@ export const getCosmosQuery = (baseURL: string | undefined) => {
     /**
      * GetValidatorSetByHeight queries validator-set at a given height.
      *
-     * GET `/cosmos​/base​/tendermint​/v1beta1​/validatorsets​/{height}`
+     * GET `/cosmos/base/tendermint/v1beta1/validatorsets/{height}`
      */
     getValidatorSetByHeight: setBase(Cosmos.getValidatorSetByHeight),
     /**
@@ -70,7 +70,7 @@ export const getCosmosQuery = (baseURL: string | undefined) => {
     /**
      * BroadcastTx broadcast transaction.
      *
-     * POST `/cosmos​/tx​/v1beta1​/txs`
+     * POST `/cosmos/tx/v1beta1/txs`
      */
     broadcastTx: setBase(Cosmos.broadcastTx),
     /**
@@ -94,13 +94,13 @@ export const getCosmosQuery = (baseURL: string | undefined) => {
     /**
      * Params queries all parameters.
      *
-     * GET `/cosmos​/auth​/v1beta1​/params`
+     * GET `/cosmos/auth/v1beta1/params`
      */
     getAuthParams: setBase(Cosmos.getAuthParams),
     /**
      * AllBalances queries the balance of all coins for a single account.
      *
-     * GET `​/cosmos​/bank​/v1beta1​/balances​/{address}`
+     * GET `/cosmos/bank/v1beta1/balances/{address}`
      */
     getAllBalances: setBase(Cosmos.getAllBalances),
     /**
@@ -148,7 +148,7 @@ export const getCosmosQuery = (baseURL: string | undefined) => {
     /**
      * CommunityPool queries the community pool coins.
      *
-     * GET `/cosmos​/distribution​/v1beta1​/community_pool`
+     * GET `/cosmos/distribution/v1beta1/community_pool`
      */
     getCommunityPool: setBase(Cosmos.getCommunityPool),
     /**
@@ -166,7 +166,7 @@ export const getCosmosQuery = (baseURL: string | undefined) => {
     /**
      * DelegatorValidators queries the validators of a delegator.
      *
-     * GET `/cosmos​/distribution​/v1beta1​/delegators​/{delegator_address}​/validators`
+     * GET `/cosmos/distribution/v1beta1/delegators/{delegator_address}/validators`
      */
     getDelegatorValidatorAddresses: setBase(
       Cosmos.getDelegatorValidatorAddresses
@@ -192,7 +192,7 @@ export const getCosmosQuery = (baseURL: string | undefined) => {
     /**
      * ValidatorOutstandingRewards queries rewards of a validator address.
      *
-     * GET `/cosmos​/distribution​/v1beta1​/validators​/{validator_address}​/outstanding_rewards`
+     * GET `/cosmos/distribution/v1beta1/validators/{validator_address}/outstanding_rewards`
      */
     getValidatorOutstandingRewards: setBase(
       Cosmos.getValidatorOutstandingRewards
@@ -218,7 +218,7 @@ export const getCosmosQuery = (baseURL: string | undefined) => {
     /**
      * Params queries all parameters of the gov module.
      *
-     * GET `​/cosmos​/gov​/v1beta1​/params​/{params_type}`
+     * GET `/cosmos/gov/v1beta1/params/{params_type}`
      */
     getGovParams: setBase(Cosmos.getGovParams),
     /**
@@ -254,19 +254,19 @@ export const getCosmosQuery = (baseURL: string | undefined) => {
     /**
      * Votes queries votes of a given proposal.
      *
-     * GET `/cosmos​/gov​/v1beta1​/proposals​/{proposal_id}​/votes`
+     * GET `/cosmos/gov/v1beta1/proposals/{proposal_id}/votes`
      */
     getProposalVotes: setBase(Cosmos.getProposalVotes),
     /**
      * Vote queries voted information based on proposalID, voterAddr.
      *
-     * GET `/cosmos​/gov​/v1beta1​/proposals​/{proposal_id}​/votes​/{voter}`
+     * GET `/cosmos/gov/v1beta1/proposals/{proposal_id}/votes/{voter}`
      */
     getProposalVote: setBase(Cosmos.getProposalVote),
     /**
      * AnnualProvisions current minting annual provisions value.
      *
-     * GET `/cosmos​/mint​/v1beta1​/annual_provisions`
+     * GET `/cosmos/mint/v1beta1/annual_provisions`
      */
     getAnnualProvisions: setBase(Cosmos.getAnnualProvisions),
     /**
@@ -320,7 +320,7 @@ export const getCosmosQuery = (baseURL: string | undefined) => {
     /**
      * DelegatorUnbondingDelegations queries all unbonding delegations of a given delegator address.
      *
-     * GET `/cosmos​/staking​/v1beta1​/delegators​/{delegator_addr}​/unbonding_delegations`
+     * GET `/cosmos/staking/v1beta1/delegators/{delegator_addr}/unbonding_delegations`
      */
     getDelegatorUnbondingDelegations: setBase(
       Cosmos.getDelegatorUnbondingDelegations
@@ -334,7 +334,7 @@ export const getCosmosQuery = (baseURL: string | undefined) => {
     /**
      * DelegatorValidator queries validator info for given delegator validator pair.
      *
-     * GET `​/cosmos​/staking​/v1beta1​/delegators​/{delegator_addr}​/validators​/{validator_addr}`
+     * GET `/cosmos/staking/v1beta1/delegators/{delegator_addr}/validators/{validator_addr}`
      */
     getDelegatorValidator: setBase(Cosmos.getDelegatorValidator),
     /**

@@ -62,7 +62,7 @@ export const getProposal =
   async ({ proposalId }: { proposalId: string }): Promise<ProposalResponse> => {
     return (
       await instance(baseURL).get(
-        `/cosmos​/gov​/v1beta1​/proposals​/${proposalId}`
+        `/cosmos/gov/v1beta1/proposals/${proposalId}`
       )
     ).data;
   };

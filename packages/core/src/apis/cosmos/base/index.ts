@@ -29,7 +29,7 @@ export const getBlockByHeight =
   async ({ height }: { height: number }): Promise<BlockResponse> => {
     return (
       await instance(baseURL).get(
-        `​/cosmos​/base​/tendermint​/v1beta1​/blocks​/${height.toString()}`
+        `/cosmos/base/tendermint/v1beta1/blocks/${height.toString()}`
       )
     ).data;
   };
@@ -57,7 +57,7 @@ export const getLatestValidatorSet =
   }): Promise<ValidatorSetResponse> => {
     return (
       await instance(baseURL).get(
-        "​/cosmos​/base​/tendermint​/v1beta1​/validatorsets​/latest",
+        "/cosmos/base/tendermint/v1beta1/validatorsets/latest",
         { params: { pagination } }
       )
     ).data;

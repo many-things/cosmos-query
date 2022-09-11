@@ -12,7 +12,7 @@ export const submitDelegation =
   }): Promise<DelegationsResponse> => {
     return (
       await instance(baseURL).post(
-        `​/staking​/delegators​/${delegatorAddress}​/delegations`,
+        `/staking/delegators/${delegatorAddress}/delegations`,
         {
           delegation,
         }

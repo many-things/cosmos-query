@@ -56,7 +56,7 @@ export const getDelegationRewards =
   }): Promise<DelegationRewardsResponse> => {
     return (
       await instance(baseURL).get(
-        `​/cosmos​/distribution​/v1beta1​/delegators​/${delegatorAddress}​/rewards​/${validatorAddress}`
+        `/cosmos/distribution/v1beta1/delegators/${delegatorAddress}/rewards/${validatorAddress}`
       )
     ).data;
   };
@@ -92,7 +92,7 @@ export const getDelegatorWithdrawAddress =
 export const getDistributionParams =
   (baseURL: string) => async (): Promise<DistributionParamsResponse> => {
     return (
-      await instance(baseURL).get("​/cosmos​/distribution​/v1beta1​/params")
+      await instance(baseURL).get("/cosmos/distribution/v1beta1/params")
     ).data;
   };
 
