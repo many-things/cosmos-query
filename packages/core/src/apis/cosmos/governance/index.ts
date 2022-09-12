@@ -50,9 +50,36 @@ export const getProposals =
     depositor?: string;
     pagination?: PaginationParams;
   }): Promise<ProposalsResponse> => {
+    const proposalStatusNumber = () => {
+      if (proposalStatus === "PROPOSAL_STATUS_UNSPECIFIED") {
+        return 0;
+      }
+      if (proposalStatus === "PROPOSAL_STATUS_DEPOSIT_PERIOD") {
+        return 1;
+      }
+      if (proposalStatus === "PROPOSAL_STATUS_VOTING_PERIOD") {
+        return 2;
+      }
+      if (proposalStatus === "PROPOSAL_STATUS_PASSED") {
+        return 3;
+      }
+      if (proposalStatus === "PROPOSAL_STATUS_REJECTED") {
+        return 4;
+      }
+      if (proposalStatus === "PROPOSAL_STATUS_FAILED") {
+        return 5;
+      }
+
+      return 0;
+    };
     return (
       await instance(baseURL).get("/cosmos/gov/v1beta1/proposals", {
-        params: { proposalStatus, voter, depositor, pagination },
+        params: {
+          proposal_status: proposalStatusNumber(),
+          voter,
+          depositor,
+          pagination,
+        },
       })
     ).data;
   };
@@ -61,9 +88,7 @@ export const getProposal =
   (baseURL: string) =>
   async ({ proposalId }: { proposalId: string }): Promise<ProposalResponse> => {
     return (
-      await instance(baseURL).get(
-        `/cosmos/gov/v1beta1/proposals/${proposalId}`
-      )
+      await instance(baseURL).get(`/cosmos/gov/v1beta1/proposals/${proposalId}`)
     ).data;
   };
 
