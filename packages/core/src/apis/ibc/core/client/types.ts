@@ -1,4 +1,4 @@
-import type { PaginationResponse } from "../../../../types";
+import type { PaginationResponse, RevisionHeight } from "../../../../types";
 
 export interface ClientStatesResponse {
   client_states: {
@@ -17,18 +17,12 @@ export interface ClientStateResponse {
     value: string;
   };
   proof: string;
-  proof_height: {
-    revision_number: string;
-    revision_height: string;
-  };
+  proof_height: RevisionHeight;
 }
 
 export interface ConsensusStatesResponse {
   consensus_states: {
-    height: {
-      revision_number: string;
-      revision_height: string;
-    };
+    height: RevisionHeight;
     consensus_state: {
       type_url: string;
       value: string;
@@ -43,8 +37,5 @@ export interface ConsensusStateResponse {
     value: string;
   };
   proof: string;
-  proof_height: {
-    revision_number: string;
-    revision_height: string;
-  };
+  proof_height: RevisionHeight;
 }

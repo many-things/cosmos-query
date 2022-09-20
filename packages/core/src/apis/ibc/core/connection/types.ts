@@ -1,14 +1,13 @@
-import type { ChannelState, PaginationResponse } from "../../../../types";
-
-interface Height {
-  revision_number: string;
-  revision_height: string;
-}
+import type {
+  ChannelState,
+  PaginationResponse,
+  RevisionHeight,
+} from "../../../../types";
 
 export interface ClientConnectionsResponse {
   connection_paths: string[];
   proof: string;
-  proof_height: Height;
+  proof_height: RevisionHeight;
 }
 
 interface Connection {
@@ -32,13 +31,13 @@ interface Connection {
 export interface ConnectionsResponse {
   connections: Connection[];
   pagination: PaginationResponse;
-  height: Height;
+  height: RevisionHeight;
 }
 
 export interface ConnectionResponse {
   connection: Connection;
   proof: string;
-  proof_height: Height;
+  proof_height: RevisionHeight;
 }
 
 export interface ConnectionClientStateResponse {
@@ -50,7 +49,7 @@ export interface ConnectionClientStateResponse {
     };
   };
   proof: string;
-  proof_height: Height;
+  proof_height: RevisionHeight;
 }
 
 export interface ConnectionConsensusStateResponse {
@@ -62,5 +61,5 @@ export interface ConnectionConsensusStateResponse {
     };
   };
   proof: string;
-  proof_height: Height;
+  proof_height: RevisionHeight;
 }

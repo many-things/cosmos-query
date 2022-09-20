@@ -66,3 +66,8 @@ export type ChannelOrdering =
   | "ORDER_NONE_UNSPECIFIED"
   | "ORDER_UNORDERED"
   | "ORDER_ORDERED";
+
+export interface RevisionHeight {
+  revision_number: string;
+  revision_height: string;
+}

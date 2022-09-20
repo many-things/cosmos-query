@@ -2,12 +2,8 @@ import type {
   ChannelOrdering,
   ChannelState,
   PaginationResponse,
+  RevisionHeight,
 } from "../../../../types";
-
-interface Height {
-  revision_number: string;
-  revision_height: string;
-}
 
 export interface ChannelsResponse {
   channels: {
@@ -23,7 +19,7 @@ export interface ChannelsResponse {
     channel_id: string;
   }[];
   pagination: PaginationResponse;
-  height: Height;
+  height: RevisionHeight;
 }
 
 export interface ChannelResponse {
@@ -38,7 +34,7 @@ export interface ChannelResponse {
     version: string;
   };
   proof: string;
-  proof_height: Height;
+  proof_height: RevisionHeight;
 }
 
 export interface ChannelClientStateResponse {
@@ -50,7 +46,7 @@ export interface ChannelClientStateResponse {
     };
   };
   proof: string;
-  proof_height: Height;
+  proof_height: RevisionHeight;
 }
 
 export interface ChannelConsensusStateResponse {
@@ -60,13 +56,13 @@ export interface ChannelConsensusStateResponse {
   };
   client_id: string;
   proof: string;
-  proof_height: Height;
+  proof_height: RevisionHeight;
 }
 
 export interface NextSequenceReceiveResponse {
   next_sequence_receive: string;
   proof: string;
-  proof_height: Height;
+  proof_height: RevisionHeight;
 }
 
 export interface PacketAcknowledgementsResponse {
@@ -77,13 +73,13 @@ export interface PacketAcknowledgementsResponse {
     data: string;
   }[];
   pagination: PaginationResponse;
-  height: Height;
+  height: RevisionHeight;
 }
 
 export interface PacketAcknowledgementResponse {
   acknowledgement: string;
   proof: string;
-  proof_height: Height;
+  proof_height: RevisionHeight;
 }
 
 export interface PacketCommitmentsResponse {
@@ -94,29 +90,29 @@ export interface PacketCommitmentsResponse {
     data: string;
   }[];
   pagination: PaginationResponse;
-  height: Height;
+  height: RevisionHeight;
 }
 
 export interface UnreceivedAcksResponse {
   sequences: string[];
-  height: Height;
+  height: RevisionHeight;
 }
 
 export interface UnreceivedPacketsResponse {
   sequences: string[];
-  height: Height;
+  height: RevisionHeight;
 }
 
 export interface PacketCommitmentResponse {
   commitment: string;
   proof: string;
-  proof_height: Height;
+  proof_height: RevisionHeight;
 }
 
 export interface PacketReceiptResponse {
   received: boolean;
   proof: string;
-  proof_height: Height;
+  proof_height: RevisionHeight;
 }
 
 export interface ConnectionChannelsResponse {
@@ -133,5 +129,5 @@ export interface ConnectionChannelsResponse {
     channel_id: string;
   }[];
   pagination: PaginationResponse;
-  height: Height;
+  height: RevisionHeight;
 }
