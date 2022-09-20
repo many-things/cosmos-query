@@ -1,5 +1,7 @@
 import { instance } from "../../../utils";
-import { SuperfluidDelegationResponse } from "./types";
+import type { SuperfluidDelegationResponse } from "./types";
+
+export type { SuperfluidDelegationResponse };
 
 export const getSuperfluidDelegation =
   (baseURL: string) =>
