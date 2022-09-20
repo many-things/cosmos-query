@@ -5,3 +5,4 @@ export * from "./lockup";
 export * from "./incentives";
 export * from "./claim";
 export * from "./mint";
+export * from "./superfluid";

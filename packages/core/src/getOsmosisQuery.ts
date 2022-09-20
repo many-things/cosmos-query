@@ -192,5 +192,9 @@ export const getOsmosisQuery = (baseURL: string | undefined) => {
      * GET `/osmosis/mint/v1beta1/params`
      */
     getMintingParams: setBase(Osmosis.getMintingParams),
+    /**
+     * GET `/osmosis/superfluid/v1beta1/superfluid_delegations/${owner}`
+     */
+    getSuperfluidDelegation: setBase(Osmosis.getSuperfluidDelegation),
   };
 };
