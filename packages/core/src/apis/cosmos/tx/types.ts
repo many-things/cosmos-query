@@ -1,4 +1,5 @@
 import type { BroadcastMode, SignMode } from "../../../types";
+import { Coin } from "../../../types/common";
 
 export type OrderBy = "ORDER_BY_UNSPECIFIED" | "ORDER_BY_ASC" | "ORDER_BY_DESC";
 
@@ -60,10 +61,7 @@ interface Tx {
       sequence: string;
     }[];
     fee: {
-      amount: {
-        denom: string;
-        amount: string;
-      }[];
+      amount: Coin[];
 
       gas_limit: string;
       payer: string;

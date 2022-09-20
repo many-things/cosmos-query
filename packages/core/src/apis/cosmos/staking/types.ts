@@ -1,4 +1,5 @@
 import type { BondStatus, PaginationResponse } from "../../../types";
+import { Coin } from "../../../types/common";
 
 interface DelegationResponse {
   delegation: {
@@ -6,10 +7,7 @@ interface DelegationResponse {
     validator_address: string;
     shares: string;
   };
-  balance: {
-    denom: string;
-    amount: string;
-  };
+  balance: Coin;
 }
 
 export interface DelegatorDelegationsResponse {

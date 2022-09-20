@@ -1,4 +1,5 @@
 import type { PaginationResponse } from "../../../types";
+import { Coin } from "../../../types/common";
 
 export interface NumPoolsResponse {
   numPools: string;
@@ -16,33 +17,21 @@ interface Pool {
       start_time: string;
       duration: string;
       initialPoolWeights: {
-        token: {
-          denom: string;
-          amount: string;
-        };
+        token: Coin;
         weight: string;
       }[];
       targetPoolWeights: {
-        token: {
-          denom: string;
-          amount: string;
-        };
+        token: Coin;
         weight: string;
       }[];
     } | null;
   };
   future_pool_governor: string;
   totalWeight: string;
-  totalShares: {
-    denom: string;
-    amount: string;
-  };
+  totalShares: Coin;
   poolAssets: {
     weight: string;
-    token: {
-      denom: string;
-      amount: string;
-    };
+    token: Coin;
   }[];
 }
 
@@ -63,17 +52,11 @@ export interface PoolParamsResponse {
       start_time: string;
       duration: string;
       initialPoolWeights: {
-        token: {
-          denom: string;
-          amount: string;
-        };
+        token: Coin;
         weight: string;
       }[];
       targetPoolWeights: {
-        token: {
-          denom: string;
-          amount: string;
-        };
+        token: Coin;
         weight: string;
       }[];
     };
@@ -87,26 +70,17 @@ export interface PoolPriceResponse {
 
 export interface PoolTokensResponse {
   poolAssets: {
-    token: {
-      denom: string;
-      amount: string;
-    };
+    token: Coin;
     weight: string;
   }[];
 }
 
 export interface PoolTotalShare {
-  totalShare: {
-    denom: string;
-    amount: string;
-  };
+  totalShare: Coin;
 }
 
 export interface TotalLiquidityResponse {
-  liquidity: {
-    denom: string;
-    amount: string;
-  }[];
+  liquidity: Coin[];
 }
 
 export interface SwapExactAmountInResponse {

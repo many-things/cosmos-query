@@ -1,3 +1,5 @@
+import { Coin } from "../../types/common";
+
 export interface Delegation {
   base_req: {
     from: string;
@@ -7,29 +9,20 @@ export interface Delegation {
     sequence: string;
     gas: string;
     gas_adjustment: string;
-    fees: {
-      denom: string;
-      amount: string;
-    }[];
+    fees: Coin[];
 
     simulate: boolean;
   };
   delegator_address: string;
   validator_address: string;
-  amount: {
-    denom: string;
-    amount: string;
-  };
+  amount: Coin;
 }
 
 export interface DelegationsResponse {
   msg: string[];
   fee: {
     gas: string;
-    amount: {
-      denom: string;
-      amount: string;
-    }[];
+    amount: Coin[];
   };
   memo: string;
   signature: {

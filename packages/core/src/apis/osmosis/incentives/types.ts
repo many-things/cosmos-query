@@ -1,4 +1,5 @@
 import type { PaginationResponse } from "../../../types";
+import { Coin } from "../../../types/common";
 
 interface Gauge {
   id: string;
@@ -9,17 +10,11 @@ interface Gauge {
     duration: string;
     timestamp: string;
   };
-  coins: {
-    denom: string;
-    amount: string;
-  }[];
+  coins: Coin[];
   start_time: string;
   num_epochs_paid_over: string;
   filled_epochs: string;
-  distributed_coins: {
-    denom: string;
-    amount: string;
-  }[];
+  distributed_coins: Coin[];
 }
 
 export interface ActiveGaugesResponse {
@@ -34,11 +29,6 @@ export interface GaugeByIdResponse {
 export interface GaugesResponse {
   data: Gauge[];
   pagination: PaginationResponse;
-}
-
-interface Coin {
-  denom: string;
-  amount: string;
 }
 
 export interface ModuleDistributedCoinsResponse {
