@@ -37,15 +37,13 @@ interface Pool {
     denom: string;
     amount: string;
   };
-  poolAssets: [
-    {
-      weight: string;
-      token: {
-        denom: string;
-        amount: string;
-      };
-    }
-  ];
+  poolAssets: {
+    weight: string;
+    token: {
+      denom: string;
+      amount: string;
+    };
+  }[];
 }
 
 export interface PoolsResponse {
