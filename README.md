@@ -4,7 +4,13 @@ Cosmos Query make easy to get the data from cosmos ecosystem.
 
 ## Install
 
-- TBD
+```bash
+// for yarn users
+$ yarn add @many-things/cosmos-query
+
+// for npm users
+$ npm install @many-things/cosmos-query
+```
 
 ## Usage
 
