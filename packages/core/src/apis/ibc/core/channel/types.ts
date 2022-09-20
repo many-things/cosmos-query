@@ -2,8 +2,8 @@ import type {
   ChannelOrdering,
   ChannelState,
   PaginationResponse,
-  RevisionHeight,
 } from "../../../../types";
+import { RevisionHeight } from "../../../../types/common";
 
 export interface ChannelsResponse {
   channels: {

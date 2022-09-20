@@ -1,8 +1,5 @@
-import type {
-  ChannelState,
-  PaginationResponse,
-  RevisionHeight,
-} from "../../../../types";
+import type { ChannelState, PaginationResponse } from "../../../../types";
+import { RevisionHeight } from "../../../../types/common";
 
 export interface ClientConnectionsResponse {
   connection_paths: string[];
