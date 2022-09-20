@@ -5,8 +5,45 @@ export interface NumPoolsResponse {
 }
 
 interface Pool {
-  type_url: string;
-  value: string;
+  "@type": string;
+  address: string;
+  id: string;
+  poolParams: {
+    lock: boolean;
+    swapFee: string;
+    exitFee: string;
+    smoothWeightChangeParams: {
+      start_time: string;
+      duration: string;
+      initialPoolWeights: {
+        token: {
+          denom: string;
+          amount: string;
+        };
+        weight: string;
+      }[];
+      targetPoolWeights: {
+        token: {
+          denom: string;
+          amount: string;
+        };
+        weight: string;
+      }[];
+    } | null;
+  };
+  future_pool_governor: string;
+  totalWeight: string;
+  totalShares: {
+    denom: string;
+    amount: string;
+  };
+  poolAssets: {
+    weight: string;
+    token: {
+      denom: string;
+      amount: string;
+    };
+  }[];
 }
 
 export interface PoolsResponse {
