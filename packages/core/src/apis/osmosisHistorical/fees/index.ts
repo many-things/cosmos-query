@@ -27,7 +27,7 @@ export const getHistoricalFees = async (): Promise<HistoricalFeeResponse> => {
   return (await osmosisInstance.get("/fees/v1/total/historical")).data;
 };
 
-export const getHistoricalFeesByPool = async ({
+export const getHistoricalFee = async ({
   poolId,
 }: {
   poolId: number;

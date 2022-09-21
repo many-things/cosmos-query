@@ -1,6 +1,6 @@
 import { osmosisInstance } from "../../../utils";
 import type {
-  IbcAllResponse,
+  AllIbcResponse,
   IbcDestinationResponse,
   IbcInfoResponse,
   IbcRawResponse,
@@ -9,7 +9,7 @@ import type {
 } from "./types";
 
 export type {
-  IbcAllResponse,
+  AllIbcResponse,
   IbcDestinationResponse,
   IbcInfoResponse,
   IbcRawResponse,
@@ -21,11 +21,11 @@ export const getIbcInfo = async (): Promise<IbcInfoResponse> => {
   return (await osmosisInstance.get("/ibc/v1/info")).data;
 };
 
-export const getIbcAll = async ({
+export const getAllIbc = async ({
   dex,
 }: {
   dex?: string;
-}): Promise<IbcAllResponse> => {
+}): Promise<AllIbcResponse> => {
   return (await osmosisInstance.get("/ibc/v1/all", { params: { dex } })).data;
 };
 

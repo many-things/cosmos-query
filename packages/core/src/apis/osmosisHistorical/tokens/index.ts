@@ -6,7 +6,7 @@ import type {
   TokensLiquidityChartResponse,
   TokenPriceResponse,
   TokenResponse,
-  TokensAllResponse,
+  AllTokensResponse,
   TokensMarketCapResponse,
   TokensTopResponse,
   TokensVolumeGlobalResponse,
@@ -21,7 +21,7 @@ export type {
   TokensLiquidityChartResponse,
   TokenPriceResponse,
   TokenResponse,
-  TokensAllResponse,
+  AllTokensResponse,
   TokensMarketCapResponse,
   TokensTopResponse,
   TokensVolumeGlobalResponse,
@@ -29,7 +29,7 @@ export type {
   TokensVolumeChartByPoolResponse,
 };
 
-export const getTokensAll = async (): Promise<TokensAllResponse> => {
+export const getAllTokens = async (): Promise<AllTokensResponse> => {
   return (await osmosisInstance.get("/tokens/v2/all")).data;
 };
 
@@ -86,7 +86,7 @@ export const getTokensTop = async ({
   return (await osmosisInstance.get(`/tokens/v2/top/${type}`)).data;
 };
 
-export const getTokenCount = async ({
+export const getTokensCount = async ({
   poolId,
   rangeStart,
   rangeStop,
@@ -110,7 +110,7 @@ export const getTokensVolumeGlobal =
     return (await osmosisInstance.get("/tokens/v2/volume/global")).data;
   };
 
-export const getV2TokensVolumeChart = async ({
+export const getTokensCoinVolumeChart = async ({
   symbol,
 }: {
   symbol: string;

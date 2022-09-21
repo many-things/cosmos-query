@@ -1,4 +1,4 @@
-export type TokensAllResponse = {
+export type AllTokensResponse = {
   price: number;
   denom: string;
   symbol: string;

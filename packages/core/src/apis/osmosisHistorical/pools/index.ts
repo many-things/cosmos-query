@@ -1,23 +1,23 @@
 import { osmosisInstance } from "../../../utils";
 import type {
-  PoolsAllResponse,
+  AllPoolsResponse,
   PoolResponse,
   PoolLiquidityChartResponse,
   PoolVolumeChartResponse,
 } from "./types";
 
 export type {
-  PoolsAllResponse,
+  AllPoolsResponse,
   PoolResponse,
   PoolLiquidityChartResponse,
   PoolVolumeChartResponse,
 };
 
-export const getPoolsAll = async ({
+export const getAllPools = async ({
   lowLiquidity,
 }: {
   lowLiquidity: boolean;
-}): Promise<PoolsAllResponse> => {
+}): Promise<AllPoolsResponse> => {
   return (
     await osmosisInstance.get("/pools/v2/all", {
       params: {

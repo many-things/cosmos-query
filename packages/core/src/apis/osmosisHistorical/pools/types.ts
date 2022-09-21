@@ -1,4 +1,4 @@
-export type PoolsAllResponse = {
+export type AllPoolsResponse = {
   [poolId: string]: {
     symbol: string;
     amount: number;

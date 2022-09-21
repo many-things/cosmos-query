@@ -6,7 +6,7 @@ interface IbcInfo {
   token_name: string;
 }
 
-interface IbcAll extends IbcInfo {
+interface AllIbc extends IbcInfo {
   token_liquidity: number;
   last_tx: string;
   size_queue: number;
@@ -21,7 +21,7 @@ interface IbcSource extends IbcInfo {
 
 export type IbcInfoResponse = IbcInfo[];
 
-export type IbcAllResponse = IbcAll[];
+export type AllIbcResponse = AllIbc[];
 
 export type IbcSourceDestinationResponse = IbcSource[];
 
