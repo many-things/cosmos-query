@@ -8,3 +8,4 @@ export * from "./liquidity";
 export * from "./volume";
 export * from "./fees";
 export * from "./search";
+export * from "./apr";
