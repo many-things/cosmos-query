@@ -162,5 +162,13 @@ export const getIBCQuery = (baseURL: string | undefined) => {
      * GET `/ibc/applications/transfer/v1beta1/params`
      */
     getTransferParams: setBase(IBC.getTransferParams),
+    /**
+     * GET `/ibc/apps/transfer/v1/denom_traces`
+     */
+    getIBCGoDenomTraces: setBase(IBC.getIBCGoDenomTraces),
+    /**
+     * GET `/ibc/apps/transfer/v1/denom_traces/${hash}`
+     */
+    getIBCGoDenomTrace: setBase(IBC.getIBCGoDenomTrace),
   };
 };
