@@ -3,7 +3,7 @@ import type {
   ChannelState,
   PaginationResponse,
 } from "../../../../types";
-import { RevisionHeight } from "../../../../types/common";
+import type { RevisionHeight } from "../../../../types/common";
 
 export interface ChannelsResponse {
   channels: {
