@@ -5,6 +5,7 @@ export interface BlockIdentity {
     total: number;
     hash: string;
   };
+}
 
 export interface Coin {
   denom: string;
