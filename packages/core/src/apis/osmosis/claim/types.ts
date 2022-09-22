@@ -1,4 +1,4 @@
-import { Coin } from "../../../types/common";
+import type { Coin } from "../../../types/common";
 
 export type ActionParams =
   | "ActionAddLiquidity"

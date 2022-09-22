@@ -1,5 +1,5 @@
 import type { BroadcastMode, SignMode } from "../../../types";
-import { Coin } from "../../../types/common";
+import type { Coin } from "../../../types/common";
 
 export type OrderBy = "ORDER_BY_UNSPECIFIED" | "ORDER_BY_ASC" | "ORDER_BY_DESC";
 

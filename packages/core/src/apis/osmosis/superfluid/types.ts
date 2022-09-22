@@ -1,4 +1,4 @@
-import { Coin } from "../../../types/common";
+import type { Coin } from "../../../types/common";
 
 export interface SuperfluidDelegationResponse {
   superfluid_delegation_records: {

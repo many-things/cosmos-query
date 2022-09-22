@@ -1,5 +1,5 @@
 import type { BondStatus, PaginationResponse } from "../../../types";
-import { Coin } from "../../../types/common";
+import type { Coin } from "../../../types/common";
 
 interface DelegationResponse {
   delegation: {
