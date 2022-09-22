@@ -3,6 +3,7 @@ import type {
   ProposalStatus,
   VoteOption,
 } from "../../../types";
+import { Coin } from "../../osmosis/lockup/types";
 
 export type GovParamsType = "voting" | "tallying" | "deposit";
 
@@ -11,10 +12,7 @@ export interface GovParamsResponse {
     voting_period: string;
   };
   deposit_params: {
-    min_deposit: {
-      denom: string;
-      amount: string;
-    }[];
+    min_deposit: Coin[];
     max_deposit_period: string;
   };
   tally_params: {
@@ -40,10 +38,7 @@ interface Proposal {
   };
   submit_time: string;
   deposit_end_time: string;
-  total_deposit: {
-    denom: string;
-    amount: string;
-  }[];
+  total_deposit: Coin[];
 
   voting_start_time: string;
   voting_end_time: string;
@@ -60,10 +55,7 @@ export interface ProposalResponse {
 interface Deposit {
   proposal_id: string;
   depositor: string;
-  amount: {
-    denom: string;
-    amount: string;
-  }[];
+  amount: Coin[];
 }
 
 export interface ProposalDepositsResponse {

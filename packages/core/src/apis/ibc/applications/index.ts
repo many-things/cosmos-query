@@ -41,3 +41,25 @@ export const getTransferParams =
       await instance(baseURL).get("/ibc/applications/transfer/v1beta1/params")
     ).data;
   };
+
+export const getIBCGoDenomTraces =
+  (baseURL: string) =>
+  async ({
+    pagination,
+  }: {
+    pagination?: PaginationParams;
+  }): Promise<DenomTracesResponse> => {
+    return (
+      await instance(baseURL).get("/ibc/apps/transfer/v1/denom_traces", {
+        params: { pagination },
+      })
+    ).data;
+  };
+
+export const getIBCGoDenomTrace =
+  (baseURL: string) =>
+  async ({ hash }: { hash: string }): Promise<DenomTraceResponse> => {
+    return (
+      await instance(baseURL).get(`/ibc/apps/transfer/v1/denom_traces/${hash}`)
+    ).data;
+  };

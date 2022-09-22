@@ -10,3 +10,5 @@ export const instance = (baseURL: string) =>
       });
     },
   });
+
+export const osmosisInstance = instance("https://api-osmosis.imperator.co");

@@ -1,31 +1,20 @@
 import { PaginationResponse } from "../../../types";
+import type { Coin } from "../../../types/common";
 
 export interface CommunityPoolResponse {
-  pool: {
-    denom: string;
-    amount: string;
-  }[];
+  pool: Coin[];
 }
 
 export interface DelegationTotalRewardsResponse {
   rewards: {
     validator_address: string;
-    reward: {
-      denom: string;
-      amount: string;
-    }[];
+    reward: Coin[];
   }[];
-  total: {
-    denom: string;
-    amount: string;
-  }[];
+  total: Coin[];
 }
 
 export interface DelegationRewardsResponse {
-  rewards: {
-    denom: string;
-    amount: string;
-  }[];
+  rewards: Coin[];
 }
 
 export interface DelegatorValidatorAddressesResponse {
@@ -47,19 +36,13 @@ export interface DistributionParamsResponse {
 
 export interface ValidatorCommissionResponse {
   commission: {
-    commission: {
-      denom: string;
-      amount: string;
-    }[];
+    commission: Coin[];
   };
 }
 
 export interface ValidatorOutstandingRewardsResponse {
   rewards: {
-    rewards: {
-      denom: string;
-      amount: string;
-    }[];
+    rewards: Coin[];
   };
 }
 

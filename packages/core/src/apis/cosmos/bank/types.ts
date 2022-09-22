@@ -1,26 +1,19 @@
 import type { PaginationResponse } from "../../../types";
-
-interface Balance {
-  denom: string;
-  amount: string;
-}
+import type { Coin } from "../../../types/common";
 
 export interface AllBalancesResponse {
-  balances: Balance[];
+  balances: Coin[];
   pagination: PaginationResponse;
 }
 
 export interface BalanceResponse {
-  balance: Balance;
+  balance: Coin;
 }
 
 export interface DenomOwnersResponse {
   denom_owners: {
     address: string;
-    balance: {
-      denom: string;
-      amount: string;
-    };
+    balance: Coin;
   }[];
   pagination: PaginationResponse;
 }
@@ -59,16 +52,11 @@ export interface BankParamsResponse {
   };
 }
 
-interface Supply {
-  denom: string;
-  amount: string;
-}
-
 export interface TotalSupplyResponse {
-  supply: Supply[];
+  supply: Coin[];
   pagination: PaginationResponse;
 }
 
 export interface SupplyResponse {
-  amount: Supply;
+  amount: Coin;
 }
