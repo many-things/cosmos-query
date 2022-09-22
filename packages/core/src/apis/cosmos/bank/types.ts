@@ -1,5 +1,5 @@
 import type { PaginationResponse } from "../../../types";
-import { Coin } from "../../../types/common";
+import type { Coin } from "../../../types/common";
 
 export interface AllBalancesResponse {
   balances: Coin[];
