@@ -1,13 +1,8 @@
 import type { PaginationResponse } from "../../../types";
+import type { BlockIdentity } from "../../../types/common";
 
 export interface BlockResponse {
-  block_id: {
-    hash: string;
-    part_set_header: {
-      total: number;
-      hash: string;
-    };
-  };
+  block_id: BlockIdentity;
   block: {
     header: {
       version: {
@@ -17,13 +12,7 @@ export interface BlockResponse {
       chain_id: string;
       height: string;
       time: string;
-      last_block_id: {
-        hash: string;
-        part_set_header: {
-          total: number;
-          hash: string;
-        };
-      };
+      last_block_id: BlockIdentity;
       last_commit_hash: string;
       data_hash: string;
       validators_hash: string;
@@ -44,13 +33,7 @@ export interface BlockResponse {
             type: string;
             height: string;
             round: number;
-            block_id: {
-              hash: string;
-              part_set_header: {
-                total: number;
-                hash: string;
-              };
-            };
+            block_id: BlockIdentity;
             timestamp: string;
             validator_address: string;
             validator_index: number;
@@ -60,13 +43,7 @@ export interface BlockResponse {
             type: string;
             height: string;
             round: number;
-            block_id: {
-              hash: string;
-              part_set_header: {
-                total: number;
-                hash: string;
-              };
-            };
+            block_id: BlockIdentity;
             timestamp: string;
             validator_address: string;
             validator_index: number;
@@ -87,13 +64,7 @@ export interface BlockResponse {
                 chain_id: string;
                 height: string;
                 time: string;
-                last_block_id: {
-                  hash: string;
-                  part_set_header: {
-                    total: number;
-                    hash: string;
-                  };
-                };
+                last_block_id: BlockIdentity;
                 last_commit_hash: string;
                 data_hash: string;
                 validators_hash: string;
@@ -107,13 +78,7 @@ export interface BlockResponse {
               commit: {
                 height: string;
                 round: number;
-                block_id: {
-                  hash: string;
-                  part_set_header: {
-                    total: number;
-                    hash: string;
-                  };
-                };
+                block_id: BlockIdentity;
                 signatures: {
                   block_id_flag: string;
                   validator_address: string;
@@ -162,13 +127,7 @@ export interface BlockResponse {
     last_commit: {
       height: string;
       round: number;
-      block_id: {
-        hash: string;
-        part_set_header: {
-          total: number;
-          hash: string;
-        };
-      };
+      block_id: BlockIdentity;
       signatures: {
         block_id_flag: string;
         validator_address: string;
