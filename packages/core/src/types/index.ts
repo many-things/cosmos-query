@@ -66,3 +66,10 @@ export type ChannelOrdering =
   | "ORDER_NONE_UNSPECIFIED"
   | "ORDER_UNORDERED"
   | "ORDER_ORDERED";
+
+export type Action =
+  | "ACTION_UNSPECIFIED"
+  | "ACTION_VOTE"
+  | "ACTION_DELEGATE"
+  | "ACTION_EVM"
+  | "ACTION_IBC_TRANSFER";
