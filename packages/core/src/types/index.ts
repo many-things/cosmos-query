@@ -22,6 +22,7 @@ export interface PaginationResponse {
   total: string;
 }
 
+// cosmos
 export type VoteOption =
   | "VOTE_OPTION_UNSPECIFIED"
   | "VOTE_OPTION_YES"
@@ -55,6 +56,7 @@ export type BondStatus =
   | "BOND_STATUS_UNBONDING"
   | "BOND_STATUS_BONDED";
 
+// ibc
 export type ChannelState =
   | "STATE_UNINITIALIZED_UNSPECIFIED"
   | "STATE_INIT"
@@ -67,9 +69,12 @@ export type ChannelOrdering =
   | "ORDER_UNORDERED"
   | "ORDER_ORDERED";
 
+// evmos
 export type Action =
   | "ACTION_UNSPECIFIED"
   | "ACTION_VOTE"
   | "ACTION_DELEGATE"
   | "ACTION_EVM"
   | "ACTION_IBC_TRANSFER";
+
+export type Owner = "OWNER_UNSPECIFIED" | "OWNER_MODULE" | "OWNER_EXTERNAL";
