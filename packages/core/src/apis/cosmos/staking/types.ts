@@ -1,4 +1,6 @@
 import type { BondStatus, PaginationResponse } from "../../../types";
+import type { BlockIdentity } from "../../../types/common";
+import type { Coin } from "../../../types/common";
 
 interface DelegationResponse {
   delegation: {
@@ -6,10 +8,7 @@ interface DelegationResponse {
     validator_address: string;
     shares: string;
   };
-  balance: {
-    denom: string;
-    amount: string;
-  };
+  balance: Coin;
 }
 
 export interface DelegatorDelegationsResponse {
@@ -109,13 +108,7 @@ export interface HistoricalInfoResponse {
       chain_id: string;
       height: string;
       time: string;
-      last_block_id: {
-        hash: string;
-        part_set_header: {
-          total: number;
-          hash: string;
-        };
-      };
+      last_block_id: BlockIdentity;
       last_commit_hash: string;
       data_hash: string;
       validators_hash: string;

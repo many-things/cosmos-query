@@ -1,3 +1,5 @@
+import type { Coin } from "../../../types/common";
+
 export type ActionParams =
   | "ActionAddLiquidity"
   | "ActionSwap"
@@ -7,17 +9,9 @@ export type ActionParams =
 export interface ClaimRecordResponse {
   claim_record: {
     address: string;
-    initial_claimable_amount: {
-      denom: string;
-      amount: string;
-    }[];
+    initial_claimable_amount: Coin[];
     action_completed: boolean[];
   };
-}
-
-interface Coin {
-  denom: string;
-  amount: string;
 }
 
 export interface ClaimableForActionResponse {

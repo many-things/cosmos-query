@@ -1,7 +1,4 @@
-interface Coin {
-  denom: string;
-  amount: string;
-}
+import { Coin } from "../../../types/common";
 
 export interface CoinsResponse {
   coins: Coin[];
