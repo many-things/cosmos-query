@@ -1,5 +1,5 @@
 import { instance } from "../../../utils";
-import { PaginationParams } from "../../../types";
+import type { PaginationParams } from "../../../types";
 import type {
   BroadcastTx,
   BroadcastTxResponse,

@@ -1,5 +1,5 @@
 import type { PaginationResponse } from "../../../types";
-import type { Coin } from "../../../types/common";
+import type { Coin } from "../../../types";
 
 interface Gauge {
   id: string;

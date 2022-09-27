@@ -1,5 +1,5 @@
-import { PaginationResponse } from "../../../types";
-import type { Coin } from "../../../types/common";
+import type { PaginationResponse } from "../../../types";
+import type { Coin } from "../../../types";
 
 export interface CommunityPoolResponse {
   pool: Coin[];

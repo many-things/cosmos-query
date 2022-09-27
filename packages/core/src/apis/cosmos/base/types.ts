@@ -1,5 +1,5 @@
 import type { PaginationResponse } from "../../../types";
-import type { BlockIdentity } from "../../../types/common";
+import type { BlockIdentity } from "../../../types";
 
 export interface BlockResponse {
   block_id: BlockIdentity;

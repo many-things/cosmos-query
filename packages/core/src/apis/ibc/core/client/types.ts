@@ -1,5 +1,5 @@
 import type { PaginationResponse } from "../../../../types";
-import type { RevisionHeight } from "../../../../types/common";
+import type { RevisionHeight } from "../../../../types";
 
 export interface ClientStatesResponse {
   client_states: {

@@ -1,5 +1,5 @@
 import { instance } from "../../../utils";
-import { PaginationParams } from "../base";
+import type { PaginationParams } from "../../../types";
 import type {
   CommunityPoolResponse,
   DelegationRewardsResponse,
@@ -91,9 +91,8 @@ export const getDelegatorWithdrawAddress =
 
 export const getDistributionParams =
   (baseURL: string) => async (): Promise<DistributionParamsResponse> => {
-    return (
-      await instance(baseURL).get("/cosmos/distribution/v1beta1/params")
-    ).data;
+    return (await instance(baseURL).get("/cosmos/distribution/v1beta1/params"))
+      .data;
   };
 
 export const getValidatorCommission =

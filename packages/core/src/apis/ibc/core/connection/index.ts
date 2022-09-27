@@ -1,5 +1,5 @@
 import { instance } from "../../../../utils";
-import type { PaginationParams } from "../../../cosmos";
+import type { PaginationParams } from "../../../../types";
 
 export const getClientConnections =
   (baseURL: string) =>

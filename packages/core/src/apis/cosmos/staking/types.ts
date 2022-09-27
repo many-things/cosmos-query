@@ -1,6 +1,6 @@
 import type { BondStatus, PaginationResponse } from "../../../types";
-import type { BlockIdentity } from "../../../types/common";
-import type { Coin } from "../../../types/common";
+import type { BlockIdentity } from "../../../types";
+import type { Coin } from "../../../types";
 
 interface DelegationResponse {
   delegation: {

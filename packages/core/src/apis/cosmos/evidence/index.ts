@@ -1,5 +1,5 @@
 import { instance } from "../../../utils";
-import type { PaginationParams } from "../base";
+import type { PaginationParams } from "../../../types";
 import type { AllEvidenceResponse, EvidenceResponse } from "./types";
 
 export type { AllEvidenceResponse, EvidenceResponse };

@@ -1,9 +1,9 @@
 import type {
+  Coin,
   PaginationResponse,
   ProposalStatus,
   VoteOption,
 } from "../../../types";
-import { Coin } from "../../osmosis/lockup/types";
 
 export type GovParamsType = "voting" | "tallying" | "deposit";
 

@@ -1,5 +1,5 @@
 import { instance } from "../../../utils";
-import { PaginationParams } from "../../../types";
+import type { PaginationParams } from "../../../types";
 import type {
   BlockResponse,
   NodeInfoResponse,
@@ -10,7 +10,6 @@ import type {
 export type {
   BlockResponse,
   NodeInfoResponse,
-  PaginationParams,
   SyncingResponse,
   ValidatorSetResponse,
 };

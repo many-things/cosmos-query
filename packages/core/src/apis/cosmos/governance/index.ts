@@ -1,6 +1,5 @@
-import { ProposalStatus } from "../../../types";
 import { instance } from "../../../utils";
-import type { PaginationParams } from "../base";
+import type { PaginationParams, ProposalStatus } from "../../../types";
 import type {
   GovParamsResponse,
   GovParamsType,
