@@ -9,7 +9,7 @@ import type {
 export type { DenomTraceResponse, DenomTracesResponse, TransferParamsResponse };
 
 export const getDenomTraces =
-  (baseURL: string) =>
+  (baseURL: string, isIBCGo = false) =>
   async ({
     pagination,
   }: {
@@ -17,7 +17,9 @@ export const getDenomTraces =
   }): Promise<DenomTracesResponse> => {
     return (
       await instance(baseURL).get(
-        "/ibc/applications/transfer/v1beta1/denom_traces",
+        isIBCGo
+          ? "/ibc/apps/transfer/v1/denom_traces"
+          : "/ibc/applications/transfer/v1beta1/denom_traces",
         {
           params: { pagination },
         }
@@ -26,40 +28,30 @@ export const getDenomTraces =
   };
 
 export const getDenomTrace =
-  (baseURL: string) =>
-  async ({ hash }: { hash: string }): Promise<DenomTraceResponse> => {
+  (baseURL: string, isIBCGo = false) =>
+  async ({
+    hash,
+  }: {
+    hash: string;
+    isIBCGo?: boolean;
+  }): Promise<DenomTraceResponse> => {
     return (
       await instance(baseURL).get(
-        `/ibc/applications/transfer/v1beta1/denom_traces/${hash}`
+        isIBCGo
+          ? `/ibc/apps/transfer/v1/denom_traces/${hash}`
+          : `/ibc/applications/transfer/v1beta1/denom_traces/${hash}`
       )
     ).data;
   };
 
 export const getTransferParams =
-  (baseURL: string) => async (): Promise<TransferParamsResponse> => {
+  (baseURL: string, isIBCGo = false) =>
+  async (): Promise<TransferParamsResponse> => {
     return (
-      await instance(baseURL).get("/ibc/applications/transfer/v1beta1/params")
-    ).data;
-  };
-
-export const getIBCGoDenomTraces =
-  (baseURL: string) =>
-  async ({
-    pagination,
-  }: {
-    pagination?: PaginationParams;
-  }): Promise<DenomTracesResponse> => {
-    return (
-      await instance(baseURL).get("/ibc/apps/transfer/v1/denom_traces", {
-        params: { pagination },
-      })
-    ).data;
-  };
-
-export const getIBCGoDenomTrace =
-  (baseURL: string) =>
-  async ({ hash }: { hash: string }): Promise<DenomTraceResponse> => {
-    return (
-      await instance(baseURL).get(`/ibc/apps/transfer/v1/denom_traces/${hash}`)
+      await instance(baseURL).get(
+        isIBCGo
+          ? "/ibc/apps/transfer/v1/params"
+          : "/ibc/applications/transfer/v1beta1/params"
+      )
     ).data;
   };
