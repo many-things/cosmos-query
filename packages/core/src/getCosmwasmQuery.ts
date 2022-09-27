@@ -7,7 +7,8 @@ export const getCosmwasmQuery = (baseURL: string | undefined) => {
 
   return {
     /**
-     * Call Smart contract with given contract addrss
+     * Call Smart contract with given contract address & query interface 
+     * eg. { total_info : {} } or { balance : {} } whatever.
      *
      * GET `contractAddress`
      */
