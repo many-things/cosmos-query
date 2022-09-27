@@ -1,4 +1,4 @@
-import type { Action, PaginationResponse } from "../../../types";
+import type { Action, Coin, PaginationResponse } from "../../../types";
 
 export interface ClaimsRecordsResponse {
   claims: {
@@ -31,8 +31,5 @@ export interface ClaimsParamsResponse {
 }
 
 export interface TotalUnclaimedResponse {
-  coins: {
-    denom: string;
-    amount: string;
-  }[];
+  coins: Coin[];
 }
