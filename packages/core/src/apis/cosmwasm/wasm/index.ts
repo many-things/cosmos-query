@@ -5,17 +5,17 @@ export const getQuerySmartContract =
   async <T>({
     contractAddress,
     contractQueryInterface,
-    wasmd = false,
+    isWasmd = false,
   }: {
     contractAddress: string;
     contractQueryInterface: object;
-    wasmd: boolean;
+    isWasmd: boolean;
   }): Promise<T> => {
     return (
       await instance(baseURL).get(
-        wasmd
-          ? getUrlFromObj(contractAddress, contractQueryInterface)
-          : getWasmDUrlFromObj(contractAddress, contractQueryInterface)
+        isWasmd
+          ? getWasmDUrlFromObj(contractAddress, contractQueryInterface)
+          : getUrlFromObj(contractAddress, contractQueryInterface)
       )
     ).data;
   };
