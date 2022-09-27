@@ -15,31 +15,38 @@ export type {
 };
 
 export const getClientStates =
-  (baseURL: string) =>
+  (baseURL: string, isIBCGo = false) =>
   async ({
     pagination,
   }: {
     pagination?: PaginationParams;
   }): Promise<ClientStatesResponse> => {
     return (
-      await instance(baseURL).get("/ibc/core/client/v1beta1/client_states", {
-        params: { pagination },
-      })
+      await instance(baseURL).get(
+        isIBCGo
+          ? "/ibc/core/client/v1/client_states"
+          : "/ibc/core/client/v1beta1/client_states",
+        {
+          params: { pagination },
+        }
+      )
     ).data;
   };
 
 export const getClientState =
-  (baseURL: string) =>
+  (baseURL: string, isIBCGo = false) =>
   async ({ clientId }: { clientId: string }): Promise<ClientStateResponse> => {
     return (
       await instance(baseURL).get(
-        `/ibc/core/client/v1beta1/client_states/${clientId}`
+        isIBCGo
+          ? `/ibc/core/client/v1/client_states/${clientId}`
+          : `/ibc/core/client/v1beta1/client_states/${clientId}`
       )
     ).data;
   };
 
 export const getConsensusStates =
-  (baseURL: string) =>
+  (baseURL: string, isIBCGo = false) =>
   async ({
     clientId,
     pagination,
@@ -49,7 +56,9 @@ export const getConsensusStates =
   }): Promise<ConsensusStatesResponse> => {
     return (
       await instance(baseURL).get(
-        `/ibc/core/client/v1beta1/consensus_states/${clientId}`,
+        isIBCGo
+          ? `/ibc/core/client/v1/consensus_states/${clientId}`
+          : `/ibc/core/client/v1beta1/consensus_states/${clientId}`,
         {
           params: { pagination },
         }
@@ -58,7 +67,7 @@ export const getConsensusStates =
   };
 
 export const getConsensusState =
-  (baseURL: string) =>
+  (baseURL: string, isIBCGo = false) =>
   async ({
     clientId,
     revisionNumber,
@@ -72,7 +81,9 @@ export const getConsensusState =
   }): Promise<ConsensusStateResponse> => {
     return (
       await instance(baseURL).get(
-        `/ibc/core/client/v1beta1/consensus_states/${clientId}/revision/${revisionNumber}/height/${revisionHeight}`,
+        isIBCGo
+          ? `/ibc/core/client/v1/consensus_states/${clientId}/revision/${revisionNumber}/height/${revisionHeight}`
+          : `/ibc/core/client/v1beta1/consensus_states/${clientId}/revision/${revisionNumber}/height/${revisionHeight}`,
         {
           params: { latestHeight },
         }

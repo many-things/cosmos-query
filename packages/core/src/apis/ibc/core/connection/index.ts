@@ -2,47 +2,58 @@ import { instance } from "../../../../utils";
 import type { PaginationParams } from "../../../../types";
 
 export const getClientConnections =
-  (baseURL: string) =>
+  (baseURL: string, isIBCGo = false) =>
   async ({ clientId }: { clientId: string }): Promise<any> => {
     return (
       await instance(baseURL).get(
-        `/ibc/core/connection/v1beta1/client_connections/${clientId}`
+        isIBCGo
+          ? `/ibc/core/connection/v1/client_connections/${clientId}`
+          : `/ibc/core/connection/v1beta1/client_connections/${clientId}`
       )
     ).data;
   };
 
 export const getConnections =
-  (baseURL: string) =>
+  (baseURL: string, isIBCGo = false) =>
   async ({ pagination }: { pagination?: PaginationParams }): Promise<any> => {
     return (
-      await instance(baseURL).get("/ibc/core/connection/v1beta1/connections", {
-        params: { pagination },
-      })
+      await instance(baseURL).get(
+        isIBCGo
+          ? "/ibc/core/connection/v1/connections"
+          : "/ibc/core/connection/v1beta1/connections",
+        {
+          params: { pagination },
+        }
+      )
     ).data;
   };
 
 export const getConnection =
-  (baseURL: string) =>
+  (baseURL: string, isIBCGo = false) =>
   async ({ connectionId }: { connectionId: string }): Promise<any> => {
     return (
       await instance(baseURL).get(
-        `/ibc/core/connection/v1beta1/connections/${connectionId}`
+        isIBCGo
+          ? `/ibc/core/connection/v1/connections/${connectionId}`
+          : `/ibc/core/connection/v1beta1/connections/${connectionId}`
       )
     ).data;
   };
 
 export const getConnectionClientState =
-  (baseURL: string) =>
+  (baseURL: string, isIBCGo = false) =>
   async ({ connectionId }: { connectionId: string }): Promise<any> => {
     return (
       await instance(baseURL).get(
-        `/ibc/core/connection/v1beta1/connections/${connectionId}/client_state`
+        isIBCGo
+          ? `/ibc/core/connection/v1/connections/${connectionId}/client_state`
+          : `/ibc/core/connection/v1beta1/connections/${connectionId}/client_state`
       )
     ).data;
   };
 
 export const getConnectionConsensusState =
-  (baseURL: string) =>
+  (baseURL: string, isIBCGo = false) =>
   async ({
     connectionId,
     revisionNumber,
@@ -54,7 +65,9 @@ export const getConnectionConsensusState =
   }): Promise<any> => {
     return (
       await instance(baseURL).get(
-        `/ibc/core/connection/v1beta1/connections/${connectionId}/consensus_state/revision/${revisionNumber}/height/${revisionHeight}`
+        isIBCGo
+          ? `/ibc/core/connection/v1/connections/${connectionId}/consensus_state/revision/${revisionNumber}/height/${revisionHeight}`
+          : `/ibc/core/connection/v1beta1/connections/${connectionId}/consensus_state/revision/${revisionNumber}/height/${revisionHeight}`
       )
     ).data;
   };
