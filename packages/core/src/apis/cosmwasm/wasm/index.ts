@@ -1,18 +1,5 @@
 import { getUrlFromObj, getWasmDUrlFromObj, instance } from "../../../utils";
 
-export const getWasmDQuerySmartContract =
-  (baseURL: string) =>
-  async <T>(
-    contractAddress: string,
-    contractQueryInterface: Object
-  ): Promise<T> => {
-    return (
-      await instance(baseURL).get(
-        getUrlFromObj(contractAddress, contractQueryInterface)
-      )
-    ).data;
-  };
-
 export const getQuerySmartContract =
   (baseURL: string) =>
   async <T>({
@@ -21,7 +8,7 @@ export const getQuerySmartContract =
     wasmd = false,
   }: {
     contractAddress: string;
-    contractQueryInterface: Object;
+    contractQueryInterface: object;
     wasmd: boolean;
   }): Promise<T> => {
     return (
