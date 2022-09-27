@@ -1,8 +1,13 @@
 import * as Wasm from "./apis/cosmwasm";
 
-export const getCosmwasmQuery = (baseURL: string | undefined) => {
-  const setBase = <T>(callback: (url: string) => T) => {
-    return callback(baseURL ?? "");
+export const getCosmwasmQuery = (
+  baseURL: string | undefined,
+  isWasmd = false
+) => {
+  const setBase = <T>(
+    callback: (url: string, wasmFeatureFlag: boolean) => T
+  ) => {
+    return callback(baseURL ?? "", isWasmd);
   };
 
   return {
