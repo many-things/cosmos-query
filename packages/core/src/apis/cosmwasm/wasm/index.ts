@@ -8,7 +8,7 @@ export const getQuerySmartContract =
     wasmd = false,
   }: {
     contractAddress: string;
-    contractQueryInterface: Object;
+    contractQueryInterface: object;
     wasmd: boolean;
   }): Promise<T> => {
     return (
