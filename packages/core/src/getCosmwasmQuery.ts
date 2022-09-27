@@ -7,8 +7,5 @@ export const getCosmwasmQuery = (baseURL: string | undefined) => {
 
   return {
     getQuerySmartContract: setBase(Wasm.getQuerySmartContract),
-    getWasmDQuerySmartContract: setBase(Wasm.getWasmDQuerySmartContract),
-    getContractTokenInfo: setBase(Wasm.getContractTokenInfo),
-    getBalanceInfoByContract: setBase(Wasm.getBalanceInfoByContract),
   };
 };
