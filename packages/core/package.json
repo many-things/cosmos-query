@@ -1,6 +1,6 @@
 {
   "name": "@many-things/cosmos-query",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "",
   "scripts": {
     "build": "tsc && vite build"
@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "buffer": "^6.0.3",
     "qs": "^6.11.0"
   }
 }
