@@ -342,12 +342,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:1.0.2"\
       ],\
       [\
+        "base64-js",\
+        "npm:1.5.1"\
+      ],\
+      [\
         "brace-expansion",\
         "npm:1.1.11"\
       ],\
       [\
         "braces",\
         "npm:3.0.2"\
+      ],\
+      [\
+        "buffer",\
+        "npm:6.0.3"\
       ],\
       [\
         "cacache",\
@@ -792,6 +800,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       [\
         "iconv-lite",\
         "npm:0.6.3"\
+      ],\
+      [\
+        "ieee754",\
+        "npm:1.2.1"\
       ],\
       [\
         "ignore",\
@@ -1584,6 +1596,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@many-things/cosmos-query", "workspace:packages/core"],\
             ["@types/qs", "npm:6.9.7"],\
             ["axios", "npm:0.27.2"],\
+            ["buffer", "npm:6.0.3"],\
             ["qs", "npm:6.11.0"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"],\
             ["vite", "virtual:88d9fe25c5c939902a911cedae4c060d4fd28ce04a5fc4aafd5d4aae4d91ac30d3de3d0589b3a0b00c5ff27954aa567761d7af9a81d9e8f155f2ccf9a575dfda#npm:3.1.0"],\
@@ -2385,6 +2398,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["base64-js", [\
+        ["npm:1.5.1", {\
+          "packageLocation": "./.yarn/cache/base64-js-npm-1.5.1-b2f7275641-669632eb37.zip/node_modules/base64-js/",\
+          "packageDependencies": [\
+            ["base64-js", "npm:1.5.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["brace-expansion", [\
         ["npm:1.1.11", {\
           "packageLocation": "./.yarn/cache/brace-expansion-npm-1.1.11-fb95eb05ad-faf34a7bb0.zip/node_modules/brace-expansion/",\
@@ -2410,6 +2432,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["braces", "npm:3.0.2"],\
             ["fill-range", "npm:7.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["buffer", [\
+        ["npm:6.0.3", {\
+          "packageLocation": "./.yarn/cache/buffer-npm-6.0.3-cd90dfedfe-5ad23293d9.zip/node_modules/buffer/",\
+          "packageDependencies": [\
+            ["buffer", "npm:6.0.3"],\
+            ["base64-js", "npm:1.5.1"],\
+            ["ieee754", "npm:1.2.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -3967,6 +4000,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["iconv-lite", "npm:0.6.3"],\
             ["safer-buffer", "npm:2.1.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["ieee754", [\
+        ["npm:1.2.1", {\
+          "packageLocation": "./.yarn/cache/ieee754-npm-1.2.1-fb63b3caeb-5144c0c981.zip/node_modules/ieee754/",\
+          "packageDependencies": [\
+            ["ieee754", "npm:1.2.1"]\
           ],\
           "linkType": "HARD"\
         }]\
