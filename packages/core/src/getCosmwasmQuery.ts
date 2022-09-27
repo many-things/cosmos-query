@@ -6,6 +6,11 @@ export const getCosmwasmQuery = (baseURL: string | undefined) => {
   };
 
   return {
+    /**
+     * Call Smart contract with given contract addrss
+     *
+     * GET `contractAddress`
+     */
     getQuerySmartContract: setBase(Wasm.getQuerySmartContract),
   };
 };
