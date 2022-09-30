@@ -9,27 +9,27 @@ interface Pool {
   "@type": string;
   address: string;
   id: string;
-  poolParams: {
+  pool_params: {
     lock: boolean;
-    swapFee: string;
+    swap_fee: string;
     exitFee: string;
-    smoothWeightChangeParams: {
+    smooth_weight_change_params: {
       start_time: string;
       duration: string;
-      initialPoolWeights: {
+      initial_pool_weights: {
         token: Coin;
         weight: string;
       }[];
-      targetPoolWeights: {
+      target_pool_weights: {
         token: Coin;
         weight: string;
       }[];
     } | null;
   };
   future_pool_governor: string;
-  totalWeight: string;
-  totalShares: Coin;
-  poolAssets: {
+  total_weight: string;
+  total_shares: Coin;
+  pool_assets: {
     weight: string;
     token: Coin;
   }[];
@@ -46,16 +46,16 @@ export interface PoolResponse {
 
 export interface PoolParamsResponse {
   params: {
-    swapFee: string;
+    swap_fee: string;
     exitFee: string;
-    smoothWeightChangeParams: {
+    smooth_weight_change_params: {
       start_time: string;
       duration: string;
-      initialPoolWeights: {
+      initial_pool_weights: {
         token: Coin;
         weight: string;
       }[];
-      targetPoolWeights: {
+      target_pool_weights: {
         token: Coin;
         weight: string;
       }[];
@@ -69,7 +69,7 @@ export interface PoolPriceResponse {
 }
 
 export interface PoolTokensResponse {
-  poolAssets: {
+  pool_assets: {
     token: Coin;
     weight: string;
   }[];
