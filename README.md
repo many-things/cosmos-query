@@ -5,10 +5,10 @@ Cosmos Query make easy to get the data from cosmos ecosystem.
 ## Install
 
 ```bash
-// for yarn users
+# for yarn users
 $ yarn add @many-things/cosmos-query
 
-// for npm users
+# for npm users
 $ npm install @many-things/cosmos-query
 ```
 
@@ -18,4 +18,4 @@ $ npm install @many-things/cosmos-query
 
 ## Example
 
-please check [example/application](https://github.com/many-things/cosmos-query/tree/main/examples/application)
+Please check [example/application](https://github.com/many-things/cosmos-query/tree/main/examples/application)
