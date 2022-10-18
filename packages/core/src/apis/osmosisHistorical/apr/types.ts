@@ -1,7 +1,7 @@
 export type StakingAPRResponse = number;
 
 export type APRResponse = {
-  pool_id: 1;
+  pool_id: number;
   apr_list: {
     start_date: string;
     denom: string;
