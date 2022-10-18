@@ -11,6 +11,12 @@ export const getCosmwasmQuery = (
   };
 
   return {
+    /**
+     * Call Smart contract with given contract address & query interface 
+     * eg. { total_info : {} } or { balance : {} } whatever.
+     *
+     * GET `contractAddress`
+     */
     getQuerySmartContract: setBase(Wasm.getQuerySmartContract),
   };
 };
