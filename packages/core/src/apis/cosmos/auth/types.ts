@@ -1,8 +1,14 @@
 import type { PaginationResponse } from "../../../types";
 
 interface Account {
-  type_url: string;
-  value: string;
+  "@type": string;
+  account_number: string;
+  address: string;
+  pub_key: {
+    "@type": string;
+    key: string;
+  };
+  sequence: string;
 }
 
 export interface AccountsResponse {
