@@ -4,12 +4,10 @@ import { stringify } from "qs";
 export const instance = (baseURL: string) =>
   axios.create({
     baseURL,
-    paramsSerializer: {
-      encode: (params) => {
-        return stringify(params, {
-          allowDots: true,
-        });
-      },
+    paramsSerializer(params) {
+      return stringify(params, {
+        allowDots: true,
+      });
     },
   });
 
