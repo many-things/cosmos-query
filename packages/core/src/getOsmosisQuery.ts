@@ -196,5 +196,9 @@ export const getOsmosisQuery = (baseURL: string | undefined) => {
      * GET `/osmosis/superfluid/v1beta1/superfluid_delegations/${owner}`
      */
     getSuperfluidDelegation: setBase(Osmosis.getSuperfluidDelegation),
+    /**
+     * GET `osmosis/superfluid/v1beta1/all_assets`
+     */
+    getSuperfluidAllAssets: setBase(Osmosis.getSuperfluidAllAssets),
   };
 };

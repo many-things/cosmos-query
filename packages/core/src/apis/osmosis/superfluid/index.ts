@@ -1,5 +1,8 @@
 import { instance } from "../../../utils";
-import type { SuperfluidDelegationResponse } from "./types";
+import type {
+  SuperfluidAllAssetsResponse,
+  SuperfluidDelegationResponse,
+} from "./types";
 
 export type { SuperfluidDelegationResponse };
 
@@ -11,3 +14,8 @@ export const getSuperfluidDelegation =
         `/osmosis/superfluid/v1beta1/superfluid_delegations/${owner}`
       )
     ).data;
+
+export const getSuperfluidAllAssets =
+  (baseURL: string) => async (): Promise<SuperfluidAllAssetsResponse> =>
+    (await instance(baseURL).get(`/osmosis/superfluid/v1beta1/all_assets`))
+      .data;
