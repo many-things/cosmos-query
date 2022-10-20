@@ -10,3 +10,13 @@ export interface SuperfluidDelegationResponse {
   total_delegated_coins: Coin[];
   total_equivalent_staked_amount: Coin;
 }
+
+export interface SuperfluidAllAssetsResponse {
+  assets: {
+    denom: string;
+    /**
+     * @value "SuperfluidAssetTypeLPShare"
+     */
+    asset_type: string;
+  }[];
+}
