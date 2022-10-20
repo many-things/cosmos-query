@@ -1,11 +1,14 @@
 import { getUrlFromObj, getWasmDUrlFromObj, instance } from "../../../utils";
+import type { ContractCodeHashResponse } from "./types";
 
 export const getQuerySmartContract =
-  (baseURL: string, isWasmd = false) =>
+  (baseURL: string) =>
   async <T>({
+    isWasmd = false,
     contractAddress,
     contractQueryInterface,
   }: {
+    isWasmd?: boolean;
     contractAddress: string;
     contractQueryInterface: object;
   }): Promise<T> => {
@@ -17,3 +20,11 @@ export const getQuerySmartContract =
       )
     ).data;
   };
+
+export const getContractCodeHash =
+  (baseURL: string) => async (contractAddress: string) =>
+    (
+      await instance(baseURL).get<ContractCodeHashResponse>(
+        `/wasm/contract/${contractAddress}/code-hash`
+      )
+    ).data;
