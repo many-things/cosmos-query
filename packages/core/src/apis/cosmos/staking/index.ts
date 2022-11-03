@@ -181,7 +181,7 @@ export const getValidator =
   }): Promise<ValidatorResponse> => {
     return (
       await instance(baseURL).get(
-        `/cosmos/staking/v1beta1/validators${validatorAddress}`
+        `/cosmos/staking/v1beta1/validators/${validatorAddress}`
       )
     ).data;
   };
