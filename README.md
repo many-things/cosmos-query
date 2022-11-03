@@ -19,3 +19,7 @@ $ npm install @many-things/cosmos-query
 ## Example
 
 Please check [example/application](https://github.com/many-things/cosmos-query/tree/main/examples/application)
+
+
+## Reference
+- [Osmosis gRPC Gateway docs](https://lcd.osmosis.zone/swagger/#/)

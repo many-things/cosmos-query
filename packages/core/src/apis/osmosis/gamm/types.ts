@@ -5,7 +5,7 @@ export interface NumPoolsResponse {
   numPools: string;
 }
 
-interface Pool {
+export interface Pool {
   "@type": string;
   address: string;
   id: string;
