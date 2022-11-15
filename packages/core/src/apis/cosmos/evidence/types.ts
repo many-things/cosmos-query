@@ -1,6 +1,6 @@
 import type { PaginationResponse } from "../../../types";
 
-interface Evidence {
+export interface Evidence {
   type_url: string;
   value: string;
 }

@@ -7,7 +7,7 @@ export interface ClientConnectionsResponse {
   proof_height: RevisionHeight;
 }
 
-interface Connection {
+export interface Connection {
   id: string;
   client_id: string;
   versions: {

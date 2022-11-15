@@ -1,6 +1,6 @@
 import type { PaginationResponse } from "../../../types";
 
-interface DenomTrace {
+export interface DenomTrace {
   path: string;
   base_denom: string;
 }

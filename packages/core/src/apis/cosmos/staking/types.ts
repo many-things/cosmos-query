@@ -2,7 +2,7 @@ import type { BondStatus, PaginationResponse } from "../../../types";
 import type { BlockIdentity } from "../../../types";
 import type { Coin } from "../../../types";
 
-interface DelegationResponse {
+export interface DelegationResponse {
   delegation: {
     delegator_address: string;
     validator_address: string;
@@ -43,7 +43,7 @@ export interface DelegatorRedelegationsResponse {
   pagination: PaginationResponse;
 }
 
-interface UnbondingResponse {
+export interface UnbondingResponse {
   delegator_address: string;
   validator_address: string;
   entries: {
@@ -59,7 +59,7 @@ export interface DelegatorUnbondingDelegationsResponse {
   pagination: PaginationResponse;
 }
 
-interface Validator {
+export interface Validator {
   operator_address: string;
   consensus_pubkey: {
     type_url: string;

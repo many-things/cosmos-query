@@ -1,6 +1,6 @@
 import type { PaginationResponse } from "../../../types";
 
-interface Account {
+export interface Account {
   "@type": string;
   account_number: string;
   address: string;

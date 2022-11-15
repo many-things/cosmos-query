@@ -29,7 +29,7 @@ export type PoolResponse = {
   fees: string;
 }[];
 
-interface Chart {
+export interface Chart {
   time: string;
   value: number;
 }

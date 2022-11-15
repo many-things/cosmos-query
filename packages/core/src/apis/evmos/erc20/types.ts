@@ -7,7 +7,7 @@ export interface ERC20ParamsResponse {
   };
 }
 
-interface TokenPair {
+export interface TokenPair {
   erc20_address: string;
   denom: string;
   enabled: boolean;

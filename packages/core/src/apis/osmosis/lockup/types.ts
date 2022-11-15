@@ -4,7 +4,7 @@ export interface CoinsResponse {
   coins: Coin[];
 }
 
-interface Lock {
+export interface Lock {
   ID: string;
   owner: string;
   duration: string;

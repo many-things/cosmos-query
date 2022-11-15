@@ -10,7 +10,7 @@ export interface SlashingParams {
   };
 }
 
-interface SigningInfo {
+export interface SigningInfo {
   address: string;
   start_height: string;
   index_offset: string;

@@ -1,7 +1,7 @@
 import type { PaginationResponse } from "../../../types";
 import type { Coin } from "../../../types";
 
-interface Gauge {
+export interface Gauge {
   id: string;
   is_perpetual: boolean;
   distribute_to: {

@@ -47,7 +47,7 @@ export type TokensHistoricalChartResponse = {
   volume: number;
 }[];
 
-interface Chart {
+export interface Chart {
   time: string;
   value: number;
 }

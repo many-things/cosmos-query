@@ -22,7 +22,7 @@ export interface SimulateTxResponse {
   };
 }
 
-interface Tx {
+export interface Tx {
   body: {
     messages: {
       type_url: string;
@@ -76,7 +76,7 @@ export interface SimulateTx {
   tx_bytes: string;
 }
 
-interface TxResponse {
+export interface TxResponse {
   height: string;
   txhash: string;
   codespace: string;

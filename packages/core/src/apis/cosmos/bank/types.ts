@@ -18,7 +18,7 @@ export interface DenomOwnersResponse {
   pagination: PaginationResponse;
 }
 
-interface Metadata {
+export interface Metadata {
   description: string;
   denom_units: {
     denom: string;

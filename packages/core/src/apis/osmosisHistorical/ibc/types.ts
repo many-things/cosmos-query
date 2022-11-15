@@ -1,4 +1,4 @@
-interface IbcInfo {
+export interface IbcInfo {
   source: string;
   destination: string;
   channel_id: string;
@@ -6,14 +6,14 @@ interface IbcInfo {
   token_name: string;
 }
 
-interface AllIbc extends IbcInfo {
+export interface AllIbc extends IbcInfo {
   token_liquidity: number;
   last_tx: string;
   size_queue: number;
   duration_minutes: number;
 }
 
-interface IbcSource extends IbcInfo {
+export interface IbcSource extends IbcInfo {
   last_tx: string;
   size_queue: number;
   duration_minutes: number;

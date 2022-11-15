@@ -22,7 +22,7 @@ export interface GovParamsResponse {
   };
 }
 
-interface Proposal {
+export interface Proposal {
   proposal_id: string;
   content: {
     "@type": string;
@@ -52,7 +52,7 @@ export interface ProposalResponse {
   proposal: Proposal;
 }
 
-interface Deposit {
+export interface Deposit {
   proposal_id: string;
   depositor: string;
   amount: Coin[];
@@ -77,7 +77,7 @@ export interface ProposalTallyResponse {
   };
 }
 
-interface Vote {
+export interface Vote {
   proposal_id: string;
   voter: string;
   option: VoteOption;

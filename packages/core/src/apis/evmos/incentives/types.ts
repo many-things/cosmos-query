@@ -28,7 +28,7 @@ export interface GasMeterResponse {
   gas_meter: string;
 }
 
-interface Incentive {
+export interface Incentive {
   contract: string;
   allocations: {
     denom: string;

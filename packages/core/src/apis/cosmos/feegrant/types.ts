@@ -1,6 +1,6 @@
 import type { PaginationResponse } from "../../../types";
 
-interface Allowance {
+export interface Allowance {
   granter: string;
   grantee: string;
   allowance: {
