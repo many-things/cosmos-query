@@ -1,5 +1,5 @@
 import { instance } from "../../../utils";
-import type { PaginationResponse } from "../../../types";
+import type { PaginationParams } from "../../../types";
 import type { GrantsResponse } from "./types";
 
 export type { GrantsResponse };
@@ -15,7 +15,7 @@ export const getGrants =
     granter?: string;
     grantee?: string;
     msgTypeUrl?: string;
-    pagination?: PaginationResponse;
+    pagination?: PaginationParams;
   }): Promise<GrantsResponse> => {
     return (
       await instance(baseURL).get("/cosmos/authz/v1beta1/grants", {

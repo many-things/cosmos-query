@@ -23,3 +23,4 @@ Please check [example/application](https://github.com/many-things/cosmos-query/t
 
 ## Reference
 - [Osmosis gRPC Gateway docs](https://lcd.osmosis.zone/swagger/#/)
+- [Cosmos SDK - Legacy REST and gRPC Gateway docs](https://v1.cosmos.network/rpc/v0.45.1)
