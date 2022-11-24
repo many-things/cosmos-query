@@ -1,6 +1,6 @@
 import type { PaginationResponse } from "../../../types";
 
-export interface grant {
+export interface Grant {
   authorization: {
     "@type": string;
     msg: string;
@@ -9,6 +9,6 @@ export interface grant {
 }
 
 export interface GrantsResponse {
-  grants: grant[];
+  grants: Grant[];
   pagination: PaginationResponse;
 }
