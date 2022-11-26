@@ -23,11 +23,8 @@ export type {
 export const simulateTx =
   (baseURL: string) =>
   async ({ body }: { body: SimulateTx }): Promise<SimulateTxResponse> => {
-    return (
-      await instance(baseURL).post("/cosmos/tx/v1beta1/simulate", {
-        body,
-      })
-    ).data;
+    return (await instance(baseURL).post("/cosmos/tx/v1beta1/simulate", body))
+      .data;
   };
 
 export const getTxsEvent =
