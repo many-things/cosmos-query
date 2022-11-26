@@ -72,8 +72,8 @@ export interface Tx {
 }
 
 export interface SimulateTx {
-  tx: Tx;
-  tx_bytes: string;
+  tx?: Tx;
+  tx_bytes?: string;
 }
 
 export interface TxResponse {
