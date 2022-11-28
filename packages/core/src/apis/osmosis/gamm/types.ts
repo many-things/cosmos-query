@@ -2,7 +2,7 @@ import type { PaginationResponse } from "../../../types";
 import type { Coin } from "../../../types";
 
 export interface NumPoolsResponse {
-  numPools: string;
+  num_pools: string;
 }
 
 export interface Pool {
