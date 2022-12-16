@@ -28,7 +28,7 @@ export interface Proposal {
     "@type": string;
     title: string;
     description: string;
-  };
+  } | null;
   status: ProposalStatus;
   final_tally_result: {
     yes: string;
