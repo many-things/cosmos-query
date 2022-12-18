@@ -1,5 +1,16 @@
 import type { PaginationResponse } from "../../../types";
 
+export interface EthereumAccount {
+  "@type": string;
+  base_account: {
+    account_number: string;
+    address: string;
+    pub_key: null;
+    sequence: string;
+  };
+  code_hash: string;
+}
+
 export interface Account {
   "@type": string;
   account_number: string;
@@ -17,7 +28,7 @@ export interface AccountsResponse {
 }
 
 export interface AccountResponse {
-  account: Account;
+  account: Account | EthereumAccount;
 }
 
 export interface AuthParamsResponse {
