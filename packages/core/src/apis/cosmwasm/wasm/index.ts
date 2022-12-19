@@ -1,4 +1,4 @@
-import { getUrlFromObj, getWasmDUrlFromObj, instance } from "../../../utils";
+import { getUrlFromObj, getWasmDUrlFromObj, instance } from "../../../common";
 import type { ContractCodeHashResponse } from "./types";
 
 export const getQuerySmartContract =

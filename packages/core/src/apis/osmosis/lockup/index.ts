@@ -1,4 +1,4 @@
-import { instance } from "../../../utils";
+import { instance } from "../../../common";
 import type { CoinsResponse, LockedByIdResponse, LocksResponse } from "./types";
 
 export type { CoinsResponse, LockedByIdResponse, LocksResponse };

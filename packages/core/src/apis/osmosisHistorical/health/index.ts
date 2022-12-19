@@ -1,4 +1,4 @@
-import { osmosisInstance } from "../../../utils";
+import { osmosisInstance } from "../../../common";
 import type { HealthResponse } from "./types";
 
 export type { HealthResponse };

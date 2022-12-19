@@ -1,4 +1,4 @@
-import { instance } from "../../../utils";
+import { instance } from "../../../common";
 import type { PaginationParams } from "../../../types";
 import type {
   BlockResponse,

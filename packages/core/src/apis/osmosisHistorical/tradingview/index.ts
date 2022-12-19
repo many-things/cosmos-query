@@ -1,5 +1,5 @@
 // TODO: Add return types
-import { osmosisInstance } from "../../../utils";
+import { osmosisInstance } from "../../../common";
 
 export const postTradingViewAuthorize = async (body: {
   login: string;

@@ -1,4 +1,4 @@
-import { osmosisInstance } from "../../../utils";
+import { osmosisInstance } from "../../../common";
 import type { APRResponse, StakingAPRResponse } from "./types";
 
 export type { APRResponse, StakingAPRResponse };

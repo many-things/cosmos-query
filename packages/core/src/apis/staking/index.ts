@@ -1,4 +1,4 @@
-import { instance } from "../../utils";
+import { instance } from "../../common";
 import type { Delegation, DelegationsResponse } from "./types";
 
 export const submitDelegation =

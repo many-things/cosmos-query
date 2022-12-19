@@ -12,3 +12,4 @@ export * from "./getEvmosQuery";
 export * from "./getCosmwasmQuery";
 
 export * from "./types";
+export * from "./utils";

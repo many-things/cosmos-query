@@ -1,4 +1,4 @@
-import { instance } from "../../../utils";
+import { instance } from "../../../common";
 import type { RecoveryParamsResponse } from "./types";
 
 export type { RecoveryParamsResponse };

@@ -1,4 +1,4 @@
-import { instance } from "../../../utils";
+import { instance } from "../../../common";
 import type { CurrentEpochResponse, EpochsResponse } from "./types";
 
 export type { CurrentEpochResponse, EpochsResponse };
