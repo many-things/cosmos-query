@@ -1,3 +1,4 @@
+import { AxiosInstance } from "axios";
 import { instance } from "../../common";
 import type { Delegation, DelegationsResponse } from "./types";
 

@@ -1,3 +1,4 @@
+import { AxiosInstance } from "axios";
 import { instance } from "../../../common";
 import type { PaginationParams } from "../../../types";
 import type {
@@ -7,6 +8,16 @@ import type {
 } from "./types";
 
 export type { AccountResponse, AccountsResponse, AuthParamsResponse };
+
+export const new_getAccounts =
+  (client: AxiosInstance) =>
+  async ({ pagination }: { pagination?: PaginationParams }) => {
+    return (
+      await client.get("/cosmos/auth/v1beta1/accounts", {
+        params: { pagination },
+      })
+    ).data;
+  };
 
 export const getAccounts =
   (baseURL: string) =>

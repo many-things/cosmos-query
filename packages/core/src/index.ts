@@ -10,6 +10,7 @@ export * from "./getIBCQuery";
 export * from "./getOsmosisHistoricalQuery";
 export * from "./getEvmosQuery";
 export * from "./getCosmwasmQuery";
+export * from "./cosmosQueryClient";
 
 export * from "./types";
 export * from "./utils";
