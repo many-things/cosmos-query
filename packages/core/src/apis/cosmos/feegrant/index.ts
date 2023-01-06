@@ -1,11 +1,11 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type { PaginationParams } from "../../../types";
 import type { AllowanceResponse, AllowancesResponse } from "./types";
 
 export type { AllowanceResponse, AllowancesResponse };
 
 export const getAllowances =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     grantee,
     pagination,
@@ -14,7 +14,7 @@ export const getAllowances =
     pagination?: PaginationParams;
   }): Promise<AllowancesResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/cosmos/feegrant/v1beta1/allowances/${grantee}`,
         {
           params: { pagination },
@@ -24,7 +24,7 @@ export const getAllowances =
   };
 
 export const getAllowance =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     granter,
     grantee,
@@ -33,7 +33,7 @@ export const getAllowance =
     grantee: string;
   }): Promise<AllowanceResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/cosmos/feegrant/v1beta1/allowance/${granter}/${grantee}`
       )
     ).data;

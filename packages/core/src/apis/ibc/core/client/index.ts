@@ -1,4 +1,4 @@
-import { instance } from "../../../../common";
+import { AxiosInstance } from "axios";
 import type { PaginationParams } from "../../../../types";
 import type {
   ClientStateResponse,
@@ -15,14 +15,14 @@ export type {
 };
 
 export const getClientStates =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({
     pagination,
   }: {
     pagination?: PaginationParams;
   }): Promise<ClientStatesResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? "/ibc/core/client/v1/client_states"
           : "/ibc/core/client/v1beta1/client_states",
@@ -34,10 +34,10 @@ export const getClientStates =
   };
 
 export const getClientState =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({ clientId }: { clientId: string }): Promise<ClientStateResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? `/ibc/core/client/v1/client_states/${clientId}`
           : `/ibc/core/client/v1beta1/client_states/${clientId}`
@@ -46,7 +46,7 @@ export const getClientState =
   };
 
 export const getConsensusStates =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({
     clientId,
     pagination,
@@ -55,7 +55,7 @@ export const getConsensusStates =
     pagination?: PaginationParams;
   }): Promise<ConsensusStatesResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? `/ibc/core/client/v1/consensus_states/${clientId}`
           : `/ibc/core/client/v1beta1/consensus_states/${clientId}`,
@@ -67,7 +67,7 @@ export const getConsensusStates =
   };
 
 export const getConsensusState =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({
     clientId,
     revisionNumber,
@@ -80,7 +80,7 @@ export const getConsensusState =
     latestHeight?: boolean;
   }): Promise<ConsensusStateResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? `/ibc/core/client/v1/consensus_states/${clientId}/revision/${revisionNumber}/height/${revisionHeight}`
           : `/ibc/core/client/v1beta1/consensus_states/${clientId}/revision/${revisionNumber}/height/${revisionHeight}`,

@@ -1,18 +1,18 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type { PaginationParams } from "../../../types";
 import type { CurrentEpochResponse, EpochsResponse } from "./types";
 
 export type { CurrentEpochResponse, EpochsResponse };
 
 export const getCurrentEpoch =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     identifier,
   }: {
     identifier?: string;
   }): Promise<CurrentEpochResponse> => {
     return (
-      await instance(baseURL).get("/evmos/epochs/v1/current_epoch", {
+      await instance.get("/evmos/epochs/v1/current_epoch", {
         params: {
           identifier,
         },
@@ -21,14 +21,14 @@ export const getCurrentEpoch =
   };
 
 export const getEpochs =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     pagination,
   }: {
     pagination?: PaginationParams;
   }): Promise<EpochsResponse> => {
     return (
-      await instance(baseURL).get("/evmos/epochs/v1/epochs", {
+      await instance.get("/evmos/epochs/v1/epochs", {
         params: {
           pagination,
         },

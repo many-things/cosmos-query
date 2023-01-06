@@ -1,6 +1,8 @@
 import type { NextPage } from "next";
 import { useEffect } from "react";
 import { getCosmosQuery } from "@many-things/cosmos-query";
+import axios, { ParamsSerializerOptions } from "axios";
+import { stringify } from "qs";
 
 const lcdList = {
   ["cosmoshub-4"]: "https://lcd-cosmoshub.blockapsis.com",
@@ -27,9 +29,18 @@ const lcdList = {
 };
 
 const Home: NextPage = () => {
-  const { getAccounts } = getCosmosQuery(lcdList["osmosis-1"]);
+  const client = axios.create({
+    baseURL: lcdList["osmosis-1"],
+    paramsSerializer: {
+      serialize: (params: Record<string, any>) => {
+        return stringify(params, { allowDots: true });
+      },
+    },
+  });
+  const { getAccounts } = getCosmosQuery(client);
 
   useEffect(() => {
+    console.info("-----test--00------");
     (async () => {
       const a = await getAccounts({
         pagination: {

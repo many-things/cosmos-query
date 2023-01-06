@@ -1,4 +1,4 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type { PaginationParams } from "../../../types";
 import type {
   ERC20ParamsResponse,
@@ -9,21 +9,21 @@ import type {
 export type { ERC20ParamsResponse, TokenPairResponse, TokenPairsResponse };
 
 export const getERC20Params =
-  (baseURL: string) => async (): Promise<ERC20ParamsResponse> => {
-    return (await instance(baseURL).get("/evmos/erc20/v1/params")).data;
+  (instance: AxiosInstance) => async (): Promise<ERC20ParamsResponse> => {
+    return (await instance.get("/evmos/erc20/v1/params")).data;
   };
 
 export const getTokenPairs =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({}: {
     pagination?: PaginationParams;
   }): Promise<TokenPairsResponse> => {
-    return (await instance(baseURL).get("/evmos/erc20/v1/token_pairs")).data;
+    return (await instance.get("/evmos/erc20/v1/token_pairs")).data;
   };
 
 export const getTokenPair =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ token }: { token: string }): Promise<TokenPairResponse> => {
-    return (await instance(baseURL).get(`/evmos/erc20/v1/token_pairs/${token}`))
+    return (await instance.get(`/evmos/erc20/v1/token_pairs/${token}`))
       .data;
   };

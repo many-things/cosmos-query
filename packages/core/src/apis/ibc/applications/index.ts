@@ -1,4 +1,4 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type { PaginationParams } from "../../../types";
 import type {
   DenomTraceResponse,
@@ -9,14 +9,14 @@ import type {
 export type { DenomTraceResponse, DenomTracesResponse, TransferParamsResponse };
 
 export const getDenomTraces =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({
     pagination,
   }: {
     pagination?: PaginationParams;
   }): Promise<DenomTracesResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? "/ibc/apps/transfer/v1/denom_traces"
           : "/ibc/applications/transfer/v1beta1/denom_traces",
@@ -28,7 +28,7 @@ export const getDenomTraces =
   };
 
 export const getDenomTrace =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({
     hash,
   }: {
@@ -36,7 +36,7 @@ export const getDenomTrace =
     isIBCGo?: boolean;
   }): Promise<DenomTraceResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? `/ibc/apps/transfer/v1/denom_traces/${hash}`
           : `/ibc/applications/transfer/v1beta1/denom_traces/${hash}`
@@ -45,10 +45,10 @@ export const getDenomTrace =
   };
 
 export const getTransferParams =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async (): Promise<TransferParamsResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? "/ibc/apps/transfer/v1/params"
           : "/ibc/applications/transfer/v1beta1/params"

@@ -1,4 +1,4 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type {
   CirculatingSupplyResponse,
   EpochMintProvisionResponse,
@@ -18,37 +18,33 @@ export type {
 };
 
 export const getCirculatingSupply =
-  (baseURL: string) => async (): Promise<CirculatingSupplyResponse> => {
-    return (
-      await instance(baseURL).get("/evmos/inflation/v1/circulating_supply")
-    ).data;
+  (instance: AxiosInstance) => async (): Promise<CirculatingSupplyResponse> => {
+    return (await instance.get("/evmos/inflation/v1/circulating_supply")).data;
   };
 
 export const getEpochMintProvision =
-  (baseURL: string) => async (): Promise<EpochMintProvisionResponse> => {
-    return (
-      await instance(baseURL).get("/evmos/inflation/v1/epoch_mint_provision")
-    ).data;
+  (instance: AxiosInstance) =>
+  async (): Promise<EpochMintProvisionResponse> => {
+    return (await instance.get("/evmos/inflation/v1/epoch_mint_provision"))
+      .data;
   };
 
 export const getInflationRate =
-  (baseURL: string) => async (): Promise<InflationRateResponse> => {
-    return (await instance(baseURL).get("/evmos/inflation/v1/inflation_rate"))
-      .data;
+  (instance: AxiosInstance) => async (): Promise<InflationRateResponse> => {
+    return (await instance.get("/evmos/inflation/v1/inflation_rate")).data;
   };
 
 export const getInflationParams =
-  (baseURL: string) => async (): Promise<InflationParamsResponse> => {
-    return (await instance(baseURL).get("/evmos/inflation/v1/params")).data;
+  (instance: AxiosInstance) => async (): Promise<InflationParamsResponse> => {
+    return (await instance.get("/evmos/inflation/v1/params")).data;
   };
 
 export const getInflationPeriod =
-  (baseURL: string) => async (): Promise<InflationPeriodResponse> => {
-    return (await instance(baseURL).get("/evmos/inflation/v1/period")).data;
+  (instance: AxiosInstance) => async (): Promise<InflationPeriodResponse> => {
+    return (await instance.get("/evmos/inflation/v1/period")).data;
   };
 
 export const getSkippedEpochs =
-  (baseURL: string) => async (): Promise<SkippedEpochsResponse> => {
-    return (await instance(baseURL).get("/evmos/inflation/v1/skipped_epochs"))
-      .data;
+  (instance: AxiosInstance) => async (): Promise<SkippedEpochsResponse> => {
+    return (await instance.get("/evmos/inflation/v1/skipped_epochs")).data;
   };

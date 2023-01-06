@@ -1,9 +1,9 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type { ParamsResponse } from "./types";
 
 export type { ParamsResponse };
 
 export const getParams =
-  (baseURL: string) => async (): Promise<ParamsResponse> => {
-    return (await instance(baseURL).get("/cosmos/params/v1beta1/params")).data;
+  (instance: AxiosInstance) => async (): Promise<ParamsResponse> => {
+    return (await instance.get("/cosmos/params/v1beta1/params")).data;
   };

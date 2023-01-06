@@ -1,4 +1,4 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type { PaginationParams } from "../../../types";
 import type {
   ActiveGaugesResponse,
@@ -21,56 +21,53 @@ export type {
 };
 
 export const getActiveGauges =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     pagination,
   }: {
     pagination?: PaginationParams;
   }): Promise<ActiveGaugesResponse> => {
     return (
-      await instance(baseURL).get("osmosis/incentives/v1beta1/active_gauges", {
+      await instance.get("osmosis/incentives/v1beta1/active_gauges", {
         params: { pagination },
       })
     ).data;
   };
 
 export const getGaugeById =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ id }: { id: string }): Promise<GaugeByIdResponse> => {
-    return (
-      await instance(baseURL).get(
-        `/osmosis/incentives/v1beta1/gauge_by_id/${id}`
-      )
-    ).data;
+    return (await instance.get(`/osmosis/incentives/v1beta1/gauge_by_id/${id}`))
+      .data;
   };
 
 export const getGauges =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     pagination,
   }: {
     pagination?: PaginationParams;
   }): Promise<GaugesResponse> => {
     return (
-      await instance(baseURL).get("/osmosis/incentives/v1beta1/gauges", {
+      await instance.get("/osmosis/incentives/v1beta1/gauges", {
         params: { pagination },
       })
     ).data;
   };
 
 export const getModuleDistributedCoins =
-  (baseURL: string) => async (): Promise<ModuleDistributedCoinsResponse> => {
+  (instance: AxiosInstance) =>
+  async (): Promise<ModuleDistributedCoinsResponse> => {
     return (
-      await instance(baseURL).get(
-        "/osmosis/incentives/v1beta1/module_distributed_coins"
-      )
+      await instance.get("/osmosis/incentives/v1beta1/module_distributed_coins")
     ).data;
   };
 
 export const getModuleToDistributeCoins =
-  (baseURL: string) => async (): Promise<ModuleToDistributeCoinsResponse> => {
+  (instance: AxiosInstance) =>
+  async (): Promise<ModuleToDistributeCoinsResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         "/osmosis/incentives/v1beta1/module_to_distribute_coins"
       )
     ).data;
@@ -78,7 +75,7 @@ export const getModuleToDistributeCoins =
 
 // TODO: check lockIds param
 export const getRewardsEst =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     owner,
     lockIds,
@@ -89,28 +86,22 @@ export const getRewardsEst =
     endEpoch?: string;
   }): Promise<RewardsEstResponse> => {
     return (
-      await instance(baseURL).get(
-        `/osmosis/incentives/v1beta1/rewards_est/${owner}`,
-        {
-          params: { lock_ids: lockIds, end_epoch: endEpoch },
-        }
-      )
+      await instance.get(`/osmosis/incentives/v1beta1/rewards_est/${owner}`, {
+        params: { lock_ids: lockIds, end_epoch: endEpoch },
+      })
     ).data;
   };
 
 export const getUpcomingGauges =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     pagination,
   }: {
     pagination?: PaginationParams;
   }): Promise<UpcomingGaugesResponse> => {
     return (
-      await instance(baseURL).get(
-        "/osmosis/incentives/v1beta1/upcoming_gauges",
-        {
-          params: { pagination },
-        }
-      )
+      await instance.get("/osmosis/incentives/v1beta1/upcoming_gauges", {
+        params: { pagination },
+      })
     ).data;
   };

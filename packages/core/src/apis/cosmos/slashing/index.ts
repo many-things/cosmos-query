@@ -1,4 +1,4 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type { PaginationParams } from "../../../types";
 import type {
   SigningInfoResponse,
@@ -9,34 +9,33 @@ import type {
 export type { SigningInfoResponse, SigningInfosResponse, SlashingParams };
 
 export const getSlashingParams =
-  (baseURL: string) => async (): Promise<SlashingParams> => {
-    return (await instance(baseURL).get("/cosmos/slashing/v1beta1/params"))
-      .data;
+  (instance: AxiosInstance) => async (): Promise<SlashingParams> => {
+    return (await instance.get("/cosmos/slashing/v1beta1/params")).data;
   };
 
 export const getSigningInfos =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     pagination,
   }: {
     pagination?: PaginationParams;
   }): Promise<SigningInfosResponse> => {
     return (
-      await instance(baseURL).get("/cosmos/slashing/v1beta1/signing_infos", {
+      await instance.get("/cosmos/slashing/v1beta1/signing_infos", {
         params: { pagination },
       })
     ).data;
   };
 
 export const getSigningInfo =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     consAddress,
   }: {
     consAddress: string;
   }): Promise<SigningInfoResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/cosmos/slashing/v1beta1/signing_infos/${consAddress}`
       )
     ).data;

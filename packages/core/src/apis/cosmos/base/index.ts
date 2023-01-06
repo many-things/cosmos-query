@@ -1,4 +1,4 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type { PaginationParams } from "../../../types";
 import type {
   BlockResponse,
@@ -15,47 +15,47 @@ export type {
 };
 
 export const getLatestBlock =
-  (baseURL: string) => async (): Promise<BlockResponse> => {
+  (instance: AxiosInstance) => async (): Promise<BlockResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         "/cosmos/base/tendermint/v1beta1/blocks/latest"
       )
     ).data;
   };
 
 export const getBlockByHeight =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ height }: { height: number }): Promise<BlockResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/cosmos/base/tendermint/v1beta1/blocks/${height.toString()}`
       )
     ).data;
   };
 
 export const getNodeInfo =
-  (baseURL: string) => async (): Promise<NodeInfoResponse> => {
+  (instance: AxiosInstance) => async (): Promise<NodeInfoResponse> => {
     return (
-      await instance(baseURL).get("/cosmos/base/tendermint/v1beta1/node_info")
+      await instance.get("/cosmos/base/tendermint/v1beta1/node_info")
     ).data;
   };
 
 export const getSyncing =
-  (baseURL: string) => async (): Promise<SyncingResponse> => {
+  (instance: AxiosInstance) => async (): Promise<SyncingResponse> => {
     return (
-      await instance(baseURL).get("/cosmos/base/tendermint/v1beta1/syncing")
+      await instance.get("/cosmos/base/tendermint/v1beta1/syncing")
     ).data;
   };
 
 export const getLatestValidatorSet =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     pagination,
   }: {
     pagination?: PaginationParams;
   }): Promise<ValidatorSetResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         "/cosmos/base/tendermint/v1beta1/validatorsets/latest",
         { params: { pagination } }
       )
@@ -63,7 +63,7 @@ export const getLatestValidatorSet =
   };
 
 export const getValidatorSetByHeight =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     height,
     pagination,
@@ -72,7 +72,7 @@ export const getValidatorSetByHeight =
     pagination?: PaginationParams;
   }): Promise<ValidatorSetResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/cosmos/base/tendermint/v1beta1/validatorsets/${height}`,
         { params: { pagination } }
       )

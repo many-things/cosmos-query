@@ -1,4 +1,4 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type {
   AnnualProvisionsResponse,
   InflationResponse,
@@ -12,18 +12,16 @@ export type {
 };
 
 export const getAnnualProvisions =
-  (baseURL: string) => async (): Promise<AnnualProvisionsResponse> => {
-    return (
-      await instance(baseURL).get("/cosmos/mint/v1beta1/annual_provisions")
-    ).data;
+  (instance: AxiosInstance) => async (): Promise<AnnualProvisionsResponse> => {
+    return (await instance.get("/cosmos/mint/v1beta1/annual_provisions")).data;
   };
 
 export const getInflation =
-  (baseURL: string) => async (): Promise<InflationResponse> => {
-    return (await instance(baseURL).get("/cosmos/mint/v1beta1/inflation")).data;
+  (instance: AxiosInstance) => async (): Promise<InflationResponse> => {
+    return (await instance.get("/cosmos/mint/v1beta1/inflation")).data;
   };
 
 export const getMintingParams =
-  (baseURL: string) => async (): Promise<MintingParamsResponse> => {
-    return (await instance(baseURL).get("/cosmos/mint/v1beta1/params")).data;
+  (instance: AxiosInstance) => async (): Promise<MintingParamsResponse> => {
+    return (await instance.get("/cosmos/mint/v1beta1/params")).data;
   };

@@ -1,20 +1,20 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type { CoinsResponse, LockedByIdResponse, LocksResponse } from "./types";
 
 export type { CoinsResponse, LockedByIdResponse, LocksResponse };
 
 export const getAccountLockedCoins =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ owner }: { owner: string }): Promise<CoinsResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/osmosis/lockup/v1beta1/account_locked_coins/${owner}`
       )
     ).data;
   };
 
 export const getAccountLockedLongerDuration =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     owner,
     duration,
@@ -23,7 +23,7 @@ export const getAccountLockedLongerDuration =
     duration?: string;
   }): Promise<LocksResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/osmosis/lockup/v1beta1/account_locked_longer_duration/${owner}`,
         {
           params: { duration },
@@ -33,7 +33,7 @@ export const getAccountLockedLongerDuration =
   };
 
 export const getAccountLockedLongerDurationDenom =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     owner,
     duration,
@@ -44,7 +44,7 @@ export const getAccountLockedLongerDurationDenom =
     denom?: string;
   }): Promise<LocksResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/osmosis/lockup/v1beta1/account_locked_longer_duration_denom/${owner}`,
         {
           params: {
@@ -57,7 +57,7 @@ export const getAccountLockedLongerDurationDenom =
   };
 
 export const getAccountLockedLongerDurationNotUnlockingOnly =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     owner,
     duration,
@@ -66,7 +66,7 @@ export const getAccountLockedLongerDurationNotUnlockingOnly =
     duration?: string;
   }): Promise<LocksResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/osmosis/lockup/v1beta1/account_locked_longer_duration_not_unlocking_only/${owner}`,
         {
           params: { duration },
@@ -76,7 +76,7 @@ export const getAccountLockedLongerDurationNotUnlockingOnly =
   };
 
 export const getAccountLockedPastTime =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     owner,
     timestamp,
@@ -85,7 +85,7 @@ export const getAccountLockedPastTime =
     timestamp?: string;
   }): Promise<LocksResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/osmosis/lockup/v1beta1/account_locked_pasttime/${owner}`,
         {
           params: { timestamp },
@@ -95,7 +95,7 @@ export const getAccountLockedPastTime =
   };
 
 export const getAccountLockedPastTimeDenom =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     owner,
     timestamp,
@@ -106,7 +106,7 @@ export const getAccountLockedPastTimeDenom =
     denom?: string;
   }): Promise<LocksResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/osmosis/lockup/v1beta1/account_locked_pasttime_denom/${owner}`,
         {
           params: { timestamp, denom },
@@ -116,7 +116,7 @@ export const getAccountLockedPastTimeDenom =
   };
 
 export const getAccountLockedPastTimeNotUnlockingOnly =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     owner,
     timestamp,
@@ -125,7 +125,7 @@ export const getAccountLockedPastTimeNotUnlockingOnly =
     timestamp?: string;
   }): Promise<LocksResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/osmosis/lockup/v1beta1/account_locked_pasttime_not_unlocking_only/${owner}`,
         {
           params: { timestamp },
@@ -135,17 +135,17 @@ export const getAccountLockedPastTimeNotUnlockingOnly =
   };
 
 export const getAccountUnlockableCoins =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ owner }: { owner: string }): Promise<LocksResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/osmosis/lockup/v1beta1/account_unlockable_coins/${owner}`
       )
     ).data;
   };
 
 export const getAccountUnlockedBeforeTime =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     owner,
     timestamp,
@@ -154,7 +154,7 @@ export const getAccountUnlockedBeforeTime =
     timestamp?: string;
   }): Promise<LocksResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/osmosis/lockup/v1beta1/account_unlocked_before_time/${owner}`,
         {
           params: { timestamp },
@@ -164,37 +164,30 @@ export const getAccountUnlockedBeforeTime =
   };
 
 export const getAccountUnlockingCoins =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ owner }: { owner: string }): Promise<LocksResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/osmosis/lockup/v1beta1/account_unlocking_coins/${owner}`
       )
     ).data;
   };
 
 export const getLockedById =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ lockId }: { lockId: string }): Promise<LockedByIdResponse> => {
     return (
-      await instance(baseURL).get(
-        `/osmosis/lockup/v1beta1/locked_by_id/${lockId}`
-      )
+      await instance.get(`/osmosis/lockup/v1beta1/locked_by_id/${lockId}`)
     ).data;
   };
 
 export const getModuleBalance =
-  (baseURL: string) => async (): Promise<LocksResponse> => {
-    return (
-      await instance(baseURL).get("/osmosis/lockup/v1beta1/module_balance")
-    ).data;
+  (instance: AxiosInstance) => async (): Promise<LocksResponse> => {
+    return (await instance.get("/osmosis/lockup/v1beta1/module_balance")).data;
   };
 
 export const getModuleLockedAmount =
-  (baseURL: string) => async (): Promise<LocksResponse> => {
-    return (
-      await instance(baseURL).get(
-        "/osmosis/lockup/v1beta1/module_locked_amount"
-      )
-    ).data;
+  (instance: AxiosInstance) => async (): Promise<LocksResponse> => {
+    return (await instance.get("/osmosis/lockup/v1beta1/module_locked_amount"))
+      .data;
   };

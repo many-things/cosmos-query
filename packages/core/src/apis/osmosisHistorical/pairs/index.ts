@@ -1,4 +1,4 @@
-import { osmosisInstance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type {
   PairsHistoricalChartParams,
   PairsHistoricalChartResponse,
@@ -11,25 +11,28 @@ export type {
   PairsSummaryResponse,
 };
 
-export const getPairsSummary = async (): Promise<PairsSummaryResponse> => {
-  return (await osmosisInstance.get("/pairs/v1/summary")).data;
-};
+export const getPairsSummary =
+  (instance: AxiosInstance) => async (): Promise<PairsSummaryResponse> => {
+    return (await instance.get("/pairs/v1/summary")).data;
+  };
 
-export const getPairsHistoricalChart = async ({
-  poolId,
-  assetIn,
-  assetOut,
-  assetType,
-  range,
-}: PairsHistoricalChartParams): Promise<PairsHistoricalChartResponse> => {
-  return (
-    await osmosisInstance.get(`/pairs/v1/historical/${poolId}/chart`, {
-      params: {
-        asset_in: assetIn,
-        asset_out: assetOut,
-        asset_type: assetType,
-        range,
-      },
-    })
-  ).data;
-};
+export const getPairsHistoricalChart =
+  (instance: AxiosInstance) =>
+  async ({
+    poolId,
+    assetIn,
+    assetOut,
+    assetType,
+    range,
+  }: PairsHistoricalChartParams): Promise<PairsHistoricalChartResponse> => {
+    return (
+      await instance.get(`/pairs/v1/historical/${poolId}/chart`, {
+        params: {
+          asset_in: assetIn,
+          asset_out: assetOut,
+          asset_type: assetType,
+          range,
+        },
+      })
+    ).data;
+  };

@@ -1,4 +1,4 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type {
   AppliedPlanResponse,
   CurrentPlanResponse,
@@ -14,44 +14,40 @@ export type {
 };
 
 export const getAppliedPlan =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ name }: { name: string }): Promise<AppliedPlanResponse> => {
-    return (
-      await instance(baseURL).get(
-        `/cosmos/upgrade/v1beta1/applied_plan/${name}`
-      )
-    ).data;
-  };
-
-export const getCurrentPlan =
-  (baseURL: string) => async (): Promise<CurrentPlanResponse> => {
-    return (await instance(baseURL).get("/cosmos/upgrade/v1beta1/current_plan"))
+    return (await instance.get(`/cosmos/upgrade/v1beta1/applied_plan/${name}`))
       .data;
   };
 
+export const getCurrentPlan =
+  (instance: AxiosInstance) => async (): Promise<CurrentPlanResponse> => {
+    return (await instance.get("/cosmos/upgrade/v1beta1/current_plan")).data;
+  };
+
 export const getModuleVersions =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     moduleName,
   }: {
     moduleName?: string;
   }): Promise<ModuleVersionsResponse> => {
     return (
-      await instance(baseURL).get("/cosmos/upgrade/v1beta1/module_versions", {
+      await instance.get("/cosmos/upgrade/v1beta1/module_versions", {
         params: { module_name: moduleName },
       })
     ).data;
   };
 
 export const getUpgradedConsensusState =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     lastHeight,
   }: {
     lastHeight: string;
   }): Promise<UpgradedConsensusStateResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/cosmos/upgrade/v1beta1/upgraded_consensus_state/${lastHeight}`
       )
     ).data;

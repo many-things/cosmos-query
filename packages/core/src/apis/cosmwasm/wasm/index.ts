@@ -1,8 +1,9 @@
-import { getUrlFromObj, getWasmDUrlFromObj, instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type { ContractCodeHashResponse } from "./types";
+import { Buffer } from "buffer";
 
 export const getQuerySmartContract =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async <T>({
     isWasmd = false,
     contractAddress,
@@ -12,19 +13,26 @@ export const getQuerySmartContract =
     contractAddress: string;
     contractQueryInterface: object;
   }): Promise<T> => {
+    const msg = JSON.stringify(contractQueryInterface);
+    const query = Buffer.from(msg).toString("base64");
+
+    if (isWasmd) {
+      return (
+        await instance.get(
+          `/cosmwasm/wasm/v1/contract/${contractAddress}/smart/${query}`
+        )
+      ).data;
+    }
+
     return (
-      await instance(baseURL).get(
-        isWasmd
-          ? getWasmDUrlFromObj(contractAddress, contractQueryInterface)
-          : getUrlFromObj(contractAddress, contractQueryInterface)
-      )
+      await instance.get(`/wasm/v1/contract/${contractAddress}/smart/${query}`)
     ).data;
   };
 
 export const getContractCodeHash =
-  (baseURL: string) => async (contractAddress: string) =>
+  (instance: AxiosInstance) => async (contractAddress: string) =>
     (
-      await instance(baseURL).get<ContractCodeHashResponse>(
+      await instance.get<ContractCodeHashResponse>(
         `/wasm/contract/${contractAddress}/code-hash`
       )
     ).data;

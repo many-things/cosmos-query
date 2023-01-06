@@ -1,16 +1,14 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type { CurrentEpochResponse, EpochsResponse } from "./types";
 
 export type { CurrentEpochResponse, EpochsResponse };
 
 export const getCurrentEpoch =
-  (baseURL: string) => async (): Promise<CurrentEpochResponse> => {
-    return (
-      await instance(baseURL).get("/osmosis/epochs/v1beta1/current_epoch")
-    ).data;
+  (instance: AxiosInstance) => async (): Promise<CurrentEpochResponse> => {
+    return (await instance.get("/osmosis/epochs/v1beta1/current_epoch")).data;
   };
 
 export const getEpochs =
-  (baseURL: string) => async (): Promise<EpochsResponse> => {
-    return (await instance(baseURL).get("/osmosis/epochs/v1beta1/epochs")).data;
+  (instance: AxiosInstance) => async (): Promise<EpochsResponse> => {
+    return (await instance.get("/osmosis/epochs/v1beta1/epochs")).data;
   };

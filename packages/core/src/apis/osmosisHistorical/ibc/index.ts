@@ -1,4 +1,4 @@
-import { osmosisInstance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type {
   AllIbcResponse,
   IbcDestinationResponse,
@@ -17,65 +17,68 @@ export type {
   IbcSourceResponse,
 };
 
-export const getIbcInfo = async (): Promise<IbcInfoResponse> => {
-  return (await osmosisInstance.get("/ibc/v1/info")).data;
-};
+export const getIbcInfo =
+  (instance: AxiosInstance) => async (): Promise<IbcInfoResponse> => {
+    return (await instance.get("/ibc/v1/info")).data;
+  };
 
-export const getAllIbc = async ({
-  dex,
-}: {
-  dex?: string;
-}): Promise<AllIbcResponse> => {
-  return (await osmosisInstance.get("/ibc/v1/all", { params: { dex } })).data;
-};
+export const getAllIbc =
+  (instance: AxiosInstance) =>
+  async ({ dex }: { dex?: string }): Promise<AllIbcResponse> => {
+    return (await instance.get("/ibc/v1/all", { params: { dex } })).data;
+  };
 
-export const getIbcSourceDestination = async ({
-  source,
-  destination,
-  minutes_trigger,
-}: {
-  source: string;
-  destination: string;
-  minutes_trigger: number;
-}): Promise<IbcSourceDestinationResponse> => {
-  return (
-    await osmosisInstance.get(
-      `/ibc/v1/source/${source}/destination${destination}`,
-      {
+export const getIbcSourceDestination =
+  (instance: AxiosInstance) =>
+  async ({
+    source,
+    destination,
+    minutes_trigger,
+  }: {
+    source: string;
+    destination: string;
+    minutes_trigger: number;
+  }): Promise<IbcSourceDestinationResponse> => {
+    return (
+      await instance.get(`/ibc/v1/source/${source}/destination${destination}`, {
         params: { minutes_trigger },
-      }
-    )
-  ).data;
-};
+      })
+    ).data;
+  };
 
-export const getIbcSource = async ({
-  source,
-  minutes_trigger,
-}: {
-  source: string;
-  minutes_trigger: number;
-}): Promise<IbcSourceResponse> => {
-  return (
-    await osmosisInstance.get(`/ibc/v1/source/${source}`, {
-      params: { minutes_trigger },
-    })
-  ).data;
-};
+export const getIbcSource =
+  (instance: AxiosInstance) =>
+  async ({
+    source,
+    minutes_trigger,
+  }: {
+    source: string;
+    minutes_trigger: number;
+  }): Promise<IbcSourceResponse> => {
+    return (
+      await instance.get(`/ibc/v1/source/${source}`, {
+        params: { minutes_trigger },
+      })
+    ).data;
+  };
 
-export const getIbcDestination = async ({
-  destination,
-  minutes_trigger,
-}: {
-  destination: string;
-  minutes_trigger: number;
-}): Promise<IbcDestinationResponse> => {
-  return (
-    await osmosisInstance.get(`/ibc/v1/destination/${destination}`, {
-      params: { minutes_trigger },
-    })
-  ).data;
-};
+export const getIbcDestination =
+  (instance: AxiosInstance) =>
+  async ({
+    destination,
+    minutes_trigger,
+  }: {
+    destination: string;
+    minutes_trigger: number;
+  }): Promise<IbcDestinationResponse> => {
+    return (
+      await instance.get(`/ibc/v1/destination/${destination}`, {
+        params: { minutes_trigger },
+      })
+    ).data;
+  };
 
-export const getIbcRaw = async (): Promise<IbcRawResponse> => {
-  return (await osmosisInstance.get("/ibc/v1/raw")).data;
-};
+export const getIbcRaw =
+  (instance: AxiosInstance) => async (): Promise<IbcRawResponse> => {
+    return (await instance.get("/ibc/v1/raw")).data;
+  };

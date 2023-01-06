@@ -1,11 +1,11 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type { PaginationParams } from "../../../types";
 import type { GrantsResponse } from "./types";
 
 export type { GrantsResponse };
 
 export const getGrants =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     granter,
     grantee,
@@ -18,7 +18,7 @@ export const getGrants =
     pagination?: PaginationParams;
   }): Promise<GrantsResponse> => {
     return (
-      await instance(baseURL).get("/cosmos/authz/v1beta1/grants", {
+      await instance.get("/cosmos/authz/v1beta1/grants", {
         params: {
           granter,
           grantee,
