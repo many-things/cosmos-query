@@ -1,9 +1,10 @@
-import { osmosisInstance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type { LiquidityHistoricalChartResponse } from "./types";
 
 export type { LiquidityHistoricalChartResponse };
 
 export const getLiquidityHistoricalChart =
+  (instance: AxiosInstance) =>
   async (): Promise<LiquidityHistoricalChartResponse> => {
-    return (await osmosisInstance.get("/liquidity/v2/historical/chart")).data;
+    return (await instance.get("/liquidity/v2/historical/chart")).data;
   };

@@ -1,12 +1,14 @@
-import { osmosisInstance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type { SupplyResponse } from "./types";
 
 export type { SupplyResponse };
 
-export const getSupplyOsmo = async (): Promise<SupplyResponse> => {
-  return (await osmosisInstance.get("/supply/v1/osmo")).data;
-};
+export const getSupplyOsmo =
+  (instance: AxiosInstance) => async (): Promise<SupplyResponse> => {
+    return (await instance.get("/supply/v1/osmo")).data;
+  };
 
-export const getSupplyIon = async (): Promise<SupplyResponse> => {
-  return (await osmosisInstance.get("/supply/v1/ion")).data;
-};
+export const getSupplyIon =
+  (instance: AxiosInstance) => async (): Promise<SupplyResponse> => {
+    return (await instance.get("/supply/v1/ion")).data;
+  };
