@@ -1,4 +1,4 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type { OsmosisPaginationParams } from "../../../types";
 import type {
   NumPoolsResponse,
@@ -27,45 +27,39 @@ export type {
 };
 
 export const getNumPools =
-  (baseURL: string) => async (): Promise<NumPoolsResponse> => {
-    return (await instance(baseURL).get("/osmosis/gamm/v1beta1/num_pools"))
-      .data;
+  (instance: AxiosInstance) => async (): Promise<NumPoolsResponse> => {
+    return (await instance.get("/osmosis/gamm/v1beta1/num_pools")).data;
   };
 
 export const getPools =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     pagination,
   }: {
     pagination?: OsmosisPaginationParams;
   }): Promise<PoolsResponse> => {
     return (
-      await instance(baseURL).get("/osmosis/gamm/v1beta1/pools", {
+      await instance.get("/osmosis/gamm/v1beta1/pools", {
         params: { pagination },
       })
     ).data;
   };
 
 export const getPool =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ poolId }: { poolId: string }): Promise<PoolResponse> => {
-    return (
-      await instance(baseURL).get(`/osmosis/gamm/v1beta1/pools/${poolId}`)
-    ).data;
+    return (await instance.get(`/osmosis/gamm/v1beta1/pools/${poolId}`)).data;
   };
 
 export const getPoolParams =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ poolId }: { poolId: string }): Promise<PoolParamsResponse> => {
-    return (
-      await instance(baseURL).get(
-        `/osmosis/gamm/v1beta1/pools/${poolId}/params`
-      )
-    ).data;
+    return (await instance.get(`/osmosis/gamm/v1beta1/pools/${poolId}/params`))
+      .data;
   };
 
 export const getPoolPrice =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     poolId,
     tokenInDenom,
@@ -78,48 +72,38 @@ export const getPoolPrice =
     withSwapFee?: boolean;
   }): Promise<PoolPriceResponse> => {
     return (
-      await instance(baseURL).get(
-        `/osmosis/gamm/v1beta1/pools/${poolId}/prices`,
-        {
-          params: {
-            tokenInDenom,
-            tokenOutDenom,
-            withSwapFee,
-          },
-        }
-      )
+      await instance.get(`/osmosis/gamm/v1beta1/pools/${poolId}/prices`, {
+        params: {
+          tokenInDenom,
+          tokenOutDenom,
+          withSwapFee,
+        },
+      })
     ).data;
   };
 
 export const getPoolTokens =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ poolId }: { poolId: string }): Promise<PoolTokensResponse> => {
-    return (
-      await instance(baseURL).get(
-        `/osmosis/gamm/v1beta1/pools/${poolId}/tokens`
-      )
-    ).data;
+    return (await instance.get(`/osmosis/gamm/v1beta1/pools/${poolId}/tokens`))
+      .data;
   };
 
 export const getPoolTotalShare =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ poolId }: { poolId: string }): Promise<PoolTotalShare> => {
     return (
-      await instance(baseURL).get(
-        `/osmosis/gamm/v1beta1/pools/${poolId}/total_share`
-      )
+      await instance.get(`/osmosis/gamm/v1beta1/pools/${poolId}/total_share`)
     ).data;
   };
 
 export const getTotalLiquidity =
-  (baseURL: string) => async (): Promise<TotalLiquidityResponse> => {
-    return (
-      await instance(baseURL).get("/osmosis/gamm/v1beta1/total_liquidity")
-    ).data;
+  (instance: AxiosInstance) => async (): Promise<TotalLiquidityResponse> => {
+    return (await instance.get("/osmosis/gamm/v1beta1/total_liquidity")).data;
   };
 
 export const getSwapExactAmountIn =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     poolId,
     sender,
@@ -130,7 +114,7 @@ export const getSwapExactAmountIn =
     tokenIn?: string;
   }): Promise<SwapExactAmountInResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/osmosis/gamm/v1beta1/${poolId}/estimate/swap_exact_amount_in`,
         {
           params: { sender, tokenIn },
@@ -140,7 +124,7 @@ export const getSwapExactAmountIn =
   };
 
 export const getSwapExactAmountOut =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     poolId,
     sender,
@@ -151,7 +135,7 @@ export const getSwapExactAmountOut =
     tokenOut?: string;
   }): Promise<SwapExactAmountOutResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/osmosis/gamm/v1beta1/${poolId}/estimate/swap_exact_amount_out`,
         {
           params: {

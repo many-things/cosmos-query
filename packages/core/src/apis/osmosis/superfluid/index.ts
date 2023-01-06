@@ -1,4 +1,4 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type {
   SuperfluidAllAssetsResponse,
   SuperfluidDelegationResponse,
@@ -7,15 +7,14 @@ import type {
 export type { SuperfluidDelegationResponse };
 
 export const getSuperfluidDelegation =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ owner }: { owner: string }): Promise<SuperfluidDelegationResponse> =>
     (
-      await instance(baseURL).get(
+      await instance.get(
         `/osmosis/superfluid/v1beta1/superfluid_delegations/${owner}`
       )
     ).data;
 
 export const getSuperfluidAllAssets =
-  (baseURL: string) => async (): Promise<SuperfluidAllAssetsResponse> =>
-    (await instance(baseURL).get(`/osmosis/superfluid/v1beta1/all_assets`))
-      .data;
+  (instance: AxiosInstance) => async (): Promise<SuperfluidAllAssetsResponse> =>
+    (await instance.get(`/osmosis/superfluid/v1beta1/all_assets`)).data;

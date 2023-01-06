@@ -1,204 +1,205 @@
+import { AxiosInstance } from "axios";
 import * as Osmosis from "./apis/osmosis";
 
-export const getOsmosisQuery = (baseURL: string | undefined) => {
-  const setBase = <T>(callback: (url: string) => T) => {
-    return callback(baseURL ?? "");
+export const getOsmosisQuery = (instance: AxiosInstance) => {
+  const setInstance = <T>(callback: (instance: AxiosInstance) => T) => {
+    return callback(instance);
   };
 
   return {
     /**
      * GET `/osmosis/gamm/v1beta1/num_pools`
      */
-    getNumPools: setBase(Osmosis.getNumPools),
+    getNumPools: setInstance(Osmosis.getNumPools),
     /**
      * GET `/osmosis/gamm/v1beta1/pools`
      */
-    getPools: setBase(Osmosis.getPools),
+    getPools: setInstance(Osmosis.getPools),
     /**
      * GET /osmosis/gamm/v1beta1/pools/{poolId}``
      */
-    getPool: setBase(Osmosis.getPool),
+    getPool: setInstance(Osmosis.getPool),
     /**
      * GET `/osmosis/gamm/v1beta1/pools/{poolId}/params`
      */
-    getPoolParams: setBase(Osmosis.getPoolParams),
+    getPoolParams: setInstance(Osmosis.getPoolParams),
     /**
      * GET `/osmosis/gamm/v1beta1/pools/{poolId}/prices`
      */
-    getPoolPrice: setBase(Osmosis.getPoolPrice),
+    getPoolPrice: setInstance(Osmosis.getPoolPrice),
     /**
      * GET `/osmosis/gamm/v1beta1/pools/{poolId}/tokens`
      */
-    getPoolTokens: setBase(Osmosis.getPoolTokens),
+    getPoolTokens: setInstance(Osmosis.getPoolTokens),
     /**
      * GET `/osmosis/gamm/v1beta1/pools/{poolId}/total_share`
      */
-    getPoolTotalShare: setBase(Osmosis.getPoolTotalShare),
+    getPoolTotalShare: setInstance(Osmosis.getPoolTotalShare),
     /**
      * GET `/osmosis/gamm/v1beta1/total_liquidity`
      */
-    getTotalLiquidity: setBase(Osmosis.getTotalLiquidity),
+    getTotalLiquidity: setInstance(Osmosis.getTotalLiquidity),
     /**
      * GET `/osmosis/gamm/v1beta1/{poolId}/estimate/swap_exact_amount_in`
      */
-    getSwapExactAmountIn: setBase(Osmosis.getSwapExactAmountIn),
+    getSwapExactAmountIn: setInstance(Osmosis.getSwapExactAmountIn),
     /**
      * GET `/osmosis/gamm/v1beta1/{poolId}/estimate/swap_exact_amount_out`
      */
-    getSwapExactAmountOut: setBase(Osmosis.getSwapExactAmountOut),
+    getSwapExactAmountOut: setInstance(Osmosis.getSwapExactAmountOut),
     /**
      * GET `/osmosis/epochs/v1beta1/current_epoch`
      */
-    getCurrentEpoch: setBase(Osmosis.getCurrentEpoch),
+    getCurrentEpoch: setInstance(Osmosis.getCurrentEpoch),
     /**
      * GET `/osmosis/epochs/v1beta1/epochs`
      */
-    getEpochs: setBase(Osmosis.getEpochs),
+    getEpochs: setInstance(Osmosis.getEpochs),
     /**
      * GET `/osmosis/pool-incentives/v1beta1/distr_info`
      */
-    getDistrInfo: setBase(Osmosis.getDistrInfo),
+    getDistrInfo: setInstance(Osmosis.getDistrInfo),
     /**
      * GET `/osmosis/pool-incentives/v1beta1/gauge-ids/{pool_id}`
      */
-    getGaugeIds: setBase(Osmosis.getGaugeIds),
+    getGaugeIds: setInstance(Osmosis.getGaugeIds),
     /**
      * GET `/osmosis/pool-incentives/v1beta1/incentivized_pools`
      */
-    getIncentivizedPools: setBase(Osmosis.getIncentivizedPools),
+    getIncentivizedPools: setInstance(Osmosis.getIncentivizedPools),
     /**
      * GET `/osmosis/pool-incentives/v1beta1/lockable_durations`
      */
-    getLockableDurations: setBase(Osmosis.getLockableDurations),
+    getLockableDurations: setInstance(Osmosis.getLockableDurations),
     /**
      * GET `/osmosis/pool-incentives/v1beta1/params`
      */
-    getPoolIncentivesParams: setBase(Osmosis.getPoolIncentivesParams),
+    getPoolIncentivesParams: setInstance(Osmosis.getPoolIncentivesParams),
     /**
      * GET `/osmosis/lockup/v1beta1/account_locked_coins/{owner}`
      */
-    getAccountLockedCoins: setBase(Osmosis.getAccountLockedCoins),
+    getAccountLockedCoins: setInstance(Osmosis.getAccountLockedCoins),
     /**
      * GET `/osmosis/lockup/v1beta1/account_locked_longer_duration/{owner}`
      */
-    getAccountLockedLongerDuration: setBase(
+    getAccountLockedLongerDuration: setInstance(
       Osmosis.getAccountLockedLongerDuration
     ),
     /**
      * GET `/osmosis/lockup/v1beta1/account_locked_longer_duration_denom/{owner}`
      */
-    getAccountLockedLongerDurationDenom: setBase(
+    getAccountLockedLongerDurationDenom: setInstance(
       Osmosis.getAccountLockedLongerDurationDenom
     ),
     /**
      * GET `/osmosis/lockup/v1beta1/account_locked_longer_duration_not_unlocking_only/{owner}`
      */
-    getAccountLockedLongerDurationNotUnlockingOnly: setBase(
+    getAccountLockedLongerDurationNotUnlockingOnly: setInstance(
       Osmosis.getAccountLockedLongerDurationNotUnlockingOnly
     ),
     /**
      * GET `/osmosis/lockup/v1beta1/account_locked_pasttime/{owner}`
      */
-    getAccountLockedPastTime: setBase(Osmosis.getAccountLockedPastTime),
+    getAccountLockedPastTime: setInstance(Osmosis.getAccountLockedPastTime),
     /**
      * GET `/osmosis/lockup/v1beta1/account_locked_pasttime_denom/{owner}`
      */
-    getAccountLockedPastTimeDenom: setBase(
+    getAccountLockedPastTimeDenom: setInstance(
       Osmosis.getAccountLockedPastTimeDenom
     ),
     /**
      * GET `/osmosis/lockup/v1beta1/account_locked_pasttime_not_unlocking_only/{owner}`
      */
-    getAccountLockedPastTimeNotUnlockingOnly: setBase(
+    getAccountLockedPastTimeNotUnlockingOnly: setInstance(
       Osmosis.getAccountLockedPastTimeNotUnlockingOnly
     ),
     /**
      * GET `/osmosis/lockup/v1beta1/account_unlockable_coins/{owner}`
      */
-    getAccountUnlockableCoins: setBase(Osmosis.getAccountUnlockableCoins),
+    getAccountUnlockableCoins: setInstance(Osmosis.getAccountUnlockableCoins),
     /**
      * GET `/osmosis/lockup/v1beta1/account_unlocked_before_time/{owner}`
      */
-    getAccountUnlockedBeforeTime: setBase(Osmosis.getAccountUnlockedBeforeTime),
+    getAccountUnlockedBeforeTime: setInstance(Osmosis.getAccountUnlockedBeforeTime),
     /**
      * GET `/osmosis/lockup/v1beta1/account_unlocking_coins/{owner}`
      */
-    getAccountUnlockingCoins: setBase(Osmosis.getAccountUnlockingCoins),
+    getAccountUnlockingCoins: setInstance(Osmosis.getAccountUnlockingCoins),
     /**
      * GET `/osmosis/lockup/v1beta1/locked_by_id/{lock_id}`
      */
-    getLockedById: setBase(Osmosis.getLockedById),
+    getLockedById: setInstance(Osmosis.getLockedById),
     /**
      * GET `/osmosis/lockup/v1beta1/locked_by_id/{lock_id}`
      */
-    getModuleBalance: setBase(Osmosis.getModuleBalance),
+    getModuleBalance: setInstance(Osmosis.getModuleBalance),
     /**
      * GET `/osmosis/lockup/v1beta1/module_locked_amount`
      */
-    getModuleLockedAmount: setBase(Osmosis.getModuleLockedAmount),
+    getModuleLockedAmount: setInstance(Osmosis.getModuleLockedAmount),
     /**
      * GET `/osmosis/incentives/v1beta1/active_gauges`
      */
-    getActiveGauges: setBase(Osmosis.getActiveGauges),
+    getActiveGauges: setInstance(Osmosis.getActiveGauges),
     /**
      * GET `/osmosis/incentives/v1beta1/gauge_by_id/{id}`
      */
-    getGaugeById: setBase(Osmosis.getGaugeById),
+    getGaugeById: setInstance(Osmosis.getGaugeById),
     /**
      * GET `/osmosis/incentives/v1beta1/gauges`
      */
-    getGauges: setBase(Osmosis.getGauges),
+    getGauges: setInstance(Osmosis.getGauges),
     /**
      * GET `/osmosis/incentives/v1beta1/module_distributed_coins`
      */
-    getModuleDistributedCoins: setBase(Osmosis.getModuleDistributedCoins),
+    getModuleDistributedCoins: setInstance(Osmosis.getModuleDistributedCoins),
     /**
      * GET `/osmosis/incentives/v1beta1/module_to_distribute_coins`
      */
-    getModuleToDistributeCoins: setBase(Osmosis.getModuleToDistributeCoins),
+    getModuleToDistributeCoins: setInstance(Osmosis.getModuleToDistributeCoins),
     /**
      * GET `/osmosis/incentives/v1beta1/rewards_est/{owner}`
      */
-    getRewardsEst: setBase(Osmosis.getRewardsEst),
+    getRewardsEst: setInstance(Osmosis.getRewardsEst),
     /**
      * GET `/osmosis/incentives/v1beta1/upcoming_gauges`
      */
-    getUpcomingGauges: setBase(Osmosis.getUpcomingGauges),
+    getUpcomingGauges: setInstance(Osmosis.getUpcomingGauges),
     /**
      * GET `/osmosis/claim/v1beta1/claim_record/{address}`
      */
-    getClaimRecord: setBase(Osmosis.getClaimRecord),
+    getClaimRecord: setInstance(Osmosis.getClaimRecord),
     /**
      * GET `/osmosis/claim/v1beta1/claimable_for_action/{address}/{action}`
      */
-    getClaimableForAction: setBase(Osmosis.getClaimableForAction),
+    getClaimableForAction: setInstance(Osmosis.getClaimableForAction),
     /**
      * GET `/osmosis/claim/v1beta1/module_account_balance`
      */
-    getModuleAccountBalance: setBase(Osmosis.getModuleAccountBalance),
+    getModuleAccountBalance: setInstance(Osmosis.getModuleAccountBalance),
     /**
      * GET `/osmosis/claim/v1beta1/params`
      */
-    getClaimParams: setBase(Osmosis.getClaimParams),
+    getClaimParams: setInstance(Osmosis.getClaimParams),
     /**
      * GET `/osmosis/claim/v1beta1/total_claimable/{address}`
      */
-    getTotalClaimable: setBase(Osmosis.getTotalClaimable),
+    getTotalClaimable: setInstance(Osmosis.getTotalClaimable),
     /**
      * GET `/osmosis/mint/v1beta1/epoch_provisions`
      */
-    getEpochProvisions: setBase(Osmosis.getEpochProvisions),
+    getEpochProvisions: setInstance(Osmosis.getEpochProvisions),
     /**
      * GET `/osmosis/mint/v1beta1/params`
      */
-    getMintingParams: setBase(Osmosis.getMintingParams),
+    getMintingParams: setInstance(Osmosis.getMintingParams),
     /**
      * GET `/osmosis/superfluid/v1beta1/superfluid_delegations/${owner}`
      */
-    getSuperfluidDelegation: setBase(Osmosis.getSuperfluidDelegation),
+    getSuperfluidDelegation: setInstance(Osmosis.getSuperfluidDelegation),
     /**
      * GET `osmosis/superfluid/v1beta1/all_assets`
      */
-    getSuperfluidAllAssets: setBase(Osmosis.getSuperfluidAllAssets),
+    getSuperfluidAllAssets: setInstance(Osmosis.getSuperfluidAllAssets),
   };
 };

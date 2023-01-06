@@ -1,8 +1,9 @@
+import { AxiosInstance } from "axios";
 import * as Wasm from "./apis/cosmwasm";
 
-export const getCosmwasmQuery = (baseURL: string | undefined) => {
-  const setBase = <T>(callback: (url: string) => T) => {
-    return callback(baseURL ?? "");
+export const getCosmwasmQuery = (instance: AxiosInstance) => {
+  const setInstance = <T>(callback: (instance: AxiosInstance) => T) => {
+    return callback(instance);
   };
 
   return {
@@ -12,10 +13,10 @@ export const getCosmwasmQuery = (baseURL: string | undefined) => {
      *
      * GET `contractAddress`
      */
-    getQuerySmartContract: setBase(Wasm.getQuerySmartContract),
+    getQuerySmartContract: setInstance(Wasm.getQuerySmartContract),
     /**
      * GET `/wasm/contract/{contractAddress}/code-hash`
      */
-    getContractCodeHash: setBase(Wasm.getContractCodeHash),
+    getContractCodeHash: setInstance(Wasm.getContractCodeHash),
   };
 };

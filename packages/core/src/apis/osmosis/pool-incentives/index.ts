@@ -1,4 +1,4 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type {
   DistrInfoResponse,
   GaugeIdsResponse,
@@ -16,43 +16,35 @@ export type {
 };
 
 export const getDistrInfo =
-  (baseURL: string) => async (): Promise<DistrInfoResponse> => {
-    return (
-      await instance(baseURL).get("/osmosis/pool-incentives/v1beta1/distr_info")
-    ).data;
+  (instance: AxiosInstance) => async (): Promise<DistrInfoResponse> => {
+    return (await instance.get("/osmosis/pool-incentives/v1beta1/distr_info"))
+      .data;
   };
 
 export const getGaugeIds =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ poolId }: { poolId: string }): Promise<GaugeIdsResponse> => {
     return (
-      await instance(baseURL).get(
-        `/osmosis/pool-incentives/v1beta1/gauge-ids/${poolId}`
-      )
+      await instance.get(`/osmosis/pool-incentives/v1beta1/gauge-ids/${poolId}`)
     ).data;
   };
 
 export const getIncentivizedPools =
-  (baseURL: string) => async (): Promise<IncentivizedPoolsResponse> => {
+  (instance: AxiosInstance) => async (): Promise<IncentivizedPoolsResponse> => {
     return (
-      await instance(baseURL).get(
-        "/osmosis/pool-incentives/v1beta1/incentivized_pools"
-      )
+      await instance.get("/osmosis/pool-incentives/v1beta1/incentivized_pools")
     ).data;
   };
 
 export const getLockableDurations =
-  (baseURL: string) => async (): Promise<LockableDurationsResponse> => {
+  (instance: AxiosInstance) => async (): Promise<LockableDurationsResponse> => {
     return (
-      await instance(baseURL).get(
-        "/osmosis/pool-incentives/v1beta1/lockable_durations"
-      )
+      await instance.get("/osmosis/pool-incentives/v1beta1/lockable_durations")
     ).data;
   };
 
 export const getPoolIncentivesParams =
-  (baseURL: string) => async (): Promise<PoolIncentivesParamsResponse> => {
-    return (
-      await instance(baseURL).get("/osmosis/pool-incentives/v1beta1/params")
-    ).data;
+  (instance: AxiosInstance) =>
+  async (): Promise<PoolIncentivesParamsResponse> => {
+    return (await instance.get("/osmosis/pool-incentives/v1beta1/params")).data;
   };

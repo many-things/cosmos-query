@@ -1,5 +1,4 @@
 import { AxiosInstance } from "axios";
-import { instance } from "../../../common";
 import type { PaginationParams } from "../../../types";
 import type {
   AccountResponse,
@@ -9,39 +8,28 @@ import type {
 
 export type { AccountResponse, AccountsResponse, AuthParamsResponse };
 
-export const new_getAccounts =
-  (client: AxiosInstance) =>
-  async ({ pagination }: { pagination?: PaginationParams }) => {
-    return (
-      await client.get("/cosmos/auth/v1beta1/accounts", {
-        params: { pagination },
-      })
-    ).data;
-  };
-
 export const getAccounts =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     pagination,
   }: {
     pagination?: PaginationParams;
   }): Promise<AccountsResponse> => {
     return (
-      await instance(baseURL).get("/cosmos/auth/v1beta1/accounts", {
+      await instance.get("/cosmos/auth/v1beta1/accounts", {
         params: { pagination },
       })
     ).data;
   };
 
 export const getAccountByAddress =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ address }: { address: string }): Promise<AccountResponse> => {
-    return (
-      await instance(baseURL).get(`/cosmos/auth/v1beta1/accounts/${address}`)
-    ).data;
+    return (await instance.get(`/cosmos/auth/v1beta1/accounts/${address}`))
+      .data;
   };
 
 export const getAuthParams =
-  (baseURL: string) => async (): Promise<AuthParamsResponse> => {
-    return (await instance(baseURL).get("/cosmos/auth/v1beta1/params")).data;
+  (instance: AxiosInstance) => async (): Promise<AuthParamsResponse> => {
+    return (await instance.get("/cosmos/auth/v1beta1/params")).data;
   };

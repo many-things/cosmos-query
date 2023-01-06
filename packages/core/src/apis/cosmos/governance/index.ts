@@ -1,4 +1,4 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type { PaginationParams, ProposalStatus } from "../../../types";
 import type {
   GovParamsResponse,
@@ -25,19 +25,19 @@ export type {
 };
 
 export const getGovParams =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     paramsType,
   }: {
     paramsType: GovParamsType;
   }): Promise<GovParamsResponse> => {
     return (
-      await instance(baseURL).get(`/cosmos/gov/v1beta1/params/${paramsType}`)
+      await instance.get(`/cosmos/gov/v1beta1/params/${paramsType}`)
     ).data;
   };
 
 export const getProposals =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     proposalStatus,
     voter,
@@ -72,7 +72,7 @@ export const getProposals =
       return 0;
     };
     return (
-      await instance(baseURL).get("/cosmos/gov/v1beta1/proposals", {
+      await instance.get("/cosmos/gov/v1beta1/proposals", {
         params: {
           proposal_status: proposalStatusNumber(),
           voter,
@@ -84,15 +84,15 @@ export const getProposals =
   };
 
 export const getProposal =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ proposalId }: { proposalId: string }): Promise<ProposalResponse> => {
     return (
-      await instance(baseURL).get(`/cosmos/gov/v1beta1/proposals/${proposalId}`)
+      await instance.get(`/cosmos/gov/v1beta1/proposals/${proposalId}`)
     ).data;
   };
 
 export const getProposalDeposits =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     proposalId,
     pagination,
@@ -101,7 +101,7 @@ export const getProposalDeposits =
     pagination?: PaginationParams;
   }): Promise<ProposalDepositsResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/cosmos/gov/v1beta1/proposals/${proposalId}/deposits`,
         {
           params: { pagination },
@@ -111,7 +111,7 @@ export const getProposalDeposits =
   };
 
 export const getProposalDeposit =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     proposalId,
     depositor,
@@ -120,28 +120,28 @@ export const getProposalDeposit =
     depositor: string;
   }): Promise<ProposalDepositResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/cosmos/gov/v1beta1/proposals/${proposalId}/deposits/${depositor}`
       )
     ).data;
   };
 
 export const getProposalTally =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     proposalId,
   }: {
     proposalId: string;
   }): Promise<ProposalTallyResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/cosmos/gov/v1beta1/proposals/${proposalId}/tally`
       )
     ).data;
   };
 
 export const getProposalVotes =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     proposalId,
     pagination,
@@ -150,7 +150,7 @@ export const getProposalVotes =
     pagination?: PaginationParams;
   }): Promise<ProposalVotesResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/cosmos/gov/v1beta1/proposals/${proposalId}/votes`,
         {
           params: { pagination },
@@ -160,7 +160,7 @@ export const getProposalVotes =
   };
 
 export const getProposalVote =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     proposalId,
     voter,
@@ -169,7 +169,7 @@ export const getProposalVote =
     voter: string;
   }): Promise<ProposalVoteResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/cosmos/gov/v1beta1/proposals/${proposalId}/votes/${voter}`
       )
     ).data;

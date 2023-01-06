@@ -1,4 +1,4 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type { PaginationParams } from "../../../types";
 import type {
   AllocationMeterResponse,
@@ -21,31 +21,29 @@ export type {
 };
 
 export const getAllocationMeters =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     pagination,
   }: {
     pagination?: PaginationParams;
   }): Promise<AllocationMetersResponse> => {
     return (
-      await instance(baseURL).get("/evmos/incentives/v1/allocation_meters", {
+      await instance.get("/evmos/incentives/v1/allocation_meters", {
         params: { pagination },
       })
     ).data;
   };
 
 export const getAllocationMeter =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ denom }: { denom: string }): Promise<AllocationMeterResponse> => {
     return (
-      await instance(baseURL).get(
-        `/evmos/incentives/v1/allocation_meters/${denom}`
-      )
+      await instance.get(`/evmos/incentives/v1/allocation_meters/${denom}`)
     ).data;
   };
 
 export const getGasMeters =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     contract,
     pagination,
@@ -54,17 +52,14 @@ export const getGasMeters =
     pagination?: PaginationParams;
   }): Promise<GasMetersResponse> => {
     return (
-      await instance(baseURL).get(
-        `/evmos/incentives/v1/gas_meters/${contract}`,
-        {
-          params: { pagination },
-        }
-      )
+      await instance.get(`/evmos/incentives/v1/gas_meters/${contract}`, {
+        params: { pagination },
+      })
     ).data;
   };
 
 export const getGasMeter =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     contract,
     participant,
@@ -73,35 +68,34 @@ export const getGasMeter =
     participant: string;
   }): Promise<GasMeterResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/evmos/incentives/v1/gas_meters/${contract}/${participant}`
       )
     ).data;
   };
 
 export const getIncentives =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     pagination,
   }: {
     pagination?: PaginationParams;
   }): Promise<IncentivesResponse> => {
     return (
-      await instance(baseURL).get("/evmos/incentives/v1/incentives", {
+      await instance.get("/evmos/incentives/v1/incentives", {
         params: { pagination },
       })
     ).data;
   };
 
 export const getIncentive =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ contract }: { contract: string }): Promise<IncentiveResponse> => {
-    return (
-      await instance(baseURL).get(`/evmos/incentives/v1/incentives/${contract}`)
-    ).data;
+    return (await instance.get(`/evmos/incentives/v1/incentives/${contract}`))
+      .data;
   };
 
 export const getIncentivesParams =
-  (baseURL: string) => async (): Promise<IncentivesParamsResponse> => {
-    return (await instance(baseURL).get("/evmos/incentives/v1/params")).data;
+  (instance: AxiosInstance) => async (): Promise<IncentivesParamsResponse> => {
+    return (await instance.get("/evmos/incentives/v1/params")).data;
   };

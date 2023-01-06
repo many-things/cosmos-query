@@ -1,4 +1,4 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type { PaginationParams } from "../../../types";
 import type {
   BroadcastTx,
@@ -21,14 +21,14 @@ export type {
 };
 
 export const simulateTx =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ body }: { body: SimulateTx }): Promise<SimulateTxResponse> => {
-    return (await instance(baseURL).post("/cosmos/tx/v1beta1/simulate", body))
+    return (await instance.post("/cosmos/tx/v1beta1/simulate", body))
       .data;
   };
 
 export const getTxsEvent =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     events,
     orderBy,
@@ -39,24 +39,24 @@ export const getTxsEvent =
     orderBy?: OrderBy;
   }): Promise<TxsEventResponse> => {
     return (
-      await instance(baseURL).get("/cosmos/tx/v1beta1/txs", {
+      await instance.get("/cosmos/tx/v1beta1/txs", {
         params: { events, pagination, order_by: orderBy },
       })
     ).data;
   };
 
 export const broadcastTx =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ body }: { body: BroadcastTx }): Promise<BroadcastTxResponse> => {
     return (
-      await instance(baseURL).post("/cosmos/tx/v1beta1/txs", {
+      await instance.post("/cosmos/tx/v1beta1/txs", {
         body,
       })
     ).data;
   };
 
 export const getTxByHash =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ hash }: { hash: string }): Promise<TxByHashResponse> => {
-    return (await instance(baseURL).get(`/cosmos/tx/v1beta1/txs/${hash}`)).data;
+    return (await instance.get(`/cosmos/tx/v1beta1/txs/${hash}`)).data;
   };

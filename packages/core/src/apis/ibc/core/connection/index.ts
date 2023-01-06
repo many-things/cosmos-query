@@ -1,11 +1,11 @@
-import { instance } from "../../../../common";
+import { AxiosInstance } from "axios";
 import type { PaginationParams } from "../../../../types";
 
 export const getClientConnections =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({ clientId }: { clientId: string }): Promise<any> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? `/ibc/core/connection/v1/client_connections/${clientId}`
           : `/ibc/core/connection/v1beta1/client_connections/${clientId}`
@@ -14,10 +14,10 @@ export const getClientConnections =
   };
 
 export const getConnections =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({ pagination }: { pagination?: PaginationParams }): Promise<any> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? "/ibc/core/connection/v1/connections"
           : "/ibc/core/connection/v1beta1/connections",
@@ -29,10 +29,10 @@ export const getConnections =
   };
 
 export const getConnection =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({ connectionId }: { connectionId: string }): Promise<any> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? `/ibc/core/connection/v1/connections/${connectionId}`
           : `/ibc/core/connection/v1beta1/connections/${connectionId}`
@@ -41,10 +41,10 @@ export const getConnection =
   };
 
 export const getConnectionClientState =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({ connectionId }: { connectionId: string }): Promise<any> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? `/ibc/core/connection/v1/connections/${connectionId}/client_state`
           : `/ibc/core/connection/v1beta1/connections/${connectionId}/client_state`
@@ -53,7 +53,7 @@ export const getConnectionClientState =
   };
 
 export const getConnectionConsensusState =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({
     connectionId,
     revisionNumber,
@@ -64,7 +64,7 @@ export const getConnectionConsensusState =
     revisionHeight: string;
   }): Promise<any> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? `/ibc/core/connection/v1/connections/${connectionId}/consensus_state/revision/${revisionNumber}/height/${revisionHeight}`
           : `/ibc/core/connection/v1beta1/connections/${connectionId}/consensus_state/revision/${revisionNumber}/height/${revisionHeight}`

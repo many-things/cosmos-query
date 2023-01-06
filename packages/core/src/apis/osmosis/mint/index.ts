@@ -1,4 +1,4 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type {
   EpochProvisionsResponse,
   OsmosisMintingParamsResponse,
@@ -7,13 +7,12 @@ import type {
 export type { EpochProvisionsResponse, OsmosisMintingParamsResponse };
 
 export const getEpochProvisions =
-  (baseURL: string) => async (): Promise<EpochProvisionsResponse> => {
-    return (
-      await instance(baseURL).get("/osmosis/mint/v1beta1/epoch_provisions")
-    ).data;
+  (instance: AxiosInstance) => async (): Promise<EpochProvisionsResponse> => {
+    return (await instance.get("/osmosis/mint/v1beta1/epoch_provisions")).data;
   };
 
 export const getMintingParams =
-  (baseURL: string) => async (): Promise<OsmosisMintingParamsResponse> => {
-    return (await instance(baseURL).get("/osmosis/mint/v1beta1/params")).data;
+  (instance: AxiosInstance) =>
+  async (): Promise<OsmosisMintingParamsResponse> => {
+    return (await instance.get("/osmosis/mint/v1beta1/params")).data;
   };

@@ -1,4 +1,4 @@
-import { instance } from "../../../../common";
+import { AxiosInstance } from "axios";
 import type { PaginationParams } from "../../../../types";
 import type {
   ChannelClientStateResponse,
@@ -33,14 +33,14 @@ export type {
 };
 
 export const getChannels =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({
     pagination,
   }: {
     pagination?: PaginationParams;
   }): Promise<ChannelsResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? "/ibc/core/channel/v1/channels"
           : "/ibc/core/channel/v1beta1/channels",
@@ -52,7 +52,7 @@ export const getChannels =
   };
 
 export const getChannel =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({
     channelId,
     portId,
@@ -61,7 +61,7 @@ export const getChannel =
     portId: string;
   }): Promise<ChannelResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? `/ibc/core/channel/v1/channels/${channelId}/ports/${portId}`
           : `/ibc/core/channel/v1beta1/channels/${channelId}/ports/${portId}`
@@ -70,7 +70,7 @@ export const getChannel =
   };
 
 export const getChannelClientState =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({
     channelId,
     portId,
@@ -79,7 +79,7 @@ export const getChannelClientState =
     portId: string;
   }): Promise<ChannelClientStateResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? `/ibc/core/channel/v1/channels/${channelId}/ports/${portId}/client_state`
           : `/ibc/core/channel/v1beta1/channels/${channelId}/ports/${portId}/client_state`
@@ -88,7 +88,7 @@ export const getChannelClientState =
   };
 
 export const getChannelConsensusState =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({
     channelId,
     portId,
@@ -101,7 +101,7 @@ export const getChannelConsensusState =
     revisionHeight: string;
   }): Promise<ChannelConsensusStateResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? `/ibc/core/channel/v1/channels/${channelId}/ports/${portId}/consensus_state/revision/${revisionNumber}/height/${revisionHeight}`
           : `/ibc/core/channel/v1beta1/channels/${channelId}/ports/${portId}/consensus_state/revision/${revisionNumber}/height/${revisionHeight}`
@@ -110,7 +110,7 @@ export const getChannelConsensusState =
   };
 
 export const getNextSequenceReceive =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({
     channelId,
     portId,
@@ -119,7 +119,7 @@ export const getNextSequenceReceive =
     portId: string;
   }): Promise<NextSequenceReceiveResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? `/ibc/core/channel/v1/channels/${channelId}/ports/${portId}/next_sequence`
           : `/ibc/core/channel/v1beta1/channels/${channelId}/ports/${portId}/next_sequence`
@@ -128,7 +128,7 @@ export const getNextSequenceReceive =
   };
 
 export const getPacketAcknowledgements =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({
     channelId,
     portId,
@@ -139,7 +139,7 @@ export const getPacketAcknowledgements =
     pagination?: PaginationParams;
   }): Promise<PacketAcknowledgementsResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? `/ibc/core/channel/v1/channels/${channelId}/ports/${portId}/packet_acknowledgements`
           : `/ibc/core/channel/v1beta1/channels/${channelId}/ports/${portId}/packet_acknowledgements`,
@@ -151,7 +151,7 @@ export const getPacketAcknowledgements =
   };
 
 export const getPacketAcknowledgement =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({
     channelId,
     portId,
@@ -162,7 +162,7 @@ export const getPacketAcknowledgement =
     sequence: string;
   }): Promise<PacketAcknowledgementResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? `/ibc/core/channel/v1/channels/${channelId}/ports/${portId}/packet_acks/${sequence}`
           : `/ibc/core/channel/v1beta1/channels/${channelId}/ports/${portId}/packet_acks/${sequence}`
@@ -171,7 +171,7 @@ export const getPacketAcknowledgement =
   };
 
 export const getPacketCommitments =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({
     channelId,
     portId,
@@ -182,7 +182,7 @@ export const getPacketCommitments =
     pagination?: PaginationParams;
   }): Promise<PacketCommitmentsResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? `/ibc/core/channel/v1/channels/${channelId}/ports/${portId}/packet_commitments`
           : `/ibc/core/channel/v1beta1/channels/${channelId}/ports/${portId}/packet_commitments`,
@@ -194,7 +194,7 @@ export const getPacketCommitments =
   };
 
 export const getUnreceivedAcks =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({
     channelId,
     portId,
@@ -206,7 +206,7 @@ export const getUnreceivedAcks =
   }): Promise<UnreceivedAcksResponse> => {
     const packetAckSequencesString = packetAckSequences.join(",");
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? `/ibc/core/channel/v1/channels/${channelId}/ports/${portId}/packet_commitments/${packetAckSequencesString}/unreceived_acks`
           : `/ibc/core/channel/v1beta1/channels/${channelId}/ports/${portId}/packet_commitments/${packetAckSequencesString}/unreceived_acks`
@@ -215,7 +215,7 @@ export const getUnreceivedAcks =
   };
 
 export const getUnreceivedPackets =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({
     channelId,
     portId,
@@ -227,7 +227,7 @@ export const getUnreceivedPackets =
   }): Promise<UnreceivedPacketsResponse> => {
     const packetCommitmentSequencesString = packetCommitmentSequences.join(",");
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? `/ibc/core/channel/v1/channels/${channelId}/ports/${portId}/packet_commitments/${packetCommitmentSequencesString}/unreceived_packets`
           : `/ibc/core/channel/v1beta1/channels/${channelId}/ports/${portId}/packet_commitments/${packetCommitmentSequencesString}/unreceived_packets`
@@ -236,7 +236,7 @@ export const getUnreceivedPackets =
   };
 
 export const getPacketCommitment =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({
     channelId,
     portId,
@@ -247,7 +247,7 @@ export const getPacketCommitment =
     sequence: string;
   }): Promise<PacketCommitmentResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? `/ibc/core/channel/v1/channels/${channelId}/ports/${portId}/packet_commitments/${sequence}`
           : `/ibc/core/channel/v1beta1/channels/${channelId}/ports/${portId}/packet_commitments/${sequence}`
@@ -256,7 +256,7 @@ export const getPacketCommitment =
   };
 
 export const getPacketReceipt =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({
     channelId,
     portId,
@@ -267,7 +267,7 @@ export const getPacketReceipt =
     sequence: string;
   }): Promise<PacketReceiptResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? `/ibc/core/channel/v1/channels/${channelId}/ports/${portId}/packet_receipts/${sequence}`
           : `/ibc/core/channel/v1beta1/channels/${channelId}/ports/${portId}/packet_receipts/${sequence}`
@@ -276,7 +276,7 @@ export const getPacketReceipt =
   };
 
 export const getConnectionChannels =
-  (baseURL: string, isIBCGo = false) =>
+  (instance: AxiosInstance, isIBCGo = false) =>
   async ({
     connection,
     pagination,
@@ -285,7 +285,7 @@ export const getConnectionChannels =
     pagination?: PaginationParams;
   }): Promise<ConnectionChannelsResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         isIBCGo
           ? `/ibc/core/channel/v1/connections/${connection}/channels`
           : `/ibc/core/channel/v1beta1/connections/${connection}/channels`,

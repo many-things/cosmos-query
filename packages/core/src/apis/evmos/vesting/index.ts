@@ -1,16 +1,14 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type { VestingBalancesResponse } from "./types";
 
 export type { VestingBalancesResponse };
 
 export const getVestingBalances =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     address,
   }: {
     address: string;
   }): Promise<VestingBalancesResponse> => {
-    return (
-      await instance(baseURL).get(`/evmos/vesting/v1/balances/${address}`)
-    ).data;
+    return (await instance.get(`/evmos/vesting/v1/balances/${address}`)).data;
   };

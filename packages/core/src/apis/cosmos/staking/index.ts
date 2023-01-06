@@ -1,4 +1,4 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type { PaginationParams } from "../../../types";
 import type {
   DelegatorDelegationsResponse,
@@ -35,7 +35,7 @@ export type {
 };
 
 export const getDelegatorDelegations =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     delegatorAddress,
     pagination,
@@ -44,7 +44,7 @@ export const getDelegatorDelegations =
     pagination?: PaginationParams;
   }): Promise<DelegatorDelegationsResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/cosmos/staking/v1beta1/delegations/${delegatorAddress}`,
         {
           params: { pagination },
@@ -54,7 +54,7 @@ export const getDelegatorDelegations =
   };
 
 export const getDelegatorRedelegations =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     delegatorAddress,
     srcValidatorAddress,
@@ -67,7 +67,7 @@ export const getDelegatorRedelegations =
     pagination?: PaginationParams;
   }): Promise<DelegatorRedelegationsResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/cosmos/staking/v1beta1/delegators/${delegatorAddress}/redelegations`,
         {
           params: {
@@ -81,7 +81,7 @@ export const getDelegatorRedelegations =
   };
 
 export const getDelegatorUnbondingDelegations =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     delegatorAddress,
     pagination,
@@ -90,7 +90,7 @@ export const getDelegatorUnbondingDelegations =
     pagination?: PaginationParams;
   }): Promise<DelegatorUnbondingDelegationsResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/cosmos/staking/v1beta1/delegators/${delegatorAddress}/unbonding_delegations`,
         {
           params: { pagination },
@@ -100,7 +100,7 @@ export const getDelegatorUnbondingDelegations =
   };
 
 export const getDelegatorValidators =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     delegatorAddress,
     pagination,
@@ -109,7 +109,7 @@ export const getDelegatorValidators =
     pagination?: PaginationParams;
   }): Promise<DelegatorValidatorsResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/cosmos/staking/v1beta1/delegators/${delegatorAddress}/validators`,
         {
           params: { pagination },
@@ -119,7 +119,7 @@ export const getDelegatorValidators =
   };
 
 export const getDelegatorValidator =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     delegatorAddress,
     validatorAddress,
@@ -128,33 +128,32 @@ export const getDelegatorValidator =
     validatorAddress: string;
   }): Promise<DelegatorValidatorResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/cosmos/staking/v1beta1/delegators/${delegatorAddress}/validators/${validatorAddress}`
       )
     ).data;
   };
 
 export const getHistoricalInfo =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ height }: { height: string }): Promise<HistoricalInfoResponse> => {
     return (
-      await instance(baseURL).get(
-        `/cosmos/staking/v1beta1/historical_info/${height}`
-      )
+      await instance.get(`/cosmos/staking/v1beta1/historical_info/${height}`)
     ).data;
   };
 
 export const getStakingParams =
-  (baseURL: string) => async (): Promise<StakingParamsResponse> => {
-    return (await instance(baseURL).get("/cosmos/staking/v1beta1/params")).data;
+  (instance: AxiosInstance) => async (): Promise<StakingParamsResponse> => {
+    return (await instance.get("/cosmos/staking/v1beta1/params")).data;
   };
 
-export const getPool = (baseURL: string) => async (): Promise<PoolResponse> => {
-  return (await instance(baseURL).get("/cosmos/staking/v1beta1/pool")).data;
-};
+export const getPool =
+  (instance: AxiosInstance) => async (): Promise<PoolResponse> => {
+    return (await instance.get("/cosmos/staking/v1beta1/pool")).data;
+  };
 
 export const getValidators =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     status,
     pagination,
@@ -163,7 +162,7 @@ export const getValidators =
     pagination?: PaginationParams;
   }): Promise<ValidatorsResponse> => {
     return (
-      await instance(baseURL).get("/cosmos/staking/v1beta1/validators", {
+      await instance.get("/cosmos/staking/v1beta1/validators", {
         params: {
           status,
           pagination,
@@ -173,21 +172,21 @@ export const getValidators =
   };
 
 export const getValidator =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     validatorAddress,
   }: {
     validatorAddress: string;
   }): Promise<ValidatorResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/cosmos/staking/v1beta1/validators/${validatorAddress}`
       )
     ).data;
   };
 
 export const getValidatorDelegations =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     validatorAddress,
     pagination,
@@ -196,7 +195,7 @@ export const getValidatorDelegations =
     pagination?: PaginationParams;
   }): Promise<ValidatorDelegationsResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/cosmos/staking/v1beta1/validators/${validatorAddress}/delegations`,
         {
           params: { pagination },
@@ -206,7 +205,7 @@ export const getValidatorDelegations =
   };
 
 export const getValidatorDelegation =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     validatorAddress,
     delegatorAddress,
@@ -215,14 +214,14 @@ export const getValidatorDelegation =
     delegatorAddress: string;
   }): Promise<ValidatorDelegationResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/cosmos/staking/v1beta1/validators/${validatorAddress}/delegations/${delegatorAddress}`
       )
     ).data;
   };
 
 export const getValidatorUnbondingDelegations =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     validatorAddress,
     pagination,
@@ -231,7 +230,7 @@ export const getValidatorUnbondingDelegations =
     pagination?: PaginationParams;
   }): Promise<ValidatorUnbondingDelegationsResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/cosmos/staking/v1beta1/validators/${validatorAddress}/unbonding_delegations`,
         {
           params: { pagination },
@@ -241,7 +240,7 @@ export const getValidatorUnbondingDelegations =
   };
 
 export const getValidatorUnbondingDelegation =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     validatorAddress,
     delegatorAddress,
@@ -250,7 +249,7 @@ export const getValidatorUnbondingDelegation =
     delegatorAddress: string;
   }): Promise<ValidatorUnbondingDelegationResponse> => {
     return (
-      await instance(baseURL).get(
+      await instance.get(
         `/cosmos/staking/v1beta1/validators/${validatorAddress}/delegations/${delegatorAddress}/unbonding_delegation`
       )
     ).data;

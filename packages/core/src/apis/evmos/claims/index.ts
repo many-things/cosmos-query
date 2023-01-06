@@ -1,4 +1,4 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type { PaginationParams } from "../../../types";
 import type {
   ClaimsParamsResponse,
@@ -15,34 +15,34 @@ export type {
 };
 
 export const getClaimsRecords =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     pagination,
   }: {
     pagination?: PaginationParams;
   }): Promise<ClaimsRecordsResponse> => {
     return (
-      await instance(baseURL).get("/evmos/claims/v1/claims_records", {
+      await instance.get("/evmos/claims/v1/claims_records", {
         params: { pagination },
       })
     ).data;
   };
 
 export const getClaimsRecord =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({ address }: { address: string }): Promise<ClaimsRecordResponse> => {
     return (
-      await instance(baseURL).get(`/evmos/claims/v1/claims_records/${address}`)
+      await instance.get(`/evmos/claims/v1/claims_records/${address}`)
     ).data;
   };
 
 export const getClaimsParams =
-  (baseURL: string) => async (): Promise<ClaimsParamsResponse> => {
-    return (await instance(baseURL).get("/evmos/claims/v1/params")).data;
+  (instance: AxiosInstance) => async (): Promise<ClaimsParamsResponse> => {
+    return (await instance.get("/evmos/claims/v1/params")).data;
   };
 
 export const getTotalUnclaimed =
-  (baseURL: string) => async (): Promise<TotalUnclaimedResponse> => {
-    return (await instance(baseURL).get("/evmos/claims/v1/total_unclaimed"))
+  (instance: AxiosInstance) => async (): Promise<TotalUnclaimedResponse> => {
+    return (await instance.get("/evmos/claims/v1/total_unclaimed"))
       .data;
   };

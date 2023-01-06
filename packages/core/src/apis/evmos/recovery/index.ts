@@ -1,9 +1,9 @@
-import { instance } from "../../../common";
+import { AxiosInstance } from "axios";
 import type { RecoveryParamsResponse } from "./types";
 
 export type { RecoveryParamsResponse };
 
 export const getRecoveryParams =
-  (baseURL: string) => async (): Promise<RecoveryParamsResponse> => {
-    return (await instance(baseURL).get("/evmos/recovery/v1/params")).data;
+  (instance: AxiosInstance) => async (): Promise<RecoveryParamsResponse> => {
+    return (await instance.get("/evmos/recovery/v1/params")).data;
   };

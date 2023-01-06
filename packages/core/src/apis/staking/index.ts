@@ -1,9 +1,8 @@
 import { AxiosInstance } from "axios";
-import { instance } from "../../common";
 import type { Delegation, DelegationsResponse } from "./types";
 
 export const submitDelegation =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     delegatorAddress,
     delegation,
@@ -12,7 +11,7 @@ export const submitDelegation =
     delegation?: Delegation;
   }): Promise<DelegationsResponse> => {
     return (
-      await instance(baseURL).post(
+      await instance.post(
         `/staking/delegators/${delegatorAddress}/delegations`,
         {
           delegation,
@@ -22,7 +21,7 @@ export const submitDelegation =
   };
 
 export const submitUnbondingDelegation =
-  (baseURL: string) =>
+  (instance: AxiosInstance) =>
   async ({
     delegatorAddress,
     delegation,
@@ -31,7 +30,7 @@ export const submitUnbondingDelegation =
     delegation?: Delegation;
   }): Promise<DelegationsResponse> => {
     return (
-      await instance(baseURL).post(
+      await instance.post(
         `/staking/delegators/${delegatorAddress}/unbonding_delegations`,
         {
           delegation,
