@@ -1,11 +1,16 @@
 import { AxiosInstance } from "axios";
 import * as OsmosisHistorical from "./apis/osmosisHistorical";
-import { osmosisInstance } from "./common";
 
-export const getOsmosisHistoricalQuery = (instance?: AxiosInstance) => {
-  const setInstance = <T>(callback: (instance: AxiosInstance) => T) => {
-    return callback(instance || osmosisInstance);
+export const getOsmosisHistoricalQuery = (instance: AxiosInstance) => {
+  /**
+   * todo
+   * make axios call with default instance when instance is not given
+   */
+
+  const setInstance = <T>(callback: (queryInstance: AxiosInstance) => T) => {
+    return callback(instance);
   };
+
   return {
     /**
      * GET `/health/v1/check`

@@ -3,7 +3,7 @@ import * as Cosmos from "./apis/cosmos";
 import { AxiosInstance } from "axios";
 
 export const getCosmosQuery = (instance: AxiosInstance) => {
-  const setInstance = <T>(callback: (instance: AxiosInstance) => T) => {
+  const setInstance = <T>(callback: (instanceClient: AxiosInstance) => T) => {
     return callback(instance);
   };
 

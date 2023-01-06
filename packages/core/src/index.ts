@@ -7,7 +7,7 @@ export * from "./apis/cosmwasm";
 export * from "./getCosmosQuery";
 export * from "./getOsmosisQuery";
 export * from "./getIBCQuery";
-// export * from "./getOsmosisHistoricalQuery";
+export * from "./getOsmosisHistoricalQuery";
 export * from "./getEvmosQuery";
 export * from "./getCosmwasmQuery";
 
